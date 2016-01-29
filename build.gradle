@@ -12,6 +12,7 @@ dependencies {
 repositories {
 	maven {
 		mavenCentral()
+		url "https://repository.liferay.com/nexus/content/repositories/liferay-releases-ce"
 	}
 }
 

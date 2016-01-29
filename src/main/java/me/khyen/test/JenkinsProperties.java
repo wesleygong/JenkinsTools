@@ -50,6 +50,23 @@ public class JenkinsProperties {
 		return branches;
 	}
 
+	public static List<String> getJenkinsJobNames(String jobName) {
+		List<String> jenkinsJobNames = new ArrayList<String>();
+
+		for (String branch : getBranches()) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(jobName);
+			sb.append("(");
+			sb.append(branch);
+			sb.append(")");
+
+			jenkinsJobNames.add(sb.toString());
+		}
+
+		return jenkinsJobNames;
+	}
+
 	public static List<String> getPullRequestJobURLs() {
 		List<String> pullRequestJobURLs = new ArrayList<String>();
 
