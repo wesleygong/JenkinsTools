@@ -8,6 +8,33 @@ import java.util.List;
  */
 public class JenkinsProperties {
 
+	public static List<String> getJenkinsURLs() {
+		return getJenkinsURLs(false);
+	}
+
+	public static List<String> getJenkinsURLs(boolean remote) {
+		List<String> jenkinsURLs = new ArrayList<String>();
+
+		for (int i = start; i <= end; i++) {
+			jenkinsURLs.add(getJenkinsURL(i, remote));
+		}
+
+		return jenkinsURLs;
+	}
+
+	public static List<String> getJenkinsURL(int master) {
+		return getJenkinsURL(master, false);
+	}
+
+	public static List<String> getJenkinsURL(int master, boolean remote) {
+		if (remote == true) {
+			return getJenkinsRemoteURL(master);
+		}
+		else {
+			return getJenkinsLocalURL(master);
+		}
+	}
+
 	public static String getJenkinsLocalURL(int master) {
 		return new String("http://test-1-" + master + "/");
 	}
