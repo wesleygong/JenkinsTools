@@ -1,0 +1,24 @@
+apply plugin: "application"
+
+dependencies {
+	compile group: "commons-codec", name: "commons-codec", version: "1.9"
+	compile group: "dom4j", name: "dom4j", version: "1.6.1"
+	compile group: "org.apache.commons", name: "commons-io", version: "+"
+	compile group: "org.apache.ant", name: "ant", version: "1.9.4"
+	compile group: "org.apache.httpcomponents", name: "httpclient", version: "+"
+	compile group: "org.json", name: "json", version: "+"
+}
+
+repositories {
+	maven {
+		mavenCentral()
+	}
+}
+
+run {
+	mainClassName = "me.khyen.jenkins.JenkinsStatus"
+
+	if (project.hasProperty("execArgs")) {
+		args(execArgs.split());
+	}
+}
