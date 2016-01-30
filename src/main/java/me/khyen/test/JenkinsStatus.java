@@ -24,7 +24,7 @@ public class JenkinsStatus {
 	public static void main(String [] args) throws Exception {
 		Set<Future<List<String>>> futures = new HashSet<Future<List<String>>>();
 
-		ExecutorService executor = Executors.newFixedThreadPool(10);
+		ExecutorService executor = Executors.newFixedThreadPool(30);
 
 		CompletionService<List<String>> completionService = new ExecutorCompletionService<List<String>>(executor);
 
