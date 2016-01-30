@@ -24,13 +24,11 @@ public class JenkinsStatus {
 	public static void main(String [] args) throws Exception {
 		Set<Future<List<String>>> futures = new HashSet<Future<List<String>>>();
 
-		List<String> pullRequestJobURLs = JenkinsProperties.getPullRequestJobURLs();
-
 		ExecutorService executor = Executors.newFixedThreadPool(10);
 
 		CompletionService<List<String>> completionService = new ExecutorCompletionService<List<String>>(executor);
 
-		for (String pullRequestJobURL : pullRequestJobURLs) {
+		for (String pullRequestJobURL : JenkinsProperties.getPullRequestJobURLs()) {
 			Callable<List<String>> callable = new ActiveBuildURLsGetter(pullRequestJobURL);
 
 			futures.add(completionService.submit(callable));
@@ -38,10 +36,8 @@ public class JenkinsStatus {
 
 		List<String> activePullRequestURLs = new ArrayList<String>();
 
-		Future<List<String>> completedFuture;
-
 		while (futures.size() > 0) {
-			completedFuture = completionService.take();
+			Future<List<String>> completedFuture = completionService.take();
 
 			futures.remove(completedFuture);
 
