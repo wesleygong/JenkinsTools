@@ -26,7 +26,7 @@ public class JenkinsJob {
 	public static List<String> getActiveBuildURLs(String jobURL)
 		throws Exception {
 
-		List<String> activePullRequestURLs = new ArrayList<String>();
+		List<String> activeBuildURLs = new ArrayList<String>();
 
 		List<String> buildURLs = getBuildURLs(jobURL + "/api/json?pretty");
 
@@ -38,11 +38,11 @@ public class JenkinsJob {
 			boolean building = jsonObject.getBoolean("building");
 
 			if (building == true) {
-				activePullRequestURLs.add(buildURL);
+				activeBuildURLs.add(buildURL);
 			}
 		}
 
-		return activePullRequestURLs;
+		return activeBuildURLs;
 	}
 
 	public static List<String> getBuildURLs(String url) throws Exception {
