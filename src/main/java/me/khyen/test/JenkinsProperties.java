@@ -9,56 +9,24 @@ import java.util.List;
 public class JenkinsProperties {
 
 	public static List<String> getPullRequestJobURLs() {
-		List<String> pullRequestJobURLs = new ArrayList<String>();
-
-		for (int i = start; i <= end; i++) {
-			pullRequestJobURLs.addAll(getPullRequestJobURLs(i));
-		}
-
-		return pullRequestJobURLs;
+		return getPullRequestJobURLs(false);
 	}
 
-	public static List<String> getPullRequestJobURLs(int master) {
+	public static List<String> getPullRequestJobURLs(boolean remote) {
 		List<String> pullRequestJobURLs = new ArrayList<String>();
-
-		String jenkinsLocalURL = getJenkinsLocalURL(master);
-
-		for (String pullRequestJobName : getPullRequestJobNames()) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.append(jenkinsLocalURL);
-			sb.append("job/");
-			sb.append(pullRequestJobName);
-
-			pullRequestJobURLs.add(sb.toString());
-		}
-
-		return pullRequestJobURLs;
-	}
-
-	public static List<String> getPullRequestJobNames() {
-		List<String> pullRequestJobNames = new ArrayList<String>();
 
 		for (String pullRequestJobType : getPullRequestJobTypes()) {
-			for (String branch : getBranches()) {
-				StringBuilder sb = new StringBuilder();
-
-				sb.append(pullRequestJobType);
-				sb.append("(");
-				sb.append(branch);
-				sb.append(")");
-
-				pullRequestJobNames.add(sb.toString());
-			}
+			pullRequestJobURLs.addAll(getJenkinsJobURLs(pullRequestJobType, remote));
 		}
 
-		return pullRequestJobNames;
+		return pullRequestJobURLs;
 	}
 
 	public static List<String> getPullRequestJobTypes() {
 		List<String> pullRequestJobTypes = new ArrayList<String>();
 
 		pullRequestJobTypes.add("test-portal-acceptance-pullrequest");
+		pullRequestJobTypes.add("test-plugins-acceptance-pullrequest");
 
 		return pullRequestJobTypes;
 	}
