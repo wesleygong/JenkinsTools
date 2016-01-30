@@ -55,6 +55,7 @@ public class JenkinsJob {
 
 		for (int i = 0; i < jsonBuilds.length(); i++) {
 			String remoteBuildURL = jsonBuilds.getJSONObject(i).getString("url");
+
 			buildURLs.add(getLocalURL(remoteBuildURL));
 		}
 
@@ -63,10 +64,13 @@ public class JenkinsJob {
 
 	public static JSONObject getJSONObject(String url) throws Exception {
 		HttpClient httpClient = HttpClientBuilder.create().build();
+
 		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
+
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 
 		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+
 		return new JSONObject(jsonString);
 	}
 
