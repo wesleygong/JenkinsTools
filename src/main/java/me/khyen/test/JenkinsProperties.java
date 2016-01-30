@@ -63,6 +63,42 @@ public class JenkinsProperties {
 		return pullRequestJobTypes;
 	}
 
+	public static List<String> getJenkinsJobURLs(String jobName) {
+		return getJenkinsJobURLs(jobName, false);
+	}
+
+	public static List<String> getJenkinsJobURLs(String jobName, boolean remote) {
+		List<String> jenkinsJobURLs = new ArrayList<String>();		
+
+		for (int i = start; i <= end; i++) {
+			jenkinsJobURLs.addAll(getJenkinsJobURLs(jobName, i, remote));
+		}
+
+		return jenkinsJobURLs;
+	}
+
+	public static List<String> getJenkinsJobURLs(String jobName, int master) {
+		return getJenkinsJobURLs(jobName, master, false);
+	}
+
+	public static List<String> getJenkinsJobURLs(String jobName, int master, boolean remote) {
+		List<String> jenkinsJobURLs = new ArrayList<String>();
+
+		String jenkinsURL = getJenkinsURL(master, remote);
+
+		for (String jenkinsJobName : getJenkinsJobNames(jobName)) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(jenkinsURL);
+			sb.append("job/");
+			sb.append(jenkinsJobName);
+			
+			jenkinsJobURLs.add(sb.toString());
+		}
+
+		return jenkinsJobURLs;
+	}
+
 	public static List<String> getJenkinsJobNames(String jobName) {
 		List<String> jenkinsJobNames = new ArrayList<String>();
 
