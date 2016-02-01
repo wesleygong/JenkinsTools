@@ -12,8 +12,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
 
-import org.apache.commons.codec.binary.Base64;
-
 /**
  * @author Kevin Yen
  */
@@ -27,7 +25,9 @@ public class JenkinsStatus {
 		CompletionService<List<String>> completionService = new ExecutorCompletionService<List<String>>(executor);
 
 		for (String pullRequestJobURL : JenkinsProperties.getPullRequestJobURLs()) {
-			Callable<List<String>> callable = new ActiveBuildURLsGetter(pullRequestJobURL);
+			JsonGetter jsonGetter = new LocalJsonGetter();
+
+			Callable<List<String>> callable = new ActiveBuildURLsGetter(jsonGetter, pullRequestJobURL);
 
 			futures.add(completionService.submit(callable));
 		}
@@ -53,29 +53,6 @@ public class JenkinsStatus {
 		}
 
 		System.out.println(activePullRequestURLs.size() + " pull requests are currently running");
-	}
-
-	public static class ActiveBuildURLsGetter implements Callable<List<String>> {
-
-		private String jobURL;
-
-		public ActiveBuildURLsGetter(String jobURL) {
-			this.jobURL = jobURL;
-		}
-
-		@Override
-		public List<String> call() throws Exception {
-			return JenkinsJob.getActiveBuildURLs(jobURL);
-		}
-
-	}
-
-	public static String encodeAuthorizationFields(
-		String username, String password) {
-
-		String authorizationString = username + ":" + password;
-
-		return new String(Base64.encodeBase64(authorizationString.getBytes()));
 	}
 
 }
