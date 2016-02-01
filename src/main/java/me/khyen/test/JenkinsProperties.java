@@ -36,7 +36,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getJenkinsJobURLs(String jobName, boolean remote) {
-		List<String> jenkinsJobURLs = new ArrayList<String>();		
+		List<String> jenkinsJobURLs = new ArrayList<String>();
 
 		for (int i = start; i <= end; i++) {
 			jenkinsJobURLs.addAll(getJenkinsJobURLs(jobName, i, remote));
@@ -60,7 +60,7 @@ public class JenkinsProperties {
 			sb.append(jenkinsURL);
 			sb.append("job/");
 			sb.append(jenkinsJobName);
-			
+
 			jenkinsJobURLs.add(sb.toString());
 		}
 
