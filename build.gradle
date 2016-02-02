@@ -1,6 +1,7 @@
 apply plugin: "application"
 
 dependencies {
+	compile group: "commons-cli", name: "commons-cli", version: "+"
 	compile group: "commons-codec", name: "commons-codec", version: "+"
 	compile group: "commons-io", name: "commons-io", version: "+"
 	compile group: "org.apache.httpcomponents", name: "httpclient", version: "+"
@@ -20,5 +21,11 @@ run {
 
 	if (project.hasProperty("execArgs")) {
 		args(execArgs.split());
+	}
+}
+
+test {
+	testLogging {
+		showStandardStreams = true
 	}
 }
