@@ -1,5 +1,8 @@
 package me.khyen.jenkins;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.io.IOUtils;
 
 import org.apache.http.auth.AuthScope;
@@ -46,5 +49,38 @@ public class RemoteJsonGetter implements JsonGetter {
 
 		return new JSONObject(jsonString);
 	}
+
+	public String convertURL(String url) {
+		Matcher matcher = localURLPattern1.matcher(url);
+
+		if (matcher.find()) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append("https://test.liferay.com/");
+			sb.append(matcher.group(1));
+			sb.append("/");
+
+			return url.replaceAll(matcher.group(0), sb.toString());
+		}
+
+		matcher = localURLPattern2.matcher(url);
+
+		if (matcher.find()) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append("https://");
+			sb.append(matcher.group(1));
+			sb.append(".liferay.com/");
+
+			return url.replaceAll(matcher.group(0), sb.toString());
+		}
+
+		return url;
+	}
+
+	private static final Pattern localURLPattern1 = Pattern.compile(
+		"http://test-[0-9]+/([0-9]+)/?");
+	private static final Pattern localURLPattern2 = Pattern.compile(
+		"http://(test-[0-9]+-[0-9]+)/?");
 
 }
