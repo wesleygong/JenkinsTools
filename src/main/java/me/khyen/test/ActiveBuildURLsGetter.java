@@ -60,7 +60,7 @@ public class ActiveBuildURLsGetter implements Callable<List<String>> {
 		return activeBuildURLs;
 	}
 
-	public static boolean isBuildActive(JSONObject buildJson) throws Exception {
+	public boolean isBuildActive(JSONObject buildJson) throws Exception {
 		return buildJson.getBoolean("building");
 	}
 
@@ -70,7 +70,7 @@ public class ActiveBuildURLsGetter implements Callable<List<String>> {
 		return getBuildURLs(jsonObject);
 	}
 
-	public static List<String> getBuildURLs(JSONObject jobJson) throws Exception {
+	public List<String> getBuildURLs(JSONObject jobJson) throws Exception {
 		JSONArray buildsJson = jobJson.getJSONArray("builds");
 
 		List<String> buildURLs = new ArrayList<String>();
@@ -78,7 +78,7 @@ public class ActiveBuildURLsGetter implements Callable<List<String>> {
 		for (int i = 0; i < buildsJson.length(); i++) {
 			String remoteBuildURL = buildsJson.getJSONObject(i).getString("url");
 
-			buildURLs.add(JenkinsJobUtil.toLocalURL(remoteBuildURL));
+			buildURLs.add(jsonGetter.convertURL(remoteBuildURL));
 		}
 
 		return buildURLs;
