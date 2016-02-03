@@ -45,43 +45,22 @@ public class ActiveBuildURLsGetter implements Callable<List<String>> {
 
 		List<String> activeBuildURLs = new ArrayList<String>();
 
-		List<String> buildURLs = getBuildURLs(jobURL + "/api/json?pretty");
+		JSONObject rootJson = jsonGetter.getJson(jobURL + "/api/json?tree=builds[building,url]");
 
-		for (String buildURL : buildURLs) {
-			String buildJsonURL = buildURL + "api/json?pretty";
+		JSONArray buildsJson = rootJson.getJSONArray("builds");
 
-			JSONObject buildJson = jsonGetter.getJson(buildJsonURL);
+		for (int i = 0; i < buildsJson.length(); i++) {
+			JSONObject buildJson = buildsJson.getJSONObject(i);
 
-			if (isBuildActive(buildJson)) {
+			boolean building = buildJson.getBoolean("building");
+			String buildURL = buildJson.getString("url");
+
+			if (building == true) {
 				activeBuildURLs.add(buildURL);
 			}
 		}
 
 		return activeBuildURLs;
-	}
-
-	public boolean isBuildActive(JSONObject buildJson) throws Exception {
-		return buildJson.getBoolean("building");
-	}
-
-	public List<String> getBuildURLs(String url) throws Exception {
-		JSONObject jsonObject = jsonGetter.getJson(url);
-
-		return getBuildURLs(jsonObject);
-	}
-
-	public List<String> getBuildURLs(JSONObject jobJson) throws Exception {
-		JSONArray buildsJson = jobJson.getJSONArray("builds");
-
-		List<String> buildURLs = new ArrayList<String>();
-
-		for (int i = 0; i < buildsJson.length(); i++) {
-			String remoteBuildURL = buildsJson.getJSONObject(i).getString("url");
-
-			buildURLs.add(jsonGetter.convertURL(remoteBuildURL));
-		}
-
-		return buildURLs;
 	}
 
 }
