@@ -84,16 +84,16 @@ public class JenkinsProperties {
 		return jenkinsJobNames;
 	}
 
-	public static List<String> getJenkinsURLs() {
-		return getJenkinsLocalURLs();
-	}
-
 	public static List<String> getJenkinsLocalURLs() {
 		return getJenkinsURLs(false);
 	}
 
 	public static List<String> getJenkinsRemoteURLs() {
 		return getJenkinsURLs(true);
+	}
+
+	public static List<String> getJenkinsURLs() {
+		return getJenkinsLocalURLs();
 	}
 
 	public static List<String> getJenkinsURLs(boolean remote) {
