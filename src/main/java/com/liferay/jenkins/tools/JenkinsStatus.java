@@ -96,8 +96,6 @@ public class JenkinsStatus {
 			List<String> activeBuildURLs = completedFuture.get();
 
 			activePullRequestURLs.addAll(activeBuildURLs);
-
-			System.out.println(futures.size() + " threads still active");
 		}
 
 		executor.shutdown();
