@@ -86,7 +86,7 @@ public class JenkinsStatus {
 			futures.add(completionService.submit(callable));
 		}
 
-		List<String> activePullRequestURLs = new ArrayList<String>();
+		List<String> activePullRequestURLs = new ArrayList<>();
 
 		while (futures.size() > 0) {
 			Future<List<String>> completedFuture = completionService.take();

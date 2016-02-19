@@ -27,7 +27,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getPullRequestJobURLs(boolean remote) {
-		List<String> pullRequestJobURLs = new ArrayList<String>();
+		List<String> pullRequestJobURLs = new ArrayList<>();
 
 		for (String pullRequestJobType : getPullRequestJobTypes()) {
 			pullRequestJobURLs.addAll(getJenkinsJobURLs(pullRequestJobType, remote));
@@ -37,7 +37,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getPullRequestJobTypes() {
-		List<String> pullRequestJobTypes = new ArrayList<String>();
+		List<String> pullRequestJobTypes = new ArrayList<>();
 
 		pullRequestJobTypes.add("test-portal-acceptance-pullrequest");
 		pullRequestJobTypes.add("test-plugins-acceptance-pullrequest");
@@ -50,7 +50,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getJenkinsJobURLs(String jobName, boolean remote) {
-		List<String> jenkinsJobURLs = new ArrayList<String>();
+		List<String> jenkinsJobURLs = new ArrayList<>();
 
 		for (int i = start; i <= end; i++) {
 			jenkinsJobURLs.addAll(getJenkinsJobURLs(jobName, i, remote));
@@ -64,7 +64,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getJenkinsJobURLs(String jobName, int master, boolean remote) {
-		List<String> jenkinsJobURLs = new ArrayList<String>();
+		List<String> jenkinsJobURLs = new ArrayList<>();
 
 		String jenkinsURL = getJenkinsURL(master, remote);
 
@@ -82,7 +82,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getJenkinsJobNames(String jobName) {
-		List<String> jenkinsJobNames = new ArrayList<String>();
+		List<String> jenkinsJobNames = new ArrayList<>();
 
 		for (String branch : getBranches()) {
 			StringBuilder sb = new StringBuilder();
@@ -111,7 +111,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getJenkinsURLs(boolean remote) {
-		List<String> jenkinsURLs = new ArrayList<String>();
+		List<String> jenkinsURLs = new ArrayList<>();
 
 		for (int i = start; i <= end; i++) {
 			jenkinsURLs.add(getJenkinsURL(i, remote));
@@ -142,7 +142,7 @@ public class JenkinsProperties {
 	}
 
 	public static List<String> getBranches() {
-		List<String> branches = new ArrayList<String>();
+		List<String> branches = new ArrayList<>();
 
 		branches.add("master");
 		branches.add("ee-6.2.x");

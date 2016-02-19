@@ -57,7 +57,7 @@ public class ActiveBuildURLsGetter implements Callable<List<String>> {
 	public List<String> getActiveBuildURLs(String jobURL)
 		throws Exception {
 
-		List<String> activeBuildURLs = new ArrayList<String>();
+		List<String> activeBuildURLs = new ArrayList<>();
 
 		JSONObject rootJson = jsonGetter.getJson(jobURL + "/api/json?tree=builds[building,url]");
 
