@@ -68,7 +68,23 @@ public class JenkinsStatus {
 			remote = true;
 		}
 
-		List<String> pullRequestJobURLs = JenkinsProperties.getPullRequestJobURLs(remote);
+		List<String> pullRequestJobTypes = new ArrayList<>();
+
+		pullRequestJobTypes.add("test-portal-acceptance-pullrequest");
+		pullRequestJobTypes.add("test-plugins-acceptance-pullrequest");
+
+		List<String> pullRequestJobBranches = new ArrayList<>();
+
+		pullRequestJobBranches.add("master");
+		pullRequestJobBranches.add("ee-7.0.x");
+		pullRequestJobBranches.add("ee-6.2.x");
+		pullRequestJobBranches.add("ee-6.1.x");
+
+		List<String> pullRequestJobURLs = JenkinsJobURLs.getJenkinsJobURLs(1, 20, pullRequestJobTypes, pullRequestJobBranches, remote);
+
+		List<String> pullRequestJobNames = new ArrayList<>();
+
+		pullRequestJobURLs.addAll(JenkinsJobURLs.getJenkinsJobURLs(1, 20, "test-jenkins-acceptance-pullrequest", remote));
 
 		Set<Future<List<String>>> futures = new HashSet<Future<List<String>>>();
 
