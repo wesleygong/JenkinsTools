@@ -1,15 +1,15 @@
-apply plugin: "application"
+apply plugin: 'application'
 
 dependencies {
-	compile group: "commons-cli", name: "commons-cli", version: "+"
-	compile group: "commons-codec", name: "commons-codec", version: "+"
-	compile group: "commons-io", name: "commons-io", version: "+"
-	compile group: "org.apache.httpcomponents", name: "httpclient", version: "+"
-	compile group: "org.json", name: "json", version: "+"
+	compile group: 'commons-cli', name: 'commons-cli', version: '+'
+	compile group: 'commons-codec', name: 'commons-codec', version: '+'
+	compile group: 'commons-io', name: 'commons-io', version: '+'
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '+'
+	compile group: 'org.json', name: 'json', version: '+'
 }
 
 dependencies {
-	testCompile group: "junit", name: "junit", version: "+"
+	testCompile group: 'junit', name: 'junit', version: '+'
 }
 
 repositories {
@@ -17,18 +17,18 @@ repositories {
 }
 
 run {
-	mainClassName = "com.liferay.jenkins.tools.JenkinsStatus"
+	mainClassName = 'com.liferay.jenkins.tools.JenkinsStatus'
 
-	if (project.hasProperty("execArgs")) {
+	if (project.hasProperty('execArgs')) {
 		args(execArgs.split());
 	}
 }
 
 test {
 	testLogging {
-		events "passed", "skipped", "failed"
+		events 'passed', 'skipped', 'failed'
 
-		exceptionFormat "full"
+		exceptionFormat 'full'
 
 		showStandardStreams = true
 	}
