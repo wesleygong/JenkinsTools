@@ -86,12 +86,12 @@ public class JenkinsJobURLsTest {
 		List<String> expectedJenkinsJobURLs = new ArrayList<>();
 
 		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)");
-		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)");
-		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(master)");
-		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)");
 		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-portal-acceptance-pullrequest(master)");
+		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)");
 		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)");
+		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(master)");
 		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-plugins-acceptance-pullrequest(master)");
+		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)");
 		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)");
 
 		List<String> jobTypes = new ArrayList<>();
