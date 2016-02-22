@@ -29,9 +29,9 @@ public class JenkinsJobURLs {
 	}
 
 	public static Set<String> getJenkinsJobURLs(Set<Integer> masters, Set<String> jobTypes, Set<String> branches, boolean remote) {
-		Set<String> jenkinsJobNames = getJenkinsJobNames(jobTypes, branches);
+		Set<String> jobNames = getJobNames(jobTypes, branches);
 
-		return getJenkinsJobURLs(masters, jenkinsJobNames, remote);
+		return getJenkinsJobURLs(masters, jobNames, remote);
 	}
 
 	public static Set<String> getJenkinsJobURLs(int start, int end, Set<String> jobNames, boolean remote) {
@@ -82,19 +82,19 @@ public class JenkinsJobURLs {
 		return jenkinsJobURLs;
 	}
 
-	public static Set<String> getJenkinsJobNames(Set<String> jobTypes, Set<String> branches) {
+	public static Set<String> getJobNames(Set<String> jobTypes, Set<String> branches) {
 		Set<String> jobNames = new HashSet<>();
 
 		for (String jobType : jobTypes) {
 			for (String branch : branches) {
-				jobNames.add(getJenkinsJobName(jobType, branch));
+				jobNames.add(getJobName(jobType, branch));
 			}
 		}
 
 		return jobNames;
 	}
 
-	public static String getJenkinsJobName(String jobType, String branch) {
+	public static String getJobName(String jobType, String branch) {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jobType);

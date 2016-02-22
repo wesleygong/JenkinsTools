@@ -28,7 +28,7 @@ import org.junit.*;
 public class JenkinsJobURLsTest {
 
 	@Test
-	public void testGetJenkinsJobNames() {
+	public void testGetJobNames() {
 		Set<String> expectedJenkinsJobNames = new HashSet<>();
 
 		expectedJenkinsJobNames.add("test-portal-acceptance-pullrequest(master)");
@@ -46,22 +46,22 @@ public class JenkinsJobURLsTest {
 		branches.add("master");
 		branches.add("ee-6.2.x");
 
-		Set<String> actualJenkinsJobNames = JenkinsJobURLs.getJenkinsJobNames(jobTypes, branches);
+		Set<String> actualJenkinsJobNames = JenkinsJobURLs.getJobNames(jobTypes, branches);
 
 		assertThat(actualJenkinsJobNames, is(expectedJenkinsJobNames));
 	}
 
 	@Test
-	public void testGetJenkinsJobName() {
+	public void testGetJobName() {
 		String expectedJenkinsURL = "test-portal-acceptance-pullrequest(master)";
 
-		String actualJenkinsURL = JenkinsJobURLs.getJenkinsJobName("test-portal-acceptance-pullrequest", "master");
+		String actualJenkinsURL = JenkinsJobURLs.getJobName("test-portal-acceptance-pullrequest", "master");
 
 		assertEquals(expectedJenkinsURL, actualJenkinsURL);
 
 		expectedJenkinsURL = "test-plugins-acceptance-pullrequest(ee-6.2.x)";
 
-		actualJenkinsURL = JenkinsJobURLs.getJenkinsJobName("test-plugins-acceptance-pullrequest", "ee-6.2.x");
+		actualJenkinsURL = JenkinsJobURLs.getJobName("test-plugins-acceptance-pullrequest", "ee-6.2.x");
 
 		assertEquals(expectedJenkinsURL, actualJenkinsURL);
 	}
