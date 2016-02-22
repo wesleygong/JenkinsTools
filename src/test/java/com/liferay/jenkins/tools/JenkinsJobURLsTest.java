@@ -17,8 +17,8 @@ package com.liferay.jenkins.tools;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.*;
 
@@ -29,24 +29,24 @@ public class JenkinsJobURLsTest {
 
 	@Test
 	public void testGetJenkinsJobNames() {
-		List<String> expectedJenkinsJobNames = new ArrayList<>();
+		Set<String> expectedJenkinsJobNames = new HashSet<>();
 
 		expectedJenkinsJobNames.add("test-portal-acceptance-pullrequest(master)");
 		expectedJenkinsJobNames.add("test-portal-acceptance-pullrequest(ee-6.2.x)");
 		expectedJenkinsJobNames.add("test-plugins-acceptance-pullrequest(master)");
 		expectedJenkinsJobNames.add("test-plugins-acceptance-pullrequest(ee-6.2.x)");
 
-		List<String> jobTypes = new ArrayList<>();
+		Set<String> jobTypes = new HashSet<>();
 
 		jobTypes.add("test-portal-acceptance-pullrequest");
 		jobTypes.add("test-plugins-acceptance-pullrequest");
 
-		List<String> branches = new ArrayList<>();
+		Set<String> branches = new HashSet<>();
 
 		branches.add("master");
 		branches.add("ee-6.2.x");
 
-		List<String> actualJenkinsJobNames = JenkinsJobURLs.getJenkinsJobNames(jobTypes, branches);
+		Set<String> actualJenkinsJobNames = JenkinsJobURLs.getJenkinsJobNames(jobTypes, branches);
 
 		assertThat(actualJenkinsJobNames, is(expectedJenkinsJobNames));
 	}
@@ -83,28 +83,28 @@ public class JenkinsJobURLsTest {
 
 	@Test
 	public void testGetJenkinsJobURLs() {
-		List<String> expectedJenkinsJobURLs = new ArrayList<>();
+		Set<String> expectedJenkinsJobURLs = new HashSet<>();
 
 		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)");
-		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-portal-acceptance-pullrequest(master)");
 		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)");
-		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)");
 		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(master)");
-		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-plugins-acceptance-pullrequest(master)");
 		expectedJenkinsJobURLs.add("https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)");
+		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-portal-acceptance-pullrequest(master)");
+		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)");
+		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-plugins-acceptance-pullrequest(master)");
 		expectedJenkinsJobURLs.add("https://test-1-2.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)");
 
-		List<String> jobTypes = new ArrayList<>();
+		Set<String> jobTypes = new HashSet<>();
 
 		jobTypes.add("test-portal-acceptance-pullrequest");
 		jobTypes.add("test-plugins-acceptance-pullrequest");
 
-		List<String> branches = new ArrayList<>();
+		Set<String> branches = new HashSet<>();
 
 		branches.add("master");
 		branches.add("ee-6.2.x");
 
-		List<String> actualJenkinsJobURLs = JenkinsJobURLs.getJenkinsJobURLs(1, 2, jobTypes, branches, true);
+		Set<String> actualJenkinsJobURLs = JenkinsJobURLs.getJenkinsJobURLs(1, 2, jobTypes, branches, true);
 
 		assertThat(actualJenkinsJobURLs, is(expectedJenkinsJobURLs));
 	}

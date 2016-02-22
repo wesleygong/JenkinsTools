@@ -14,34 +14,34 @@
 
 package com.liferay.jenkins.tools;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Kevin Yen
  */
 public class JenkinsJobURLs {
 
-	public static List<String> getJenkinsJobURLs(int start, int end, List<String> jobTypes, List<String> branches, boolean remote) {
-		List<Integer> masters = getIntegerList(start, end);
+	public static Set<String> getJenkinsJobURLs(int start, int end, Set<String> jobTypes, Set<String> branches, boolean remote) {
+		Set<Integer> masters = getIntegerList(start, end);
 
 		return getJenkinsJobURLs(masters, jobTypes, branches, remote);
 	}
 
-	public static List<String> getJenkinsJobURLs(List<Integer> masters, List<String> jobTypes, List<String> branches, boolean remote) {
-		List<String> jenkinsJobNames = getJenkinsJobNames(jobTypes, branches);
+	public static Set<String> getJenkinsJobURLs(Set<Integer> masters, Set<String> jobTypes, Set<String> branches, boolean remote) {
+		Set<String> jenkinsJobNames = getJenkinsJobNames(jobTypes, branches);
 
 		return getJenkinsJobURLs(masters, jenkinsJobNames, remote);
 	}
 
-	public static List<String> getJenkinsJobURLs(int start, int end, List<String> jobNames, boolean remote) {
-		List<Integer> masters = getIntegerList(start, end);
+	public static Set<String> getJenkinsJobURLs(int start, int end, Set<String> jobNames, boolean remote) {
+		Set<Integer> masters = getIntegerList(start, end);
 
 		return getJenkinsJobURLs(masters, jobNames, remote);
 	}
 
-	public static List<Integer> getIntegerList(int start, int end) {
-		List<Integer> list = new ArrayList<>();
+	public static Set<Integer> getIntegerList(int start, int end) {
+		Set<Integer> list = new HashSet<>();
 
 		for (int i = start; i <= end; i++) {
 			list.add(i);
@@ -50,8 +50,8 @@ public class JenkinsJobURLs {
 		return list;
 	}
 
-	public static List<String> getJenkinsJobURLs(List<Integer> masters, List<String> jobNames, boolean remote) {
-		List<String> jenkinsJobURLs = new ArrayList<>();
+	public static Set<String> getJenkinsJobURLs(Set<Integer> masters, Set<String> jobNames, boolean remote) {
+		Set<String> jenkinsJobURLs = new HashSet<>();
 
 		for (String jobName : jobNames) {
 			jenkinsJobURLs.addAll(getJenkinsJobURLs(masters, jobName, remote));
@@ -60,14 +60,14 @@ public class JenkinsJobURLs {
 		return jenkinsJobURLs;
 	}
 
-	public static List<String> getJenkinsJobURLs(int start, int end, String jobName, boolean remote) {
-		List<Integer> masters = getIntegerList(start, end);
+	public static Set<String> getJenkinsJobURLs(int start, int end, String jobName, boolean remote) {
+		Set<Integer> masters = getIntegerList(start, end);
 
 		return getJenkinsJobURLs(masters, jobName, remote);
 	}
 
-	public static List<String> getJenkinsJobURLs(List<Integer> masters, String jobName, boolean remote) {
-		List<String> jenkinsJobURLs = new ArrayList<>();
+	public static Set<String> getJenkinsJobURLs(Set<Integer> masters, String jobName, boolean remote) {
+		Set<String> jenkinsJobURLs = new HashSet<>();
 
 		for (Integer master : masters) {
 			StringBuilder sb = new StringBuilder();
@@ -82,8 +82,8 @@ public class JenkinsJobURLs {
 		return jenkinsJobURLs;
 	}
 
-	public static List<String> getJenkinsJobNames(List<String> jobTypes, List<String> branches) {
-		List<String> jobNames = new ArrayList<>();
+	public static Set<String> getJenkinsJobNames(Set<String> jobTypes, Set<String> branches) {
+		Set<String> jobNames = new HashSet<>();
 
 		for (String jobType : jobTypes) {
 			for (String branch : branches) {
