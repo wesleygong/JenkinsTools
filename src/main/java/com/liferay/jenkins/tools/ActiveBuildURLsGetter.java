@@ -37,10 +37,10 @@ public class ActiveBuildURLsGetter implements Callable<List<String>> {
 
 	@Override
 	public List<String> call() throws Exception {
-		return getActiveBuildURLs(jobURL);
+		return getActiveBuildURLs(jsonGetter, jobURL);
 	}
 
-	public List<String> getActiveBuildURLs(String jobURL)
+	public static List<String> getActiveBuildURLs(JsonGetter jsonGetter, String jobURL)
 		throws Exception {
 
 		List<String> activeBuildURLs = new ArrayList<>();
