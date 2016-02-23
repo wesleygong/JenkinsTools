@@ -16,22 +16,8 @@ package com.liferay.jenkins.tools;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import java.util.concurrent.Callable;
-
-import org.apache.commons.io.IOUtils;
-
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.Credentials;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.CredentialsProvider;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.HttpResponse;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.BasicCredentialsProvider;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
