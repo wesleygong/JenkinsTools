@@ -68,6 +68,10 @@ public class JenkinsStatus {
 			remote = true;
 		}
 
+		printActivePullRequests(jsonGetter, remote);
+	}
+
+	public static void printActivePullRequests(JsonGetter jsonGetter, boolean remote) throws Exception {
 		Set<String> pullRequestJobTypes = new HashSet<>();
 
 		pullRequestJobTypes.add("test-portal-acceptance-pullrequest");
