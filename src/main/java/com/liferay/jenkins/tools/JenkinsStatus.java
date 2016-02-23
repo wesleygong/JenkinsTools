@@ -44,12 +44,11 @@ public class JenkinsStatus {
 		Options options = new Options();
 
 		options.addOption("u", "user", true, "Specify the username used in authentication");
+		options.addOption("v", "verbose", false, "Enable verbose output");
 
 		CommandLine line = parser.parse(options, args);
 
 		JsonGetter jsonGetter = new LocalJsonGetter();
-
-		boolean remote = false;
 
 		if (line.hasOption("u")) {
 			Console console = System.console();
@@ -64,14 +63,12 @@ public class JenkinsStatus {
 			String username = line.getOptionValue("u");
 
 			jsonGetter = new RemoteJsonGetter(username, password);
-
-			remote = true;
 		}
 
-		printActivePullRequests(jsonGetter, remote);
+		printActivePullRequests(jsonGetter, line.hasOption("u"), line.hasOption("v"));
 	}
 
-	public static void printActivePullRequests(JsonGetter jsonGetter, boolean remote) throws Exception {
+	public static void printActivePullRequests(JsonGetter jsonGetter, boolean remote, boolean verbose) throws Exception {
 		Set<String> pullRequestJobTypes = new HashSet<>();
 
 		pullRequestJobTypes.add("test-portal-acceptance-pullrequest");
@@ -99,6 +96,10 @@ public class JenkinsStatus {
 		System.out.println("Checking " + pullRequestJobURLs.size() + " URLs using with a thead pool size of " + threadPoolSize);
 
 		for (String pullRequestJobURL : pullRequestJobURLs) {
+			if (verbose) {
+				System.out.println("Searching for active builds in " + pullRequestJobURL);
+			}
+
 			Callable<List<String>> callable = new ActiveBuildURLsGetter(jsonGetter, pullRequestJobURL);
 
 			futures.add(completionService.submit(callable));
@@ -114,6 +115,10 @@ public class JenkinsStatus {
 			List<String> activeBuildURLs = completedFuture.get();
 
 			activePullRequestURLs.addAll(activeBuildURLs);
+
+			if (verbose) {
+				System.out.println(futures.size() + " threads still active");
+			}
 		}
 
 		executor.shutdown();
