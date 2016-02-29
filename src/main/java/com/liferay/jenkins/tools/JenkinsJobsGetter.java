@@ -18,6 +18,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -38,6 +43,37 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 	@Override
 	public Set<JenkinsJob> call() throws Exception {
 		return getJenkinsJobs(jsonGetter, jenkinsURL);
+	}
+
+	public static Set<JenkinsJob> getJenkinsJobs(JsonGetter jsonGetter, ExecutorService executor, Set<String> jenkinsURLs) throws Exception {
+		CompletionService<Set<JenkinsJob>> completionService = new ExecutorCompletionService<Set<JenkinsJob>>(executor);
+
+		Set<Future<Set<JenkinsJob>>> activeFutures = new HashSet<>();
+
+		Set<JenkinsJob> jenkinsJobs = new HashSet<>();
+
+		try {
+			for (String jenkinsURL : jenkinsURLs) {
+				activeFutures.add(completionService.submit(new JenkinsJobsGetter(jsonGetter, jenkinsURL)));
+			}
+
+			while (activeFutures.size() > 0) {
+				Future<Set<JenkinsJob>> completedFuture = completionService.take();
+
+				activeFutures.remove(completedFuture);
+
+				jenkinsJobs.addAll(completedFuture.get());
+			}
+		}
+		catch (ExecutionException e) {
+			for (Future<Set<JenkinsJob>> future : activeFutures) {
+				future.cancel(true);
+			}
+
+			throw e;
+		}
+
+		return jenkinsJobs;
 	}
 
 	public static Set<JenkinsJob> getJenkinsJobs(JsonGetter jsonGetter, String jenkinsURL) throws Exception {
