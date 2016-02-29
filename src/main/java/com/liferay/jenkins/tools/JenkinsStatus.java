@@ -31,6 +31,7 @@ import java.util.concurrent.Future;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -58,6 +59,7 @@ public class JenkinsStatus {
 		options.addOption("i", "info", false, "Set logging level to info.");
 		options.addOption("d", "debug", false, "Set logging level to debug.");
 		options.addOption("u", "user", true, "Specify the username used in authentication.");
+		options.addOption("r", "regex", true, "Regular expression used to match job name.");
 
 		CommandLine line = parser.parse(options, args);
 
@@ -68,6 +70,14 @@ public class JenkinsStatus {
 		if (line.hasOption("d")) {
 			Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.DEBUG);
+		}
+
+		Pattern pattern = null;
+
+		if (line.hasOption("r")) {
+			logger.debug("Using the regular expression pattern : {}", line.getOptionValue("r"));
+
+			pattern = Pattern.compile(line.getOptionValue("r"));
 		}
 
 		JsonGetter jsonGetter = new LocalJsonGetter();
@@ -99,6 +109,24 @@ public class JenkinsStatus {
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
 		Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(jsonGetter, executor, jenkinsURLs);
+
+		if (pattern != null) {
+			Set<JenkinsJob> matchingJenkinsJob = new HashSet<>();
+
+			for (JenkinsJob jenkinsJob : jenkinsJobs) {
+				Matcher matcher = pattern.matcher(jenkinsJob.getName());
+
+				if (matcher.find()) {
+					matchingJenkinsJob.add(jenkinsJob);
+
+					logger.debug("Found matching job {} matching regular expression", jenkinsJob.toString());
+				}
+			}
+
+			jenkinsJobs = matchingJenkinsJob;
+
+			logger.info("Found {} matching jobs", matchingJenkinsJob.size());
+		}
 
 		Set<JenkinsBuild> jenkinsBuilds = JenkinsBuildsGetter.getJenkinsBuilds(jsonGetter, executor, jenkinsJobs);
 
