@@ -27,10 +27,15 @@ import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Kevin Yen
  */
 public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
+
+	private static final Logger logger = LoggerFactory.getLogger(JenkinsBuildsGetter.class);
 
 	private JsonGetter jsonGetter;
 	private JenkinsJob jenkinsJob;
@@ -53,6 +58,8 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		Set<JenkinsBuild> jenkinsBuilds = new HashSet<>();
 
 		try {
+			logger.info("Getting builds for {} jobs ...", jenkinsJobs.size());
+
 			for (JenkinsJob jenkinsJob : jenkinsJobs) {
 				activeFutures.add(completionService.submit(new JenkinsBuildsGetter(jsonGetter, jenkinsJob)));
 			}
@@ -63,9 +70,13 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 				activeFutures.remove(completedFuture);
 
 				jenkinsBuilds.addAll(completedFuture.get());
+
+				logger.debug("{} threads still active.", activeFutures.size());
 			}
 		}
 		catch (ExecutionException e) {
+			logger.error("Invoked thread threw an exception. Cancelling remaining threads.");
+
 			for (Future<Set<JenkinsBuild>> future : activeFutures) {
 				future.cancel(true);
 			}
