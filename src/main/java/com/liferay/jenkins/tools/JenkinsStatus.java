@@ -37,10 +37,16 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+
 /**
  * @author Kevin Yen
  */
 public class JenkinsStatus {
+
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(JenkinsStatus.class);
 
 	private static final int THREAD_POOL_SIZE = 20;
 
@@ -49,10 +55,20 @@ public class JenkinsStatus {
 
 		Options options = new Options();
 
-		options.addOption("u", "user", true, "Specify the username used in authentication");
-		options.addOption("v", "verbose", false, "Enable verbose output");
+		options.addOption("i", "info", false, "Set logging level to info.");
+		options.addOption("d", "debug", false, "Set logging level to debug.");
+		options.addOption("u", "user", true, "Specify the username used in authentication.");
 
 		CommandLine line = parser.parse(options, args);
+
+		if (line.hasOption("i")) {
+			Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+			rootLogger.setLevel(Level.INFO);
+		}
+		if (line.hasOption("d")) {
+			Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+			rootLogger.setLevel(Level.DEBUG);
+		}
 
 		JsonGetter jsonGetter = new LocalJsonGetter();
 
@@ -60,12 +76,12 @@ public class JenkinsStatus {
 			Console console = System.console();
 
 			if (console == null) {
-				System.out.println("Unable to get Console instance");
+				logger.error("Unable to get Console instance.");
+
 				System.exit(0);
 			}
 
 			String username = line.getOptionValue("u");
-
 			String password = new String(console.readPassword("Enter password for " + username + " :"));
 
 			jsonGetter = new RemoteJsonGetter(username, password);
@@ -76,6 +92,8 @@ public class JenkinsStatus {
 		for (int i = 1; i <= 20; i++) {
 			String jenkinsURL = JenkinsJobURLs.getJenkinsURL(i, line.hasOption("u"));
 			jenkinsURLs.add(jenkinsURL);
+
+			logger.info("Adding {} to the list of servers to search.", jenkinsURL);
 		}
 
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
