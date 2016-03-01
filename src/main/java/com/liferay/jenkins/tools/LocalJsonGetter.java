@@ -26,13 +26,20 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 import org.json.JSONObject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Kevin Yen
  */
 public class LocalJsonGetter implements JsonGetter {
 
+	private static final Logger logger = LoggerFactory.getLogger(LocalJsonGetter.class);
+
 	@Override
 	public JSONObject getJson(String url) throws Exception {
+		logger.debug("Fetching JSON from {} ...", url);
+
 		HttpClient httpClient = HttpClientBuilder.create().build();
 
 		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
@@ -40,6 +47,8 @@ public class LocalJsonGetter implements JsonGetter {
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 
 		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+
+		logger.debug("Successfully fetched {}.", url);
 
 		return new JSONObject(jsonString);
 	}
