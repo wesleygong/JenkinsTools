@@ -108,35 +108,52 @@ public class JenkinsStatus {
 
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-		Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(jsonGetter, executor, jenkinsURLs);
+		try {
+			Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(jsonGetter, executor, jenkinsURLs);
 
-		if (pattern != null) {
-			Set<JenkinsJob> matchingJenkinsJob = new HashSet<>();
+			if (pattern != null) {
+				Set<JenkinsJob> matchingJenkinsJob = new HashSet<>();
 
-			for (JenkinsJob jenkinsJob : jenkinsJobs) {
-				Matcher matcher = pattern.matcher(jenkinsJob.getName());
+				for (JenkinsJob jenkinsJob : jenkinsJobs) {
+					Matcher matcher = pattern.matcher(jenkinsJob.getName());
 
-				if (matcher.find()) {
-					matchingJenkinsJob.add(jenkinsJob);
+					if (matcher.find()) {
+						matchingJenkinsJob.add(jenkinsJob);
 
-					logger.debug("Found matching job {} matching regular expression", jenkinsJob.toString());
+						logger.debug("Found matching job {} matching regular expression", jenkinsJob.toString());
+					}
+				}
+
+				jenkinsJobs = matchingJenkinsJob;
+
+				logger.info("Found {} matching jobs", matchingJenkinsJob.size());
+			}
+
+			Set<JenkinsBuild> jenkinsBuilds = JenkinsBuildsGetter.getJenkinsBuilds(jsonGetter, executor, jenkinsJobs);
+
+			Set<JenkinsBuild> activeJenkinsBuilds = new HashSet<>();
+
+			for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
+				if (jenkinsBuild.isBuilding()) {
+					activeJenkinsBuilds.add(jenkinsBuild);
 				}
 			}
 
-			jenkinsJobs = matchingJenkinsJob;
+			System.out.println("Found " + activeJenkinsBuilds.size() + " active builds");
 
-			logger.info("Found {} matching jobs", matchingJenkinsJob.size());
-		}
-
-		Set<JenkinsBuild> jenkinsBuilds = JenkinsBuildsGetter.getJenkinsBuilds(jsonGetter, executor, jenkinsJobs);
-
-		executor.shutdown();
-
-		for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
-			if (jenkinsBuild.isBuilding()) {
-				System.out.println(jenkinsBuild.getURL());
+			for (JenkinsBuild activeJenkinsBuild : activeJenkinsBuilds){
+				System.out.println(activeJenkinsBuild.getURL());
 			}
 		}
+		catch (ExecutionException e) {
+			e.printStackTrace();
+
+			executor.shutdown();
+
+			System.exit(1);
+		}
+
+		executor.shutdown();
 	}
 
 }
