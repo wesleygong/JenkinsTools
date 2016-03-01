@@ -31,10 +31,15 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 
 import org.json.JSONObject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Kevin Yen
  */
 public class RemoteJsonGetter implements JsonGetter {
+
+	private static final Logger logger = LoggerFactory.getLogger(RemoteJsonGetter.class);
 
 	private String username;
 	private String password;
@@ -47,6 +52,8 @@ public class RemoteJsonGetter implements JsonGetter {
 	}
 
 	public JSONObject getJson(String url) throws Exception {
+		logger.debug("Fetching JSON from {} ...", url);
+
 		CredentialsProvider provider = new BasicCredentialsProvider();
 
 		Credentials credentials = new UsernamePasswordCredentials(username, password);
@@ -60,6 +67,8 @@ public class RemoteJsonGetter implements JsonGetter {
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 
 		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+
+		logger.debug("Successfully fetched {}.", url);
 
 		return new JSONObject(jsonString);
 	}
