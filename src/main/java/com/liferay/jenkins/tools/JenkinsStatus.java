@@ -49,7 +49,7 @@ public class JenkinsStatus {
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(JenkinsStatus.class);
 
-	private static final int THREAD_POOL_SIZE = 20;
+	private static final int THREAD_POOL_SIZE = 120;
 
 	public static void main(String [] args) throws Exception {
 		CommandLineParser parser = new DefaultParser();
