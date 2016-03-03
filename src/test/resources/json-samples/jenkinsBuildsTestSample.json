@@ -1,0 +1,2345 @@
+{
+	"builds": [
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37364"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": ""
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pull-request-3905-LPS-64037"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "87d3569b8052168f736c4c949f4a14d02961983c"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "natecavanaugh"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "65d68a32633977f0457545627b27071de7268cb5"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2453,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2453/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37358"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": ""
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-498"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "232b406ff6a77b22c890968b31767a9569a05eb1"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "brunobasto"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "156119d967f029cef56b09ad874c2954f4cd58c9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2452,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2452/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "159"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": ""
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "kenjiheigel"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "master-qa-23049-1"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "58776ae822cbe40f2b20923c62e973afcd76b1ff"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "kenjiheigel"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "cb923efab0db5d2ea7b887c6440bae2172be2959"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2451,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2451/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "498"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": ""
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brunobasto"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-64087"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "bf6a24513dff6d5d5a8af0a6e52710763c34a309"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "fernandosouza"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "937f691b201035d928eb92c699b3f6752ca28a69"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2450,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2450/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "188"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "03f7bbcc256696505c2a05bf6931290805455842"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "leoadb"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-187"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "03f7bbcc256696505c2a05bf6931290805455842"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "leoadb"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "bb6b0e827c7aeacb71ab530406639b6971b833df"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "leoadb"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2449,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2449/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37333"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "cf224d468cc62ed7c45ffe71b55e495b69d8e076"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "master-en-615"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "cf224d468cc62ed7c45ffe71b55e495b69d8e076"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "evannagayama"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "15b09785f9836dd5075d4632785f7495d3ee4332"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2448,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2448/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "516"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "f598d71808ad0fad7b3c677b308604c74c33bb2b"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "mdelapenya"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-80"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "f598d71808ad0fad7b3c677b308604c74c33bb2b"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "mdelapenya"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "d8bb971bc0ac2cd5c6635af00802a90e11e6f28b"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "mdelapenya"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2447,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2447/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "516"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "97918c5fd4fa5630f55abd21f8cea4b07a8f6272"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "mdelapenya"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-80"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "97918c5fd4fa5630f55abd21f8cea4b07a8f6272"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "mdelapenya"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "d8bb971bc0ac2cd5c6635af00802a90e11e6f28b"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "mdelapenya"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2446,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2446/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "2669"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "88ebc0893a5c1076912c7f35f296a0d882b66714"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "shuyangzhou"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-61795-V.A"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "88ebc0893a5c1076912c7f35f296a0d882b66714"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "topolik"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "d8bb971bc0ac2cd5c6635af00802a90e11e6f28b"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "shuyangzhou"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2445,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2445/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "283"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "d7d03d6cd5d7636f8d2f714aad57a8f3b4c73bf0"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "Ithildir"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63495-pr261"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "d7d03d6cd5d7636f8d2f714aad57a8f3b4c73bf0"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "Ithildir"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "cb923efab0db5d2ea7b887c6440bae2172be2959"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "Ithildir"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2444,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2444/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37285"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "d48c8d972704e5d01d903c704bb6c7a241a06a8b"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-491"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "d48c8d972704e5d01d903c704bb6c7a241a06a8b"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "brunobasto"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "1682524295521a085a5957e3a11bb54cac2061c7"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2443,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2443/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "128"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "5c58162469334bf7d0b9a1528cef350fd20f4ed5"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianwulbern"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "master-qa-21864"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "5c58162469334bf7d0b9a1528cef350fd20f4ed5"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "brianwulbern"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "14f541e09f511278e902067f5a74c182d1064cb8"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianwulbern"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2442,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2442/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "79"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "431d2ccce32b942b79a952e9c95d0564a589f012"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "mjbradford89"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63870-rebased"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "431d2ccce32b942b79a952e9c95d0564a589f012"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "mjbradford89"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "92ee1caa6a5eb41ca2ac79a81252f9912a1c1010"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "mjbradford89"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2441,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2441/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "254"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "ad79be0995d55a36a002a127fb3fe7ff4c44121f"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "vicnate5"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "master-qa-22905"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "ad79be0995d55a36a002a127fb3fe7ff4c44121f"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "ctampoya"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "04bd90a9c864253390dc0294cd03d37e1b24add9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "vicnate5"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2440,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2440/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "27"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "a6db8a60979784fb56fc81da908734062d4e2318"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "daniel-t-song"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-64009"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "a6db8a60979784fb56fc81da908734062d4e2318"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "daniel-t-song"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "04bd90a9c864253390dc0294cd03d37e1b24add9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "daniel-t-song"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2439,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2439/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37251"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "bc3a663f62ebeedd0e4c2c288eb0222ff1fe2726"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63970-4"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "bc3a663f62ebeedd0e4c2c288eb0222ff1fe2726"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "juliocamarero"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "04bd90a9c864253390dc0294cd03d37e1b24add9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2438,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2438/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "541"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "612437da0b56bf3cce6d4f429cb48e60576fcd13"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "sharonchoi"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-37247"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "612437da0b56bf3cce6d4f429cb48e60576fcd13"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "sergiogonzalez"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "b42c764cb27e1f1feb49dc2b652705a18d942f4b"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "sharonchoi"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2437,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2437/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "2981"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "d98d61d5acb215377f3873b7fcd685af9074e644"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "sergiogonzalez"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-64014"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "d98d61d5acb215377f3873b7fcd685af9074e644"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "adolfopa"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "04bd90a9c864253390dc0294cd03d37e1b24add9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "sergiogonzalez"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2436,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2436/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "461"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "3e909488213fd6f0071f4b36c0b3d0d9d2c6f192"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "jbalsas"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-657"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "3e909488213fd6f0071f4b36c0b3d0d9d2c6f192"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "ealonso"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "04bd90a9c864253390dc0294cd03d37e1b24add9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "jbalsas"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2435,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2435/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37242"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "0423aab756a6694b71ecf23318bbb90c0afa89c0"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63462_2"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "0423aab756a6694b71ecf23318bbb90c0afa89c0"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "hhuijser"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "04bd90a9c864253390dc0294cd03d37e1b24add9"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2434,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2434/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37234"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "eb48b54186521b093928c94ef1fa7ce4117c286d"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63943-commit"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "eb48b54186521b093928c94ef1fa7ce4117c286d"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "Ithildir"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "ed1105c44eddb7edb86f0fdc3d2ac93115d2036e"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2433,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2433/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "486"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "3cd94a19ebe33607a6091acf694bb67deb62549b"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brunobasto"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pull-request-1503-LPS-63870"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "3cd94a19ebe33607a6091acf694bb67deb62549b"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "jonmak08"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "c07774a59d0d6d33d64f669d4ea81a8c33858cfc"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brunobasto"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2432,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2432/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "540"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "be9afe177659c4d65c30116163790c7fb5dbdea7"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "sharonchoi"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "master-qa-22896"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "be9afe177659c4d65c30116163790c7fb5dbdea7"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "nikki-pru"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "b42c764cb27e1f1feb49dc2b652705a18d942f4b"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "sharonchoi"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2431,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2431/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "2648"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "b1f617365cbc4992a3ff793071b09e2e36bc1eed"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "shuyangzhou"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-61860_pt2"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "b1f617365cbc4992a3ff793071b09e2e36bc1eed"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "mhan810"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "56ac6ccf027b522b29b080934b71bf59d3cb23f5"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "shuyangzhou"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2430,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2430/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37210"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "9a41ef9eb0c5da5838ef2d0c966b0781cb9fee8d"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63974"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "9a41ef9eb0c5da5838ef2d0c966b0781cb9fee8d"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "sergiogonzalez"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "56ac6ccf027b522b29b080934b71bf59d3cb23f5"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2429,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2429/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "537"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "9c6a17320234ed03df42d6aefa24577a548fdc2c"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "sharonchoi"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "master-qa-17071"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "9c6a17320234ed03df42d6aefa24577a548fdc2c"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "nikki-pru"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "201df22fd8a80b707b3689aa450dbc36473253de"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "sharonchoi"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2428,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2428/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37200"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "9b2d39533512c8312c52613d961b888ba0da2d6d"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "pr-4048"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "9b2d39533512c8312c52613d961b888ba0da2d6d"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "juliocamarero"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "56ac6ccf027b522b29b080934b71bf59d3cb23f5"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2427,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2427/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "4050"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "9cf276a1e51dc8e8523551914a55b140fbaed4a3"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "juliocamarero"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-62858.Thread.Local"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "9cf276a1e51dc8e8523551914a55b140fbaed4a3"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "epgarcia"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "34224b715d174f6838b2f6bc63f7fb55ecbc9885"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "juliocamarero"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2426,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2426/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "715"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "42c6615a32406772644e1a4ae6eef000f6d6df3d"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "migue"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-63711"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "42c6615a32406772644e1a4ae6eef000f6d6df3d"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "cgoncas"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "56ac6ccf027b522b29b080934b71bf59d3cb23f5"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "migue"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2425,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2425/"
+		},
+		{
+			"actions": [
+				{
+					"parameters": [
+						{
+							"name": "GITHUB_PULL_REQUEST_NUMBER",
+							"value": "37187"
+						},
+						{
+							"name": "GITHUB_PULL_REQUEST_SHA",
+							"value": "cbdcc98d19e20bc0959fe5810ed0d355b6433fd4"
+						},
+						{
+							"name": "GITHUB_RECEIVER_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_NAME",
+							"value": "LPS-61420-3"
+						},
+						{
+							"name": "GITHUB_SENDER_BRANCH_SHA",
+							"value": "cbdcc98d19e20bc0959fe5810ed0d355b6433fd4"
+						},
+						{
+							"name": "GITHUB_SENDER_USERNAME",
+							"value": "hhuijser"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
+							"value": "master"
+						},
+						{
+							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
+							"value": "93926536c38dd99fb6381bba0c302b62a30796f7"
+						},
+						{
+							"name": "GITHUB_USERNAME",
+							"value": "brianchandotcom"
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_NAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_JOB_VARIANT",
+							"value": ""
+						},
+						{
+							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+							"value": ""
+						}
+					]
+				},
+				{},
+				null,
+				{},
+				{},
+				{},
+				{},
+				{}
+			],
+			"building": false,
+			"number": 2424,
+			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/2424/"
+		}
+	]
+}
