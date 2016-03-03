@@ -37,22 +37,6 @@ public class LocalJsonGetter implements JsonGetter {
 	private static final Logger logger = LoggerFactory.getLogger(LocalJsonGetter.class);
 
 	@Override
-	public JSONObject getJson(String url) throws Exception {
-		logger.debug("Fetching JSON from {} ...", url);
-
-		HttpClient httpClient = HttpClientBuilder.create().build();
-
-		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
-
-		int statusCode = httpResponse.getStatusLine().getStatusCode();
-
-		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
-
-		logger.debug("Successfully fetched {}.", url);
-
-		return new JSONObject(jsonString);
-	}
-
 	public String convertURL(String url) {
 		Matcher matcher = remoteURLPattern1.matcher(url);
 
@@ -81,6 +65,23 @@ public class LocalJsonGetter implements JsonGetter {
 		}
 
 		return url;
+	}
+
+	@Override
+	public JSONObject getJson(String url) throws Exception {
+		logger.debug("Fetching JSON from {} ...", url);
+
+		HttpClient httpClient = HttpClientBuilder.create().build();
+
+		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
+
+		int statusCode = httpResponse.getStatusLine().getStatusCode();
+
+		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+
+		logger.debug("Successfully fetched {}.", url);
+
+		return new JSONObject(jsonString);
 	}
 
 	private static final Pattern remoteURLPattern1 = Pattern.compile(

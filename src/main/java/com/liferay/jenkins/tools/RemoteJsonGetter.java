@@ -51,28 +51,7 @@ public class RemoteJsonGetter implements JsonGetter {
 		this.password = password;
 	}
 
-	public JSONObject getJson(String url) throws Exception {
-		logger.debug("Fetching JSON from {} ...", url);
-
-		CredentialsProvider provider = new BasicCredentialsProvider();
-
-		Credentials credentials = new UsernamePasswordCredentials(username, password);
-
-		provider.setCredentials(AuthScope.ANY, credentials);
-
-		HttpClient httpClient = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
-
-		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
-
-		int statusCode = httpResponse.getStatusLine().getStatusCode();
-
-		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
-
-		logger.debug("Successfully fetched {}.", url);
-
-		return new JSONObject(jsonString);
-	}
-
+	@Override
 	public String convertURL(String url) {
 		Matcher matcher = localURLPattern1.matcher(url);
 
@@ -99,6 +78,29 @@ public class RemoteJsonGetter implements JsonGetter {
 		}
 
 		return url;
+	}
+
+	@Override
+	public JSONObject getJson(String url) throws Exception {
+		logger.debug("Fetching JSON from {} ...", url);
+
+		CredentialsProvider provider = new BasicCredentialsProvider();
+
+		Credentials credentials = new UsernamePasswordCredentials(username, password);
+
+		provider.setCredentials(AuthScope.ANY, credentials);
+
+		HttpClient httpClient = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
+
+		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
+
+		int statusCode = httpResponse.getStatusLine().getStatusCode();
+
+		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+
+		logger.debug("Successfully fetched {}.", url);
+
+		return new JSONObject(jsonString);
 	}
 
 	private static final Pattern localURLPattern1 = Pattern.compile(
