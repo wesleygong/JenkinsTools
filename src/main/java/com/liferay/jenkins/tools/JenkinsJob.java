@@ -14,6 +14,8 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.Set;
+
 /**
  * @author Kevin Yen
  */
@@ -21,10 +23,12 @@ public class JenkinsJob {
 
 	private String name;
 	private String url;
+	private Set<String> parameterDefinitions;
 
-	public JenkinsJob(String name, String url) {
+	public JenkinsJob(String name, String url, Set<String> parameterDefinitions) {
 		this.name = name;
 		this.url = url;
+		this.parameterDefinitions = parameterDefinitions;
 	}
 
 	public String getName() {
@@ -33,6 +37,10 @@ public class JenkinsJob {
 
 	public String getURL() {
 		return url;
+	}
+
+	public Set<String> getParameterDefinitions() {
+		return parameterDefinitions;
 	}
 
 	@Override
