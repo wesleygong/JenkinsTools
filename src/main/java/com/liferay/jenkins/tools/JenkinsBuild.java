@@ -14,6 +14,8 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.Map;
+
 /**
  * @author Kevin Yen
  */
@@ -23,12 +25,14 @@ public class JenkinsBuild {
 	private int number;
 	private boolean building;
 	private String url;
+	private Map<String, String> parameters;
 
-	public JenkinsBuild(JenkinsJob jenkinsJob, int number, boolean building, String url) {
+	public JenkinsBuild(JenkinsJob jenkinsJob, int number, boolean building, String url, Map<String, String> parameters) {
 		this.jenkinsJob = jenkinsJob;
 		this.number = number;
 		this.building = building;
 		this.url = url;
+		this.parameters = parameters;
 	}
 
 	public JenkinsJob getJenkinsJob() {
@@ -45,6 +49,10 @@ public class JenkinsBuild {
 
 	public String getURL() {
 		return url;
+	}
+
+	public Map<String, String> getParameters() {
+		return parameters;
 	}
 
 	@Override
