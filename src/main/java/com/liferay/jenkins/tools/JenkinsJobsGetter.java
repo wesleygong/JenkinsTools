@@ -91,7 +91,7 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jenkinsURL);
-		sb.append("api/json?tree=jobs[name,url]");
+		sb.append("api/json?tree=jobs[name,url,actions[parameterDefinitions[name,type]]]");
 
 		JSONObject rootJson = jsonGetter.getJson(sb.toString());
 
@@ -112,7 +112,25 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 			String name = jobJson.getString("name");
 			String url = jobJson.getString("url");
 
-			return new JenkinsJob(name, url);
+			Set<String> parameterDefinitions = new HashSet<>();
+
+			JSONArray actionsJson = jobJson.getJSONArray("actions");
+
+			if ((actionsJson.length() > 0) && actionsJson.getJSONObject(0).has("parameterDefinitions")) {
+				JSONObject actionJson = actionsJson.getJSONObject(0);
+
+				JSONArray parameterDefinitionsJson = actionJson.getJSONArray("parameterDefinitions");
+
+				for (int i = 0; i < parameterDefinitionsJson.length(); i++) {
+					JSONObject parameterDefinitionJson = parameterDefinitionsJson.getJSONObject(i);
+
+					if (parameterDefinitionJson.getString("type").equals("StringParameterDefinition")) {
+						parameterDefinitions.add(parameterDefinitionJson.getString("name"));
+					}
+				}
+			}
+
+			return new JenkinsJob(name, url, parameterDefinitions);
 	}
 
 	public static Set<JSONObject> getJobJsons(JSONObject rootJson) throws Exception {
