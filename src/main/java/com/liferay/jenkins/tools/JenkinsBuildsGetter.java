@@ -104,31 +104,6 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		return jenkinsBuilds;
 	}
 
-	public static Set<JenkinsBuild> getJenkinsBuilds(JsonGetter jsonGetter, String jenkinsURL) throws Exception {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(jenkinsURL);
-		sb.append("api/json?tree=jobs[name,url,builds[building,number,url]]");
-
-		JSONObject rootJson = jsonGetter.getJson(sb.toString());
-
-		return getJenkinsBuilds(rootJson);
-	}
-
-	public static Set<JenkinsBuild> getJenkinsBuilds(JSONObject rootJson) throws Exception {
-		Set<JenkinsBuild> jenkinsBuilds = new HashSet<>();
-
-		for (JSONObject jobJson : JenkinsJobsGetter.getJobJsons(rootJson)) {
-			JenkinsJob jenkinsJob = JenkinsJobsGetter.getJenkinsJob(jobJson);
-
-			for (JSONObject buildJson : getBuildJsons(jobJson)) {
-				jenkinsBuilds.add(getJenkinsBuild(buildJson, jenkinsJob));
-			}
-		}
-
-		return jenkinsBuilds;
-	}
-
 	public static JenkinsBuild getJenkinsBuild(JSONObject buildJson, JenkinsJob jenkinsJob) {
 		int number = buildJson.getInt("number");
 		boolean building = buildJson.getBoolean("building");
