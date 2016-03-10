@@ -14,7 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import java.util.concurrent.Callable;
@@ -91,7 +93,7 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jsonGetter.convertURL(jenkinsJob.getURL()));
-		sb.append("api/json?tree=builds[building,number,url]");
+		sb.append("api/json?tree=builds[building,number,url,actions[parameters[name,value]]]");
 
 		JSONObject jobJson = jsonGetter.getJson(sb.toString());
 
@@ -109,7 +111,27 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		boolean building = buildJson.getBoolean("building");
 		String url = buildJson.getString("url");
 
-		return new JenkinsBuild(jenkinsJob, number, building, url);
+		Map<String, String> parameters = new HashMap<>();
+
+		JSONArray actionsJson = buildJson.getJSONArray("actions");
+
+		if ((actionsJson.length() > 0) && actionsJson.getJSONObject(0).has("parameters")) {
+			JSONArray parametersJson = actionsJson.getJSONObject(0).getJSONArray("parameters");
+
+			for (int i = 0; i < parametersJson.length(); i++) {
+				JSONObject parameterJson = parametersJson.getJSONObject(i);
+
+				String parameterName = parameterJson.getString("name");
+
+				if (jenkinsJob.getParameterDefinitions().contains(parameterName)) {
+					String parameterValue = parameterJson.getString("value");
+
+					parameters.put(parameterName, parameterValue);
+				}
+			}
+		}
+
+		return new JenkinsBuild(jenkinsJob, number, building, url, parameters);
 	}
 
 	public static Set<JSONObject> getBuildJsons(JSONObject jobJson) throws Exception {
