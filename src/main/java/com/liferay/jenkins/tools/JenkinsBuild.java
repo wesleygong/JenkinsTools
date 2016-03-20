@@ -26,13 +26,15 @@ public class JenkinsBuild {
 	private boolean building;
 	private String url;
 	private Map<String, String> parameters;
+	private long timestamp;
 
-	public JenkinsBuild(JenkinsJob jenkinsJob, int number, boolean building, String url, Map<String, String> parameters) {
+	public JenkinsBuild(JenkinsJob jenkinsJob, int number, boolean building, String url, Map<String, String> parameters, long timestamp) {
 		this.jenkinsJob = jenkinsJob;
 		this.number = number;
 		this.building = building;
 		this.url = url;
 		this.parameters = parameters;
+		this.timestamp = timestamp;
 	}
 
 	public JenkinsJob getJenkinsJob() {
@@ -41,6 +43,10 @@ public class JenkinsBuild {
 
 	public int getNumber() {
 		return number;
+	}
+
+	public long getTimestamp() {
+		return timestamp;
 	}
 
 	public boolean isBuilding() {

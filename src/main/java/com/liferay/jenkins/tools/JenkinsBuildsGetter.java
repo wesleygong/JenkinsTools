@@ -100,7 +100,7 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		Set<JenkinsBuild> jenkinsBuilds = new HashSet<>();
 
 		for (JSONObject buildJson : getBuildJsons(jobJson)) {
-			jenkinsBuilds.add(getJenkinsBuild(buildJson, jenkinsJob));
+			jenkinsBuilds.add(new JenkinsBuild(buildJson, jenkinsJob));
 		}
 
 		return jenkinsBuilds;
@@ -131,7 +131,8 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 			}
 		}
 
-		return new JenkinsBuild(jenkinsJob, number, building, url, parameters);
+		return new JenkinsBuild(jenkinsJob, buildJson.getInt("number"), buildJson.getBoolean("building"),
+			buildJson.getString("url"), parameters, buildJson.getLong("timestamp"));
 	}
 
 	public static Set<JSONObject> getBuildJsons(JSONObject jobJson) throws Exception {
