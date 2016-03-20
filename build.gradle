@@ -18,7 +18,7 @@ repositories {
 }
 
 run {
-	mainClassName = 'com.liferay.jenkins.tools.JenkinsStatus'
+	mainClassName = 'com.liferay.jenkins.tools.JenkinsTools'
 
 	if (project.hasProperty('execArgs')) {
 		args(execArgs.split());
