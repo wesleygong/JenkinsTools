@@ -53,7 +53,8 @@ import ch.qos.logback.classic.Logger;
  */
 public class JenkinsStatus {
 
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(JenkinsStatus.class);
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(
+		JenkinsStatus.class);
 
 	private static final int THREAD_POOL_SIZE = 120;
 
@@ -76,12 +77,16 @@ public class JenkinsStatus {
 
 		options.addOption("i", "info", false, "Set logging level to info.");
 		options.addOption("d", "debug", false, "Set logging level to debug.");
-		options.addOption("u", "user", true, "Specify the username used in authentication.");
-		options.addOption("n", "name", true, "Regular expression used to match job name.");
-		options.addOption("b", "building", true, "Specify the state of the build to match: true, false, or any");
+		options.addOption(
+			"u", "user", true, "Specify the username used in authentication.");
+		options.addOption(
+			"n", "name", true, "Set the regular expression to match job name.");
+		options.addOption(
+			"b", "building", true,
+				"Whether the build is building: true, false, any");
 		options.addOption(
 			Option.builder("p")
-			.longOpt("parameter")
+			.longOpt("parameters")
 			.hasArgs()
 			.desc("Specify the parameter of the build to match")
 			.valueSeparator(',')
@@ -90,19 +95,24 @@ public class JenkinsStatus {
 		CommandLine line = parser.parse(options, args);
 
 		if (line.hasOption("i")) {
-			Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+			Logger rootLogger = (Logger) LoggerFactory.getLogger(
+				Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.INFO);
 		}
 
 		if (line.hasOption("d")) {
-			Logger rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+			Logger rootLogger = (Logger) LoggerFactory.getLogger(
+				Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.DEBUG);
 
-			logger.debug("Checking for the following options: {}", options.toString());
+			logger.debug(
+				"Checking for the following options: {}", options);
 		}
 
 		if (line.hasOption("n")) {
-			logger.debug("Using the regular expression pattern {} to match job name", line.getOptionValue("n"));
+			logger.debug(
+				"Using the regular expression pattern {} to match job name",
+					line.getOptionValue("n"));
 
 			pattern = Pattern.compile(line.getOptionValue("n"));
 		}
@@ -113,11 +123,13 @@ public class JenkinsStatus {
 			if (console == null) {
 				logger.error("Unable to get Console instance.");
 
-				throw new IllegalStateException("Unable to get Console instance.");
+				throw new IllegalStateException(
+					"Unable to get Console instance.");
 			}
 
 			String username = line.getOptionValue("u");
-			String password = new String(console.readPassword("Enter password for " + username + " :"));
+			String password = new String(
+				console.readPassword("Enter password for " + username + " :"));
 
 			jsonGetter = new RemoteJsonGetter(username, password);
 		}
@@ -144,35 +156,39 @@ public class JenkinsStatus {
 				if (parameterSet.length != 2) {
 					logger.error("Invalid parameter format");
 
-					throw new IllegalArgumentException("Invalid parameter format");
+					throw new IllegalArgumentException(
+						"Invalid parameter format");
 				}
 
 				matchParameters.put(parameterSet[0], parameterSet[1]);
 			}
-
-			logger.debug("Matching parameters {}", matchParameters.toString());
 		}
 	}
 
 	public void listBuilds() throws Exception {
 		Set<String> jenkinsURLs = new HashSet<>();
 
-		logger.debug("Loading Jenkins URLs from {}", serversListFile.toString());
+		logger.debug("Loading Jenkins URLs from {}", serversListFile);
 
 		for (URL jenkinsURL : JenkinsURLs.getJenkinsURLs(serversListFile)) {
-			String jenkinsURLString = jsonGetter.convertURL(jenkinsURL.toString());
+			String jenkinsURLString = jsonGetter.convertURL(
+				jenkinsURL.toString());
 
 			jenkinsURLs.add(jenkinsURLString);
 
-			logger.debug("Adding {} to the list of servers to search.", jenkinsURLString);
+			logger.debug(
+				"Adding {} to the list of servers to search.",
+					jenkinsURLString);
 		}
 
-		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+		ExecutorService executor = Executors.newFixedThreadPool(
+			THREAD_POOL_SIZE);
 
 		Set<JenkinsBuild> matchingJenkinsBuilds = new HashSet<>();
 
 		try {
-			Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(jsonGetter, executor, jenkinsURLs);
+			Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(
+				jsonGetter, executor, jenkinsURLs);
 
 			Set<JenkinsJob> matchingJenkinsJobs = new HashSet<>();
 
@@ -182,19 +198,29 @@ public class JenkinsStatus {
 				if (matcher.find()) {
 					matchingJenkinsJobs.add(jenkinsJob);
 
-					logger.info("Found job {} matching regular expression", jenkinsJob.getName());
+					logger.debug(
+						"Found job {} matching regular expression",
+							jenkinsJob.getName());
 				}
 			}
 
-			logger.info("Found {} jobs matching regular expression", matchingJenkinsJobs.size());
+			logger.info(
+				"Found {} jobs matching regular expression '{}'",
+					matchingJenkinsJobs.size(), pattern);
 
-			Set<JenkinsBuild> jenkinsBuilds = JenkinsBuildsGetter.getJenkinsBuilds(jsonGetter, executor, matchingJenkinsJobs);
+			Set<JenkinsBuild> jenkinsBuilds =
+				JenkinsBuildsGetter.getJenkinsBuilds(
+					jsonGetter, executor, matchingJenkinsJobs);
 
 			for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
-				if (jenkinsBuild.isBuilding() && matchBuilding) {
+				if (jenkinsBuild.isBuilding() && matchBuilding &&
+					matchesParameters(jenkinsBuild)) {
+
 					matchingJenkinsBuilds.add(jenkinsBuild);
 				}
-				if (!jenkinsBuild.isBuilding() && matchNotBuilding) {
+				if (!jenkinsBuild.isBuilding() && matchNotBuilding &&
+					matchesParameters(jenkinsBuild)) {
+
 					matchingJenkinsBuilds.add(jenkinsBuild);
 				}
 			}
@@ -205,20 +231,49 @@ public class JenkinsStatus {
 			throw e;
 		}
 		finally {
-			System.out.println("Found " + matchingJenkinsBuilds.size() + " builds");
+			System.out.println(
+				"Found " + matchingJenkinsBuilds.size() + " builds");
 
-			for (JenkinsBuild activeJenkinsBuild : matchingJenkinsBuilds){
-				System.out.println(activeJenkinsBuild.getURL());
+			for (JenkinsBuild matchingJenkinsBuild : matchingJenkinsBuilds){
+				logger.info("\n");
 
-				Map<String, String> parameters = activeJenkinsBuild.getParameters();
+				System.out.println(matchingJenkinsBuild.getURL());
+
+				logger.info("Building: {}", matchingJenkinsBuild.isBuilding());
+				logger.info(
+					"Timestamp: {}", matchingJenkinsBuild.getTimestamp());
+
+				Map<String, String> parameters =
+					matchingJenkinsBuild.getParameters();
+
+				logger.info("Parameters:");
 
 				for (String name : parameters.keySet()) {
-					logger.info("{}={}", name, parameters.get(name));
+					logger.info("\t{}={}", name, parameters.get(name));
 				}
 			}
 
 			executor.shutdown();
 		}
+	}
+
+	private boolean matchesParameters(JenkinsBuild jenkinsBuild) {
+		for (String matchName : matchParameters.keySet()) {
+			Map<String, String> buildParameters = jenkinsBuild.getParameters();
+
+			if (!buildParameters.keySet().contains(matchName)) {
+				return false;
+			}
+			else {
+				String matchValue = matchParameters.get(matchName);
+
+				if (!buildParameters.get(matchName).equals(matchValue)) {
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	public static void main(String [] args) throws Exception {
