@@ -17,6 +17,8 @@ package com.liferay.jenkins.tools;
 import java.io.Console;
 import java.io.File;
 
+import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -54,6 +56,8 @@ public class JenkinsStatus {
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(JenkinsStatus.class);
 
 	private static final int THREAD_POOL_SIZE = 120;
+
+	private File serversListFile = new File("servers.list");
 
 	private JsonGetter jsonGetter = new LocalJsonGetter();
 
@@ -153,14 +157,14 @@ public class JenkinsStatus {
 	public void listBuilds() throws Exception {
 		Set<String> jenkinsURLs = new HashSet<>();
 
-		for (int i = 1; i <= 20; i++) {
-			String jenkinsURL = JenkinsJobURLs.getJenkinsURL(i, false);
+		logger.debug("Loading Jenkins URLs from {}", serversListFile.toString());
 
-			jenkinsURL = jsonGetter.convertURL(jenkinsURL);
+		for (URL jenkinsURL : JenkinsURLs.getJenkinsURLs(serversListFile)) {
+			String jenkinsURLString = jsonGetter.convertURL(jenkinsURL.toString());
 
-			jenkinsURLs.add(jenkinsURL);
+			jenkinsURLs.add(jenkinsURLString);
 
-			logger.info("Adding {} to the list of servers to search.", jenkinsURL);
+			logger.debug("Adding {} to the list of servers to search.", jenkinsURLString);
 		}
 
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
