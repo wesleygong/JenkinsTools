@@ -147,7 +147,7 @@ public class JenkinsStatus {
 			throw e;
 		}
 		finally {
-			System.out.println("Found " + activeJenkinsBuilds.size() + " active builds");
+			System.out.println("Found " + activeJenkinsBuilds.size() + " builds");
 
 			for (JenkinsBuild activeJenkinsBuild : activeJenkinsBuilds){
 				System.out.println(activeJenkinsBuild.getURL());
