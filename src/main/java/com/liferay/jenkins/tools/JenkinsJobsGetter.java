@@ -35,7 +35,8 @@ import org.slf4j.LoggerFactory;
  */
 public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 
-	private static final Logger logger = LoggerFactory.getLogger(JenkinsJobsGetter.class);
+	private static final Logger logger = LoggerFactory.getLogger(
+		JenkinsJobsGetter.class);
 
 	private JsonGetter jsonGetter;
 	private String jenkinsURL;
@@ -50,8 +51,13 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 		return getJenkinsJobs(jsonGetter, jenkinsURL);
 	}
 
-	public static Set<JenkinsJob> getJenkinsJobs(JsonGetter jsonGetter, ExecutorService executor, Set<String> jenkinsURLs) throws Exception {
-		CompletionService<Set<JenkinsJob>> completionService = new ExecutorCompletionService<Set<JenkinsJob>>(executor);
+	public static Set<JenkinsJob> getJenkinsJobs(
+			JsonGetter jsonGetter, ExecutorService executor,
+			Set<String> jenkinsURLs)
+		throws Exception {
+
+		CompletionService<Set<JenkinsJob>> completionService =
+			new ExecutorCompletionService<Set<JenkinsJob>>(executor);
 
 		Set<Future<Set<JenkinsJob>>> activeFutures = new HashSet<>();
 
@@ -61,11 +67,14 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 			logger.info("Getting jobs from {} servers ...", jenkinsURLs.size());
 
 			for (String jenkinsURL : jenkinsURLs) {
-				activeFutures.add(completionService.submit(new JenkinsJobsGetter(jsonGetter, jenkinsURL)));
+				activeFutures.add(
+					completionService.submit(
+						new JenkinsJobsGetter(jsonGetter, jenkinsURL)));
 			}
 
 			while (activeFutures.size() > 0) {
-				Future<Set<JenkinsJob>> completedFuture = completionService.take();
+				Future<Set<JenkinsJob>> completedFuture =
+					completionService.take();
 
 				activeFutures.remove(completedFuture);
 
@@ -75,7 +84,8 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 			}
 		}
 		catch (ExecutionException e) {
-			logger.error("Invoked thread threw an exception. Cancelling remaining threads.");
+			logger.error("Invoked thread threw an exception.");
+			logger.error("Cancelling remaining threads.");
 
 			for (Future<Set<JenkinsJob>> future : activeFutures) {
 				future.cancel(true);
@@ -87,18 +97,23 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 		return jenkinsJobs;
 	}
 
-	public static Set<JenkinsJob> getJenkinsJobs(JsonGetter jsonGetter, String jenkinsURL) throws Exception {
+	public static Set<JenkinsJob> getJenkinsJobs(
+		JsonGetter jsonGetter, String jenkinsURL) throws Exception {
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jenkinsURL);
-		sb.append("api/json?tree=jobs[name,url,actions[parameterDefinitions[name,type]]]");
+		sb.append("api/json?tree=jobs[name,url,");
+		sb.append("actions[parameterDefinitions[name,type]]]");
 
 		JSONObject rootJson = jsonGetter.getJson(sb.toString());
 
 		return getJenkinsJobs(rootJson);
 	}
 
-	public static Set<JenkinsJob> getJenkinsJobs(JSONObject rootJson) throws Exception {
+	public static Set<JenkinsJob> getJenkinsJobs(JSONObject rootJson)
+		throws Exception {
+
 		Set<JenkinsJob> jenkinsJobs = new HashSet<>();
 
 		for (JSONObject jobJson : getJobJsons(rootJson)) {
@@ -108,32 +123,43 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 		return jenkinsJobs;
 	}
 
-	public static JenkinsJob getJenkinsJob(JSONObject jobJson) throws Exception {
-			String name = jobJson.getString("name");
-			String url = jobJson.getString("url");
+	public static JenkinsJob getJenkinsJob(JSONObject jobJson)
+		throws Exception {
 
-			Set<String> parameterDefinitions = new HashSet<>();
+		String name = jobJson.getString("name");
+		String url = jobJson.getString("url");
 
-			JSONArray actionsJson = jobJson.getJSONArray("actions");
+		Set<String> parameterDefinitions = new HashSet<>();
 
-			if ((actionsJson.length() > 0) && actionsJson.getJSONObject(0).has("parameterDefinitions")) {
-				JSONObject actionJson = actionsJson.getJSONObject(0);
+		JSONArray actionsJson = jobJson.getJSONArray("actions");
 
-				JSONArray parameterDefinitionsJson = actionJson.getJSONArray("parameterDefinitions");
+		if ((actionsJson.length() > 0) &&
+			actionsJson.getJSONObject(0).has("parameterDefinitions")) {
 
-				for (int i = 0; i < parameterDefinitionsJson.length(); i++) {
-					JSONObject parameterDefinitionJson = parameterDefinitionsJson.getJSONObject(i);
+			JSONObject actionJson = actionsJson.getJSONObject(0);
 
-					if (parameterDefinitionJson.getString("type").equals("StringParameterDefinition")) {
-						parameterDefinitions.add(parameterDefinitionJson.getString("name"));
-					}
+			JSONArray parameterDefinitionsJson = actionJson.getJSONArray(
+				"parameterDefinitions");
+
+			for (int i = 0; i < parameterDefinitionsJson.length(); i++) {
+				JSONObject parameterDefinitionJson =
+					parameterDefinitionsJson.getJSONObject(i);
+
+				if (parameterDefinitionJson.getString("type").equals(
+					"StringParameterDefinition")) {
+
+					parameterDefinitions.add(
+						parameterDefinitionJson.getString("name"));
 				}
 			}
+		}
 
-			return new JenkinsJob(name, url, parameterDefinitions);
+		return new JenkinsJob(name, url, parameterDefinitions);
 	}
 
-	public static Set<JSONObject> getJobJsons(JSONObject rootJson) throws Exception {
+	public static Set<JSONObject> getJobJsons(JSONObject rootJson)
+		throws Exception {
+
 		Set<JSONObject> jobJsons = new HashSet<>();
 
 		JSONArray jobsJson = rootJson.getJSONArray("jobs");

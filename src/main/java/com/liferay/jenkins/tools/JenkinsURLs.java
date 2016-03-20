@@ -33,10 +33,12 @@ import org.slf4j.LoggerFactory;
  */
 public class JenkinsURLs {
 
-	private static final Logger logger = LoggerFactory.getLogger(JenkinsURLs.class);
+	private static final Logger logger = LoggerFactory.getLogger(
+		JenkinsURLs.class);
 
 	public static List<URL> getJenkinsURLs(File file) throws IOException {
-		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+		BufferedReader bufferedReader = new BufferedReader(
+			new FileReader(file));
 
 		List<URL> jenkinsURLs = new ArrayList<>();
 
@@ -53,7 +55,9 @@ public class JenkinsURLs {
 		return jenkinsURLs;
 	}
 
-	public static List<URL> getJenkinsURLs(String parameter) throws IOException {
+	public static List<URL> getJenkinsURLs(String parameter)
+		throws IOException {
+
 		List<URL> jenkinsURLs = new ArrayList<>();
 
 		for (String jenkinsURL : parameter.split(",")) {

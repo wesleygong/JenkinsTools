@@ -39,7 +39,8 @@ import org.slf4j.LoggerFactory;
  */
 public class RemoteJsonGetter implements JsonGetter {
 
-	private static final Logger logger = LoggerFactory.getLogger(RemoteJsonGetter.class);
+	private static final Logger logger = LoggerFactory.getLogger(
+		RemoteJsonGetter.class);
 
 	private String username;
 	private String password;
@@ -86,17 +87,21 @@ public class RemoteJsonGetter implements JsonGetter {
 
 		CredentialsProvider provider = new BasicCredentialsProvider();
 
-		Credentials credentials = new UsernamePasswordCredentials(username, password);
+		Credentials credentials = new UsernamePasswordCredentials(
+			username, password);
 
 		provider.setCredentials(AuthScope.ANY, credentials);
 
-		HttpClient httpClient = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
+		HttpClient httpClient =
+			HttpClientBuilder.create().setDefaultCredentialsProvider(
+				provider).build();
 
 		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
 
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 
-		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+		String jsonString =
+			IOUtils.toString(httpResponse.getEntity().getContent());
 
 		logger.debug("Successfully fetched {}.", url);
 

@@ -25,7 +25,8 @@ import ch.qos.logback.classic.Logger;
  */
 public class JenkinsTools {
 
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(JenkinsTools.class);
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(
+		JenkinsTools.class);
 
 	private static final int THREAD_POOL_SIZE = 120;
 
@@ -38,8 +39,8 @@ public class JenkinsTools {
 
 		if (command.equals("list")) {
 			args = Arrays.copyOfRange(args, 1, args.length);
-						
-			JenkinsStatus.main(args);			
+
+			JenkinsStatus.main(args);
 		}
 		else {
 			System.out.println("Available commands: list");

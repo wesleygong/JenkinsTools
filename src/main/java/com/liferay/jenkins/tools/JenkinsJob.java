@@ -25,7 +25,9 @@ public class JenkinsJob {
 	private String url;
 	private Set<String> parameterDefinitions;
 
-	public JenkinsJob(String name, String url, Set<String> parameterDefinitions) {
+	public JenkinsJob(
+		String name, String url, Set<String> parameterDefinitions) {
+
 		this.name = name;
 		this.url = url;
 		this.parameterDefinitions = parameterDefinitions;

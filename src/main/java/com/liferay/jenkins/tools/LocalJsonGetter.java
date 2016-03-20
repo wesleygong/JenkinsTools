@@ -34,7 +34,8 @@ import org.slf4j.LoggerFactory;
  */
 public class LocalJsonGetter implements JsonGetter {
 
-	private static final Logger logger = LoggerFactory.getLogger(LocalJsonGetter.class);
+	private static final Logger logger = LoggerFactory.getLogger(
+		LocalJsonGetter.class);
 
 	@Override
 	public String convertURL(String url) {
@@ -77,7 +78,8 @@ public class LocalJsonGetter implements JsonGetter {
 
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 
-		String jsonString = IOUtils.toString(httpResponse.getEntity().getContent());
+		String jsonString =
+			IOUtils.toString(httpResponse.getEntity().getContent());
 
 		logger.debug("Successfully fetched {}.", url);
 

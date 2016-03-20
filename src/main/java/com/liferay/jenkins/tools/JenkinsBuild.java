@@ -28,7 +28,10 @@ public class JenkinsBuild {
 	private Map<String, String> parameters;
 	private long timestamp;
 
-	public JenkinsBuild(JenkinsJob jenkinsJob, int number, boolean building, String url, Map<String, String> parameters, long timestamp) {
+	public JenkinsBuild(
+		JenkinsJob jenkinsJob, int number, boolean building, String url,
+		Map<String, String> parameters, long timestamp) {
+
 		this.jenkinsJob = jenkinsJob;
 		this.number = number;
 		this.building = building;
