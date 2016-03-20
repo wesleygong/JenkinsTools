@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Map;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
@@ -108,6 +109,8 @@ public class JenkinsStatus {
 
 		ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
+		Set<JenkinsBuild> activeJenkinsBuilds = new HashSet<>();
+
 		try {
 			Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(jsonGetter, executor, jenkinsURLs);
 
@@ -131,29 +134,33 @@ public class JenkinsStatus {
 
 			Set<JenkinsBuild> jenkinsBuilds = JenkinsBuildsGetter.getJenkinsBuilds(jsonGetter, executor, jenkinsJobs);
 
-			Set<JenkinsBuild> activeJenkinsBuilds = new HashSet<>();
 
 			for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
 				if (jenkinsBuild.isBuilding()) {
 					activeJenkinsBuilds.add(jenkinsBuild);
 				}
 			}
-
-			System.out.println("Found " + activeJenkinsBuilds.size() + " active builds");
-
-			for (JenkinsBuild activeJenkinsBuild : activeJenkinsBuilds){
-				System.out.println(activeJenkinsBuild.getURL());
-			}
 		}
 		catch (ExecutionException e) {
 			e.printStackTrace();
 
-			executor.shutdown();
-
-			System.exit(1);
+			throw e;
 		}
+		finally {
+			System.out.println("Found " + activeJenkinsBuilds.size() + " active builds");
 
-		executor.shutdown();
+			for (JenkinsBuild activeJenkinsBuild : activeJenkinsBuilds){
+				System.out.println(activeJenkinsBuild.getURL());
+
+				Map<String, String> parameters = activeJenkinsBuild.getParameters();
+
+				for (String name : parameters.keySet()) {
+					logger.info("{}={}", name, parameters.get(name));
+				}
+			}
+
+			executor.shutdown();
+		}
 	}
 
 }
