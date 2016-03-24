@@ -62,13 +62,17 @@ public class JenkinsStatus {
 
 	private JsonGetter jsonGetter = new LocalJsonGetter();
 
+	private boolean showBuildInfo = false;
+
 	private boolean matchBuilding = true;
 
 	private boolean matchNotBuilding = false;
 
-	private Pattern pattern = Pattern.compile(".*");
+	private String matchResult = null;
 
 	private Map<String, String> matchParameters = new HashMap<>();
+
+	private Pattern pattern = Pattern.compile(".*");
 
 	private void processArgs(String[] args) throws Exception {
 		CommandLineParser parser = new DefaultParser();
@@ -81,6 +85,8 @@ public class JenkinsStatus {
 			"u", "user", true, "Specify the username used in authentication.");
 		options.addOption(
 			"n", "name", true, "Set the regular expression to match job name.");
+		options.addOption(
+			"r", "result", true, "Specify the result of the matching build");
 		options.addOption(
 			"b", "building", true,
 				"Whether the build is building: true, false, any");
@@ -98,6 +104,8 @@ public class JenkinsStatus {
 			Logger rootLogger = (Logger) LoggerFactory.getLogger(
 				Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.INFO);
+
+			showBuildInfo = true;
 		}
 
 		if (line.hasOption("d")) {
@@ -107,6 +115,8 @@ public class JenkinsStatus {
 
 			logger.debug(
 				"Checking for the following options: {}", options);
+
+			showBuildInfo = true;
 		}
 
 		if (line.hasOption("n")) {
@@ -163,6 +173,10 @@ public class JenkinsStatus {
 				matchParameters.put(parameterSet[0], parameterSet[1]);
 			}
 		}
+
+		if (line.hasOption("r")) {
+			matchResult = line.getOptionValue("r").toUpperCase();
+		}
 	}
 
 	public void listBuilds() throws Exception {
@@ -214,12 +228,14 @@ public class JenkinsStatus {
 
 			for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
 				if (jenkinsBuild.isBuilding() && matchBuilding &&
-					matchesParameters(jenkinsBuild)) {
+					matchesParameters(jenkinsBuild) &&
+					matchesResult(jenkinsBuild)) {
 
 					matchingJenkinsBuilds.add(jenkinsBuild);
 				}
 				if (!jenkinsBuild.isBuilding() && matchNotBuilding &&
-					matchesParameters(jenkinsBuild)) {
+					matchesParameters(jenkinsBuild) &&
+					matchesResult(jenkinsBuild)) {
 
 					matchingJenkinsBuilds.add(jenkinsBuild);
 				}
@@ -235,25 +251,45 @@ public class JenkinsStatus {
 				"Found " + matchingJenkinsBuilds.size() + " builds");
 
 			for (JenkinsBuild matchingJenkinsBuild : matchingJenkinsBuilds){
-				logger.info("\n");
+				if (showBuildInfo) {
+					System.out.print("\n");
+					System.out.println(matchingJenkinsBuild.getURL());
+					System.out.println(
+						"  Building:\t" + matchingJenkinsBuild.isBuilding());
+					System.out.println(
+						"  Timestamp:\t" + matchingJenkinsBuild.getTimestamp());
+					System.out.println(
+						"  Result:\t" + matchingJenkinsBuild.getResult());
+					
+					Map<String, String> parameters =
+						matchingJenkinsBuild.getParameters();
 
-				System.out.println(matchingJenkinsBuild.getURL());
+					System.out.println("  Parameters: ");
 
-				logger.info("Building: {}", matchingJenkinsBuild.isBuilding());
-				logger.info(
-					"Timestamp: {}", matchingJenkinsBuild.getTimestamp());
-
-				Map<String, String> parameters =
-					matchingJenkinsBuild.getParameters();
-
-				logger.info("Parameters:");
-
-				for (String name : parameters.keySet()) {
-					logger.info("\t{}={}", name, parameters.get(name));
+					for (String name : parameters.keySet()) {
+						System.out.println(
+							"    " + name + "=" + parameters.get(name));
+					}
 				}
+				else {
+					System.out.println(matchingJenkinsBuild.getURL());
+				}
+
 			}
 
 			executor.shutdown();
+		}
+	}
+
+	private boolean matchesResult(JenkinsBuild jenkinsBuild) {
+		if (matchResult == null) {
+			return true;
+		}
+		else if (jenkinsBuild.getResult().equals(matchResult)) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 

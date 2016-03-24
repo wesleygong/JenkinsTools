@@ -106,7 +106,7 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jsonGetter.convertURL(jenkinsJob.getURL()));
-		sb.append("api/json?tree=builds[building,number,timestamp,url,");
+		sb.append("api/json?tree=builds[building,number,result,timestamp,url,");
 		sb.append("actions[parameters[name,value]]]");
 
 		JSONObject jobJson = jsonGetter.getJson(sb.toString());
@@ -153,10 +153,11 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		}
 
 		return new JenkinsBuild(
-			jenkinsJob, buildJson.getInt("number"),
-				buildJson.getBoolean("building"),
-					buildJson.getString("url"), parameters,
-						buildJson.getLong("timestamp"));
+			jenkinsJob, buildJson.optInt("number"),
+				buildJson.optBoolean("building"),
+					buildJson.optString("url"), parameters,
+						buildJson.optLong("timestamp"),
+							buildJson.optString("result"));
 	}
 
 	public static Set<JSONObject> getBuildJsons(JSONObject jobJson)

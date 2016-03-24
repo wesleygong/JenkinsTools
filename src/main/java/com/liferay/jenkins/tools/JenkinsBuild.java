@@ -21,23 +21,25 @@ import java.util.Map;
  */
 public class JenkinsBuild {
 
-	private JenkinsJob jenkinsJob;
-	private int number;
 	private boolean building;
-	private String url;
-	private Map<String, String> parameters;
+	private int number;
+	private JenkinsJob jenkinsJob;
 	private long timestamp;
+	private Map<String, String> parameters;
+	private String result;
+	private String url;
 
 	public JenkinsBuild(
 		JenkinsJob jenkinsJob, int number, boolean building, String url,
-		Map<String, String> parameters, long timestamp) {
+		Map<String, String> parameters, long timestamp, String result) {
 
+		this.building = building;
 		this.jenkinsJob = jenkinsJob;
 		this.number = number;
-		this.building = building;
-		this.url = url;
 		this.parameters = parameters;
+		this.result = result;
 		this.timestamp = timestamp;
+		this.url = url;
 	}
 
 	public JenkinsJob getJenkinsJob() {
@@ -46,6 +48,10 @@ public class JenkinsBuild {
 
 	public int getNumber() {
 		return number;
+	}
+
+	public String getResult() {
+		return result;
 	}
 
 	public long getTimestamp() {
