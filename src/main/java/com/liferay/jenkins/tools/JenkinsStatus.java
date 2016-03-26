@@ -64,13 +64,7 @@ public class JenkinsStatus {
 
 	private boolean showBuildInfo = false;
 
-	private boolean matchBuilding = true;
-
-	private boolean matchNotBuilding = false;
-
-	private String matchResult = null;
-
-	private Map<String, String> matchParameters = new HashMap<>();
+	private List<BuildMatcher> buildMatchers = new ArrayList<>();
 
 	private Pattern pattern = Pattern.compile(".*");
 
@@ -90,6 +84,8 @@ public class JenkinsStatus {
 		options.addOption(
 			"b", "building", true,
 				"Whether the build is building: true, false, any");
+		options.addOption(
+			"f", "servers-file", true, "File containing jenkins servers list");
 		options.addOption(
 			Option.builder("p")
 			.longOpt("parameters")
@@ -119,6 +115,12 @@ public class JenkinsStatus {
 			showBuildInfo = true;
 		}
 
+		if (line.hasOption("f")) {
+			logger.debug("Loading file {}", line.getOptionValue("f"));
+
+			serversListFile = new File(line.getOptionValue("f"));
+		}
+
 		if (line.hasOption("n")) {
 			logger.debug(
 				"Using the regular expression pattern {} to match job name",
@@ -131,8 +133,6 @@ public class JenkinsStatus {
 			Console console = System.console();
 
 			if (console == null) {
-				logger.error("Unable to get Console instance.");
-
 				throw new IllegalStateException(
 					"Unable to get Console instance.");
 			}
@@ -145,37 +145,17 @@ public class JenkinsStatus {
 		}
 
 		if (line.hasOption("b")) {
-			if (line.getOptionValue("b").equals("true")) {
-				matchBuilding = true;
-				matchNotBuilding = false;
-			}
-			if (line.getOptionValue("b").equals("false")) {
-				matchBuilding = false;
-				matchNotBuilding = true;
-			}
-			if (line.getOptionValue("b").equals("any")) {
-				matchBuilding = true;
-				matchNotBuilding = true;
-			}
+			buildMatchers.add(
+				new BuildBuildingMatcher(line.getOptionValue("b")));
 		}
 
 		if (line.hasOption("p")) {
-			for (String parameterString : line.getOptionValues("p")) {
-				String[] parameterSet = parameterString.split("=");
-
-				if (parameterSet.length != 2) {
-					logger.error("Invalid parameter format");
-
-					throw new IllegalArgumentException(
-						"Invalid parameter format");
-				}
-
-				matchParameters.put(parameterSet[0], parameterSet[1]);
-			}
+			buildMatchers.add(
+				new BuildParametersMatcher(line.getOptionValues("p")));
 		}
 
 		if (line.hasOption("r")) {
-			matchResult = line.getOptionValue("r").toUpperCase();
+			buildMatchers.add(new BuildResultMatcher(line.getOptionValue("r")));
 		}
 	}
 
@@ -227,16 +207,15 @@ public class JenkinsStatus {
 					jsonGetter, executor, matchingJenkinsJobs);
 
 			for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
-				if (jenkinsBuild.isBuilding() && matchBuilding &&
-					matchesParameters(jenkinsBuild) &&
-					matchesResult(jenkinsBuild)) {
+				boolean match = true;
 
-					matchingJenkinsBuilds.add(jenkinsBuild);
+				for (BuildMatcher buildMatcher : buildMatchers) {
+					if (!buildMatcher.matches(jenkinsBuild)) {
+						match = false;
+					}
 				}
-				if (!jenkinsBuild.isBuilding() && matchNotBuilding &&
-					matchesParameters(jenkinsBuild) &&
-					matchesResult(jenkinsBuild)) {
 
+				if (match) {
 					matchingJenkinsBuilds.add(jenkinsBuild);
 				}
 			}
@@ -279,37 +258,6 @@ public class JenkinsStatus {
 
 			executor.shutdown();
 		}
-	}
-
-	private boolean matchesResult(JenkinsBuild jenkinsBuild) {
-		if (matchResult == null) {
-			return true;
-		}
-		else if (jenkinsBuild.getResult().equals(matchResult)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	private boolean matchesParameters(JenkinsBuild jenkinsBuild) {
-		for (String matchName : matchParameters.keySet()) {
-			Map<String, String> buildParameters = jenkinsBuild.getParameters();
-
-			if (!buildParameters.keySet().contains(matchName)) {
-				return false;
-			}
-			else {
-				String matchValue = matchParameters.get(matchName);
-
-				if (!buildParameters.get(matchName).equals(matchValue)) {
-					return false;
-				}
-			}
-		}
-
-		return true;
 	}
 
 	public static void main(String [] args) throws Exception {
