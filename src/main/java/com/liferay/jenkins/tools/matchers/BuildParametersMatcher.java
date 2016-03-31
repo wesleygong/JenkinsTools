@@ -14,6 +14,7 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ import ch.qos.logback.classic.Logger;
  */
 public class BuildParametersMatcher implements BuildMatcher {
 
-	private Map<String, String> parameters;
+	private Map<String, String> parameters = new HashMap<>();
 
 	public BuildParametersMatcher(String[] matches) {
 		for (String match : matches) {
