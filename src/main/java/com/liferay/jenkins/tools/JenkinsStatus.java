@@ -20,11 +20,12 @@ import java.io.File;
 import java.net.URL;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.Map;
+import java.util.Set;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
@@ -67,6 +68,60 @@ public class JenkinsStatus {
 	private List<BuildMatcher> buildMatchers = new ArrayList<>();
 
 	private Pattern pattern = Pattern.compile(".*");
+
+	private void printMessage(String tag, String value, int maxTagLength) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("  ");
+		sb.append(tag);
+		sb.append(':');
+
+		int padding = tag.length() - maxTagLength;
+
+		for (int i = 0; i < padding; i++) {
+			sb.append(' ');
+		}
+
+		sb.append(value);
+
+		System.out.println(sb.toString());
+	}
+
+	private void printMessage(String tag, String[] values) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("  ");
+		sb.append(tag);
+		sb.append(':');
+		sb.append('\n');
+
+		for (String value : values) {
+			sb.append("    ");
+			sb.append(value);
+			sb.append('\n');
+		}
+
+		System.out.println(sb.toString());
+	}
+
+	private void printMessage(String tag, Map<String, String> values) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("  ");
+		sb.append(tag);
+		sb.append(':');
+		sb.append('\n');
+
+		for (String name : values.keySet()) {
+			sb.append("    ");
+			sb.append(name);
+			sb.append('=');
+			sb.append(values.get(name));
+			sb.append('\n');
+		}
+
+		System.out.println(sb.toString());
+	}
 
 	private void processArgs(String[] args) throws Exception {
 		CommandLineParser parser = new DefaultParser();
@@ -232,29 +287,25 @@ public class JenkinsStatus {
 			System.out.println(
 				"Found " + matchingJenkinsBuilds.size() + " builds");
 
-			for (JenkinsBuild matchingJenkinsBuild : matchingJenkinsBuilds){
+			for (JenkinsBuild build : matchingJenkinsBuilds){
 				if (showBuildInfo) {
+					String date = new Date(build.getTimestamp()).toString();
+					String number = new Integer(build.getNumber()).toString();
+					String building = new Boolean(
+						build.isBuilding()).toString();
+
 					System.out.print("\n");
-					System.out.println(matchingJenkinsBuild.getURL());
-					System.out.println(
-						"  Building:\t" + matchingJenkinsBuild.isBuilding());
-					System.out.println(
-						"  Timestamp:\t" + matchingJenkinsBuild.getTimestamp());
-					System.out.println(
-						"  Result:\t" + matchingJenkinsBuild.getResult());
-					
-					Map<String, String> parameters =
-						matchingJenkinsBuild.getParameters();
+					System.out.println(build.getURL());
 
-					System.out.println("  Parameters: ");
-
-					for (String name : parameters.keySet()) {
-						System.out.println(
-							"    " + name + "=" + parameters.get(name));
-					}
+					printMessage("Name", build.getJenkinsJob().getName(), 12);
+					printMessage("Number", number, 12);
+					printMessage("Building", building, 12);
+					printMessage("Time", date, 12);
+					printMessage("Result", build.getResult(), 12);
+					printMessage("Parameters", build.getParameters());
 				}
 				else {
-					System.out.println(matchingJenkinsBuild.getURL());
+					System.out.println(build.getURL());
 				}
 
 			}
