@@ -76,7 +76,7 @@ public class JenkinsStatus {
 		sb.append(tag);
 		sb.append(':');
 
-		int padding = tag.length() - maxTagLength;
+		int padding = maxTagLength - tag.length();
 
 		for (int i = 0; i < padding; i++) {
 			sb.append(' ');
