@@ -140,7 +140,7 @@ public class JenkinsStatus {
 			"b", "building", true,
 				"Whether the build is building: true, false, any");
 		options.addOption(
-			"f", "servers-file", true, "File containing jenkins servers list");
+			"f", "file", true, "File containing jenkins servers list");
 		options.addOption(
 			Option.builder("p")
 			.longOpt("parameters")
