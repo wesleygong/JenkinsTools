@@ -25,6 +25,7 @@ import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.BasicCredentialsProvider;
@@ -45,11 +46,18 @@ public class RemoteJsonGetter implements JsonGetter {
 	private String username;
 	private String password;
 
-	private RemoteJsonGetter() {};
+	private int timeout;
 
 	public RemoteJsonGetter(String username, String password) {
 		this.username = username;
 		this.password = password;
+		timeout = 0;
+	}
+
+	public RemoteJsonGetter(String username, String password, int timeout) {
+		this.username = username;
+		this.password = password;
+		this.timeout = timeout;
 	}
 
 	@Override
@@ -92,9 +100,12 @@ public class RemoteJsonGetter implements JsonGetter {
 
 		provider.setCredentials(AuthScope.ANY, credentials);
 
+		RequestConfig requestConfig =
+			RequestConfig.custom().setConnectTimeout(timeout).build();
+
 		HttpClient httpClient =
 			HttpClientBuilder.create().setDefaultCredentialsProvider(
-				provider).build();
+				provider).setDefaultRequestConfig(requestConfig).build();
 
 		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
 

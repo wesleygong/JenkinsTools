@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -36,6 +37,16 @@ public class LocalJsonGetter implements JsonGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(
 		LocalJsonGetter.class);
+
+	private int timeout;
+
+	public LocalJsonGetter() {
+		timeout = 0;
+	}
+
+	public LocalJsonGetter(int timeout) {
+		this.timeout = timeout;
+	}
 
 	@Override
 	public String convertURL(String url) {
@@ -72,7 +83,12 @@ public class LocalJsonGetter implements JsonGetter {
 	public JSONObject getJson(String url) throws Exception {
 		logger.debug("Fetching JSON from {} ...", url);
 
-		HttpClient httpClient = HttpClientBuilder.create().build();
+		RequestConfig requestConfig =
+			RequestConfig.custom().setConnectTimeout(timeout).build();
+
+		HttpClient httpClient =
+			HttpClientBuilder.create().setDefaultRequestConfig(
+				requestConfig).build();
 
 		HttpResponse httpResponse = httpClient.execute(new HttpGet(url));
 
