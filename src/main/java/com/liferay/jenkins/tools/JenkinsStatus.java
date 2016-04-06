@@ -59,9 +59,11 @@ public class JenkinsStatus {
 
 	private static final int THREAD_POOL_SIZE = 120;
 
+	private static final int REQUEST_TIMEOUT = 30 * 1000;
+
 	private File serversListFile = new File("servers.list");
 
-	private JsonGetter jsonGetter = new LocalJsonGetter();
+	private JsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
 
 	private boolean showBuildInfo = false;
 
@@ -196,7 +198,8 @@ public class JenkinsStatus {
 			String password = new String(
 				console.readPassword("Enter password for " + username + " :"));
 
-			jsonGetter = new RemoteJsonGetter(username, password);
+			jsonGetter = new RemoteJsonGetter(
+				username, password, REQUEST_TIMEOUT);
 		}
 
 		if (line.hasOption("b")) {
