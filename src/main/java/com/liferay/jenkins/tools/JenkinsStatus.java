@@ -139,7 +139,7 @@ public class JenkinsStatus {
 		options.addOption(
 			"r", "result", true, "Specify the result of the matching build");
 		options.addOption(
-			"b", "building", true,
+			"c", "building", true,
 				"Whether the build is building: true, false, any");
 		options.addOption(
 			"f", "file", true, "File containing jenkins servers list");
@@ -149,6 +149,18 @@ public class JenkinsStatus {
 			.hasArgs()
 			.desc("Specify the parameter of the build to match")
 			.valueSeparator(',')
+			.build());
+		options.addOption(
+			Option.builder("b")
+			.longOpt("before")
+			.hasArgs()
+			.desc("Match builds before specified time")
+			.build());
+		options.addOption(
+			Option.builder("a")
+			.longOpt("after")
+			.hasArgs()
+			.desc("Match builds after specified time")
 			.build());
 
 		CommandLine line = parser.parse(options, args);
@@ -202,9 +214,9 @@ public class JenkinsStatus {
 				username, password, REQUEST_TIMEOUT);
 		}
 
-		if (line.hasOption("b")) {
+		if (line.hasOption("c")) {
 			buildMatchers.add(
-				new BuildBuildingMatcher(line.getOptionValue("b")));
+				new BuildBuildingMatcher(line.getOptionValue("c")));
 		}
 		else {
 			buildMatchers.add(new BuildBuildingMatcher("TRUE"));
@@ -217,6 +229,16 @@ public class JenkinsStatus {
 
 		if (line.hasOption("r")) {
 			buildMatchers.add(new BuildResultMatcher(line.getOptionValue("r")));
+		}
+
+		if (line.hasOption("b")) {
+			buildMatchers.add(
+				new BuildTimestampMatcher(true, line.getOptionValue("b")));
+		}
+
+		if (line.hasOption("a")) {
+			buildMatchers.add(
+				new BuildTimestampMatcher(false, line.getOptionValue("a")));
 		}
 	}
 
