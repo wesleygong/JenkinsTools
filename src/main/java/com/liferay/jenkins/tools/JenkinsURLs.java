@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 import java.net.URL;
+import java.net.MalformedURLException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,9 +46,18 @@ public class JenkinsURLs {
 		String line = bufferedReader.readLine();
 
 		while (line != null) {
+			line = line.trim();
+
 			logger.debug("{}", line);
 
-			jenkinsURLs.add(new URL(line));
+			if (line.charAt(0) != '#') {
+				try {
+					jenkinsURLs.add(new URL(line));
+				}
+				catch (MalformedURLException e) {
+					logger.warn("{} is not a valid URL", line);
+				}
+			}
 
 			line = bufferedReader.readLine();
 		}
