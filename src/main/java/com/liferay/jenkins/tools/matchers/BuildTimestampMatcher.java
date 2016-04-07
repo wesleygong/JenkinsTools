@@ -36,6 +36,12 @@ public class BuildTimestampMatcher implements BuildMatcher {
 		this(before, new Date(time));
 	}
 
+	public BuildTimestampMatcher(boolean before, String timestamp)
+		throws NumberFormatException {
+
+		this(before, parseTimestamp(timestamp));
+	}
+
 	public BuildTimestampMatcher(boolean before, Date date) {
 		if (before) {
 			end = date;
@@ -47,6 +53,12 @@ public class BuildTimestampMatcher implements BuildMatcher {
 
 			logger.debug("Matching builds after {}.", start);
 		}
+	}
+
+	private static Date parseTimestamp(String timestamp)
+		throws NumberFormatException {
+
+		return new Date(Long.parseLong(timestamp));
 	}
 
 	public boolean matches(JenkinsBuild jenkinsBuild) {
