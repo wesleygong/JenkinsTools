@@ -16,6 +16,8 @@ package com.liferay.jenkins.tools;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+
+import java.util.Calendar;
 import java.util.Date;
 
 import org.slf4j.LoggerFactory;
@@ -37,7 +39,7 @@ public class BuildTimestampMatcher implements BuildMatcher {
 	}
 
 	public BuildTimestampMatcher(boolean before, String timestamp)
-		throws NumberFormatException {
+		throws IllegalArgumentException {
 
 		this(before, parseTimestamp(timestamp));
 	}
@@ -56,9 +58,80 @@ public class BuildTimestampMatcher implements BuildMatcher {
 	}
 
 	private static Date parseTimestamp(String timestamp)
-		throws NumberFormatException {
+		throws IllegalArgumentException {
 
-		return new Date(Long.parseLong(timestamp));
+		try {
+			return new Date(Long.parseLong(timestamp));
+		}
+		catch (NumberFormatException e) {
+			logger.debug("{} is not unix time", timestamp);
+		}
+
+		int[] styles = {
+			DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG,
+			DateFormat.FULL
+		};
+
+		for (int dateStyle : styles) {
+			for (int timeStyle : styles) {
+				try {
+					DateFormat dateFormat =
+						DateFormat.getDateTimeInstance(dateStyle, timeStyle);
+
+					Date date = dateFormat.parse(timestamp);
+
+					return date;
+				}
+				catch (ParseException e) {
+					logger.debug(
+						"{} does not match format {}, {}", timestamp,
+							dateStyle, timeStyle);
+				}
+			}
+		}
+
+		for (int dateStyle : styles) {
+			try {
+				DateFormat dateFormat = DateFormat.getDateInstance(dateStyle);
+
+				Date date = dateFormat.parse(timestamp);
+
+				return date;
+			}
+			catch (ParseException e) {
+				logger.debug(
+					"{} does not match date format {}", timestamp, dateStyle);
+			}
+		}
+
+		for (int timeStyle : styles) {
+			try {
+				DateFormat dateFormat = DateFormat.getTimeInstance(timeStyle);
+
+				Date time = dateFormat.parse(timestamp);
+
+				return combineDateTime(new Date(), time);
+			}
+			catch (ParseException e) {
+				logger.debug(
+					"{} does not match time format {}", timestamp, timeStyle);
+			}
+		}
+
+		throw new IllegalArgumentException("Unable to parse timestamp");
+	}
+
+	private static Date combineDateTime(Date date, Date time) {
+		Calendar dateCalendar = Calendar.getInstance();
+		Calendar timeCalendar = Calendar.getInstance();
+
+		dateCalendar.setTime(date);
+		timeCalendar.setTime(time);
+
+		timeCalendar.set(dateCalendar.get(Calendar.YEAR),
+			dateCalendar.get(Calendar.MONTH), dateCalendar.get(Calendar.DATE));
+
+		return timeCalendar.getTime();
 	}
 
 	public boolean matches(JenkinsBuild jenkinsBuild) {
