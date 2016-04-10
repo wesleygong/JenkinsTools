@@ -103,8 +103,8 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jenkinsURL);
-		sb.append("api/json?tree=jobs[name,url,");
-		sb.append("actions[parameterDefinitions[name,type]]]");
+		sb.append("api/json?");
+		sb.append(JenkinsJob.QUERY_PARAMETER);
 
 		JSONObject rootJson = jsonGetter.getJson(sb.toString());
 
@@ -117,44 +117,10 @@ public class JenkinsJobsGetter implements Callable<Set<JenkinsJob>> {
 		Set<JenkinsJob> jenkinsJobs = new HashSet<>();
 
 		for (JSONObject jobJson : getJobJsons(rootJson)) {
-			jenkinsJobs.add(getJenkinsJob(jobJson));
+			jenkinsJobs.add(new JenkinsJob(jobJson));
 		}
 
 		return jenkinsJobs;
-	}
-
-	public static JenkinsJob getJenkinsJob(JSONObject jobJson)
-		throws Exception {
-
-		String name = jobJson.getString("name");
-		String url = jobJson.getString("url");
-
-		Set<String> parameterDefinitions = new HashSet<>();
-
-		JSONArray actionsJson = jobJson.getJSONArray("actions");
-
-		if ((actionsJson.length() > 0) &&
-			actionsJson.getJSONObject(0).has("parameterDefinitions")) {
-
-			JSONObject actionJson = actionsJson.getJSONObject(0);
-
-			JSONArray parameterDefinitionsJson = actionJson.getJSONArray(
-				"parameterDefinitions");
-
-			for (int i = 0; i < parameterDefinitionsJson.length(); i++) {
-				JSONObject parameterDefinitionJson =
-					parameterDefinitionsJson.getJSONObject(i);
-
-				if (parameterDefinitionJson.getString("type").equals(
-					"StringParameterDefinition")) {
-
-					parameterDefinitions.add(
-						parameterDefinitionJson.getString("name"));
-				}
-			}
-		}
-
-		return new JenkinsJob(name, url, parameterDefinitions);
 	}
 
 	public static Set<JSONObject> getJobJsons(JSONObject rootJson)

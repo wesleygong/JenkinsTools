@@ -36,7 +36,7 @@ public class JenkinsJobsGetterTest {
 
 	private static final String VALID_JENKINS_URL = "https://test-1-1.liferay.com";
 	private static final String VALID_JOB_URL = "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)";
-	
+
 	private static final String INVALID_JENKINS_URL = "https://invalid.url.com";
 
 	TestJsonGetter testJsonGetter = new TestJsonGetter();

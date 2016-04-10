@@ -14,12 +14,19 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.HashSet;
 import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * @author Kevin Yen
  */
 public class JenkinsJob {
+
+	public static final String QUERY_PARAMETER =
+		"tree=jobs[name,url,actions[parameterDefinitions[name,type]]]";
 
 	private String name;
 	private String url;
@@ -31,6 +38,38 @@ public class JenkinsJob {
 		this.name = name;
 		this.url = url;
 		this.parameterDefinitions = parameterDefinitions;
+	}
+
+	public JenkinsJob(JSONObject jobJson)
+		throws Exception {
+
+		name = jobJson.getString("name");
+		url = jobJson.getString("url");
+
+		parameterDefinitions = new HashSet<>();
+
+		JSONArray actionsJson = jobJson.getJSONArray("actions");
+
+		if ((actionsJson.length() > 0) &&
+			actionsJson.getJSONObject(0).has("parameterDefinitions")) {
+
+			JSONObject actionJson = actionsJson.getJSONObject(0);
+
+			JSONArray parameterDefinitionsJson = actionJson.getJSONArray(
+				"parameterDefinitions");
+
+			for (int i = 0; i < parameterDefinitionsJson.length(); i++) {
+				JSONObject parameterDefinitionJson =
+					parameterDefinitionsJson.getJSONObject(i);
+
+				if (parameterDefinitionJson.getString("type").equals(
+					"StringParameterDefinition")) {
+
+					parameterDefinitions.add(
+						parameterDefinitionJson.getString("name"));
+				}
+			}
+		}
 	}
 
 	public String getName() {
