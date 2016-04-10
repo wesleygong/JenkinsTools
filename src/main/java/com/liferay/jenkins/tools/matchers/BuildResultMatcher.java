@@ -40,7 +40,7 @@ public class BuildResultMatcher implements BuildMatcher {
 		}
 
 		result = match.toUpperCase();
-	
+
 		logger.debug("Matching builds with a result of {}.", result);
 	}
 
