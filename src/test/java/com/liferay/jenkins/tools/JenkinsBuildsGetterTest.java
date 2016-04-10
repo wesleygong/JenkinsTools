@@ -39,7 +39,7 @@ public class JenkinsBuildsGetterTest {
 	private static final String VALID_JENKINS_URL = "https://test-1-1.liferay.com";
 	private static final String VALID_JOB_NAME = "test-portal-acceptance-pullrequest(master)";
 	private static final String VALID_JOB_URL = "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)";
-	
+
 	private static final String INVALID_JENKINS_URL = "https://invalid.url.com";
 	private static final String INVALID_JOB_NAME = "this-does-not-exist";
 	private static final String INVALID_JOB_URL = "https://test-1-1.liferay.com/job/this-does-not-exist";

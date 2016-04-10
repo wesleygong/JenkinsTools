@@ -14,14 +14,23 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * @author Kevin Yen
  */
 public class JenkinsBuild {
 
+	public static final String QUERY_PARAMETER =
+		"tree=builds[building,duration,number,result,timestamp,url," +
+			"actions[parameters[name,value]]]";
+
 	private boolean building;
+	private int duration;
 	private int number;
 	private JenkinsJob jenkinsJob;
 	private long timestamp;
@@ -29,17 +38,40 @@ public class JenkinsBuild {
 	private String result;
 	private String url;
 
-	public JenkinsBuild(
-		JenkinsJob jenkinsJob, int number, boolean building, String url,
-		Map<String, String> parameters, long timestamp, String result) {
-
-		this.building = building;
+	public JenkinsBuild(JSONObject buildJson, JenkinsJob jenkinsJob) {
 		this.jenkinsJob = jenkinsJob;
-		this.number = number;
-		this.parameters = parameters;
-		this.result = result;
-		this.timestamp = timestamp;
-		this.url = url;
+
+		building = buildJson.getBoolean("building");
+		duration = buildJson.optInt("duration");
+		number = buildJson.getInt("number");
+		result = buildJson.optString("result");
+		timestamp = buildJson.getLong("timestamp");
+		url = buildJson.getString("url");
+
+		parameters = new HashMap<>();
+
+		JSONArray actionsJson = buildJson.getJSONArray("actions");
+
+		if ((actionsJson.length() > 0) &&
+			actionsJson.getJSONObject(0).has("parameters")) {
+
+			JSONArray parametersJson =
+				actionsJson.getJSONObject(0).getJSONArray("parameters");
+
+			for (int i = 0; i < parametersJson.length(); i++) {
+				JSONObject parameterJson = parametersJson.getJSONObject(i);
+
+				String parameterName = parameterJson.getString("name");
+
+				if (jenkinsJob.getParameterDefinitions().contains(
+					parameterName)) {
+
+					String parameterValue = parameterJson.getString("value");
+
+					parameters.put(parameterName, parameterValue);
+				}
+			}
+		}
 	}
 
 	public JenkinsJob getJenkinsJob() {

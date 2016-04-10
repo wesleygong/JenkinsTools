@@ -106,58 +106,18 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jsonGetter.convertURL(jenkinsJob.getURL()));
-		sb.append("api/json?tree=builds[building,number,result,timestamp,url,");
-		sb.append("actions[parameters[name,value]]]");
+		sb.append("api/json?");
+		sb.append(JenkinsBuild.QUERY_PARAMETER);
 
 		JSONObject jobJson = jsonGetter.getJson(sb.toString());
 
 		Set<JenkinsBuild> jenkinsBuilds = new HashSet<>();
 
 		for (JSONObject buildJson : getBuildJsons(jobJson)) {
-			jenkinsBuilds.add(getJenkinsBuild(buildJson, jenkinsJob));
+			jenkinsBuilds.add(new JenkinsBuild(buildJson, jenkinsJob));
 		}
 
 		return jenkinsBuilds;
-	}
-
-	public static JenkinsBuild getJenkinsBuild(
-		JSONObject buildJson, JenkinsJob jenkinsJob) {
-
-		int number = buildJson.getInt("number");
-		boolean building = buildJson.getBoolean("building");
-		String url = buildJson.getString("url");
-
-		Map<String, String> parameters = new HashMap<>();
-
-		JSONArray actionsJson = buildJson.getJSONArray("actions");
-
-		if ((actionsJson.length() > 0) &&
-			actionsJson.getJSONObject(0).has("parameters")) {
-
-			JSONArray parametersJson =
-				actionsJson.getJSONObject(0).getJSONArray("parameters");
-
-			for (int i = 0; i < parametersJson.length(); i++) {
-				JSONObject parameterJson = parametersJson.getJSONObject(i);
-
-				String parameterName = parameterJson.getString("name");
-
-				if (jenkinsJob.getParameterDefinitions().contains(
-					parameterName)) {
-
-					String parameterValue = parameterJson.getString("value");
-
-					parameters.put(parameterName, parameterValue);
-				}
-			}
-		}
-
-		return new JenkinsBuild(
-			jenkinsJob, buildJson.optInt("number"),
-				buildJson.optBoolean("building"),
-					buildJson.optString("url"), parameters,
-						buildJson.optLong("timestamp"),
-							buildJson.optString("result"));
 	}
 
 	public static Set<JSONObject> getBuildJsons(JSONObject jobJson)
