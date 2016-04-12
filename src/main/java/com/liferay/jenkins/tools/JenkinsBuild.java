@@ -30,7 +30,7 @@ public class JenkinsBuild {
 			"actions[parameters[name,value]]]";
 
 	private boolean building;
-	private int duration;
+	private long duration;
 	private int number;
 	private JenkinsJob jenkinsJob;
 	private long timestamp;
@@ -42,7 +42,7 @@ public class JenkinsBuild {
 		this.jenkinsJob = jenkinsJob;
 
 		building = buildJson.getBoolean("building");
-		duration = buildJson.optInt("duration");
+		duration = buildJson.optLong("duration");
 		number = buildJson.getInt("number");
 		result = buildJson.optString("result");
 		timestamp = buildJson.getLong("timestamp");
@@ -76,6 +76,10 @@ public class JenkinsBuild {
 
 	public JenkinsJob getJenkinsJob() {
 		return jenkinsJob;
+	}
+
+	public long getDuration() {
+		return duration;
 	}
 
 	public int getNumber() {
