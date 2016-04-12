@@ -26,25 +26,25 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Kevin Yen
  */
-public class BuildTimestampMatcher implements BuildMatcher {
+public class TimestampMatcher implements BuildMatcher {
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
-		BuildTimestampMatcher.class);
+		TimestampMatcher.class);
 
 	Date end = new Date(Long.MAX_VALUE);
 	Date start = new Date(Long.MIN_VALUE);
 
-	public BuildTimestampMatcher(boolean before, long time) {
+	public TimestampMatcher(boolean before, long time) {
 		this(before, new Date(time));
 	}
 
-	public BuildTimestampMatcher(boolean before, String timestamp)
+	public TimestampMatcher(boolean before, String timestamp)
 		throws IllegalArgumentException {
 
 		this(before, parseTimestamp(timestamp));
 	}
 
-	public BuildTimestampMatcher(boolean before, Date date) {
+	public TimestampMatcher(boolean before, Date date) {
 		if (before) {
 			end = date;
 

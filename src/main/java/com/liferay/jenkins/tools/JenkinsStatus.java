@@ -233,12 +233,12 @@ public class JenkinsStatus {
 
 		if (line.hasOption("b")) {
 			buildMatchers.add(
-				new BuildTimestampMatcher(true, line.getOptionValue("b")));
+				new TimestampMatcher(true, line.getOptionValue("b")));
 		}
 
 		if (line.hasOption("a")) {
 			buildMatchers.add(
-				new BuildTimestampMatcher(false, line.getOptionValue("a")));
+				new TimestampMatcher(false, line.getOptionValue("a")));
 		}
 	}
 
