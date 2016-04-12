@@ -226,7 +226,7 @@ public class JenkinsStatus {
 		}
 
 		if (line.hasOption("r")) {
-			buildMatchers.add(new BuildResultMatcher(line.getOptionValue("r")));
+			buildMatchers.add(new ResultMatcher(line.getOptionValue("r")));
 		}
 
 		if (line.hasOption("b")) {

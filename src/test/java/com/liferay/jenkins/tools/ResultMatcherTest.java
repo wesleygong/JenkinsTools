@@ -21,16 +21,16 @@ import org.junit.*;
 /**
  * @author Kevin Yen
  */
-public class BuildResultMatcherTest {
+public class ResultMatcherTest {
 
 	@Test
 	public void ConstructorSuccess() {
-		new BuildResultMatcher("success");
+		new ResultMatcher("success");
 	}
 
 	@Test (expected=IllegalArgumentException.class)
 	public void ConstructorThrowsIllegalArgumentException() {
-		new BuildResultMatcher("DOES_NOT_EXIST");
+		new ResultMatcher("DOES_NOT_EXIST");
 	}
 
 }

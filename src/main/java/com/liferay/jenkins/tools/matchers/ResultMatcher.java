@@ -23,17 +23,17 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Kevin Yen
  */
-public class BuildResultMatcher implements BuildMatcher {
+public class ResultMatcher implements BuildMatcher {
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
-		BuildResultMatcher.class);
+		ResultMatcher.class);
 
 	private final List<String> validMatches = Arrays.asList(
 		"SUCCESS", "FAILURE", "ABORTED", "NOT_BUILT", "UNSTABLE");
 
 	private String result;
 
-	public BuildResultMatcher(String match) {
+	public ResultMatcher(String match) {
 		if (!validMatches.contains(match.toUpperCase())) {
 			throw new IllegalArgumentException(
 				match + " is not a valid build result");
