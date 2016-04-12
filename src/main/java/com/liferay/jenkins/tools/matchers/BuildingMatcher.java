@@ -23,17 +23,17 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Kevin Yen
  */
-public class BuildBuildingMatcher implements BuildMatcher {
+public class BuildingMatcher implements BuildMatcher {
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
-		BuildBuildingMatcher.class);
+		BuildingMatcher.class);
 
 	private final List<String> validMatches = Arrays.asList(
 		"TRUE", "FALSE", "ANY");
 
 	private String building;
 
-	public BuildBuildingMatcher(String match) {
+	public BuildingMatcher(String match) {
 		if (!validMatches.contains(match.toUpperCase())) {
 			throw new IllegalArgumentException(
 				match + " is not a valid building state");

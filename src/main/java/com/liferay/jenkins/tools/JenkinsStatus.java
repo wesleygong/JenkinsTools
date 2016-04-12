@@ -215,11 +215,10 @@ public class JenkinsStatus {
 		}
 
 		if (line.hasOption("c")) {
-			buildMatchers.add(
-				new BuildBuildingMatcher(line.getOptionValue("c")));
+			buildMatchers.add(new BuildingMatcher(line.getOptionValue("c")));
 		}
 		else {
-			buildMatchers.add(new BuildBuildingMatcher("TRUE"));
+			buildMatchers.add(new BuildingMatcher("TRUE"));
 		}
 
 		if (line.hasOption("p")) {
