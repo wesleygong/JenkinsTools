@@ -330,8 +330,8 @@ public class JenkinsStatus {
 
 					printMessage("Name", build.getJenkinsJob().getName(), 12);
 					printMessage("Number", number, 12);
-					printMessage("Building", building, 12);
 					printMessage("Time", date, 12);
+					printMessage("Building", building, 12);
 					printMessage("Duration", duration, 12);
 					printMessage("Result", build.getResult(), 12);
 					printMessage("Parameters", build.getParameters());
