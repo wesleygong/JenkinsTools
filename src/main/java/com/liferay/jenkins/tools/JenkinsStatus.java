@@ -319,6 +319,12 @@ public class JenkinsStatus {
 					String building = new Boolean(
 						build.isBuilding()).toString();
 
+					String duration = "";
+
+					if (build.getDuration() > 0) {
+						duration = new Long(build.getDuration()).toString();
+					}
+
 					System.out.print("\n");
 					System.out.println(build.getURL());
 
@@ -326,6 +332,7 @@ public class JenkinsStatus {
 					printMessage("Number", number, 12);
 					printMessage("Building", building, 12);
 					printMessage("Time", date, 12);
+					printMessage("Duration", duration, 12);
 					printMessage("Result", build.getResult(), 12);
 					printMessage("Parameters", build.getParameters());
 				}
