@@ -23,11 +23,11 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Kevin Yen
  */
-public class BuildParametersMatcher implements BuildMatcher {
+public class ParametersMatcher implements BuildMatcher {
 
 	private Map<String, String> parameters = new HashMap<>();
 
-	public BuildParametersMatcher(String[] matches) {
+	public ParametersMatcher(String[] matches) {
 		for (String match : matches) {
 			String[] parameterSet = match.split("\\s*=\\s*");
 
