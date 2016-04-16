@@ -41,21 +41,21 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		BuildsGetter.class);
 
 	private JsonGetter jsonGetter;
-	private JenkinsJob jenkinsJob;
+	private Job job;
 
-	public BuildsGetter(JsonGetter jsonGetter, JenkinsJob jenkinsJob) {
+	public BuildsGetter(JsonGetter jsonGetter, Job job) {
 		this.jsonGetter = jsonGetter;
-		this.jenkinsJob = jenkinsJob;
+		this.job = job;
 	}
 
 	@Override
 	public Set<Build> call() throws Exception {
-		return getBuilds(jsonGetter, jenkinsJob);
+		return getBuilds(jsonGetter, job);
 	}
 
 	public static Set<Build> getBuilds(
 			JsonGetter jsonGetter, ExecutorService executor,
-			Set<JenkinsJob> jenkinsJobs)
+			Set<Job> jobs)
 		throws Exception {
 
 		CompletionService<Set<Build>> completionService =
@@ -66,12 +66,12 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		Set<Build> builds = new HashSet<>();
 
 		try {
-			logger.info("Getting builds for {} jobs ...", jenkinsJobs.size());
+			logger.info("Getting builds for {} jobs ...", jobs.size());
 
-			for (JenkinsJob jenkinsJob : jenkinsJobs) {
+			for (Job job : jobs) {
 				activeFutures.add(
 					completionService.submit(
-						new BuildsGetter(jsonGetter, jenkinsJob)));
+						new BuildsGetter(jsonGetter, job)));
 			}
 
 			while (activeFutures.size() > 0) {
@@ -100,12 +100,12 @@ public class BuildsGetter implements Callable<Set<Build>> {
 	}
 
 	public static Set<Build> getBuilds(
-			JsonGetter jsonGetter, JenkinsJob jenkinsJob)
+			JsonGetter jsonGetter, Job job)
 		throws Exception {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(jsonGetter.convertURL(jenkinsJob.getURL()));
+		sb.append(jsonGetter.convertURL(job.getURL()));
 		sb.append("api/json?");
 		sb.append(Build.QUERY_PARAMETER);
 
@@ -114,7 +114,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		Set<Build> builds = new HashSet<>();
 
 		for (JSONObject buildJson : getBuildJsons(jobJson)) {
-			builds.add(new Build(buildJson, jenkinsJob));
+			builds.add(new Build(buildJson, job));
 		}
 
 		return builds;

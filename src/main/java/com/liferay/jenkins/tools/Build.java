@@ -32,14 +32,14 @@ public class Build {
 	private boolean building;
 	private long duration;
 	private int number;
-	private JenkinsJob jenkinsJob;
+	private Job job;
 	private long timestamp;
 	private Map<String, String> parameters;
 	private String result;
 	private String url;
 
-	public Build(JSONObject buildJson, JenkinsJob jenkinsJob) {
-		this.jenkinsJob = jenkinsJob;
+	public Build(JSONObject buildJson, Job job) {
+		this.job = job;
 
 		building = buildJson.getBoolean("building");
 		duration = buildJson.optLong("duration");
@@ -63,7 +63,7 @@ public class Build {
 
 				String parameterName = parameterJson.getString("name");
 
-				if (jenkinsJob.getParameterDefinitions().contains(
+				if (job.getParameterDefinitions().contains(
 					parameterName)) {
 
 					String parameterValue = parameterJson.getString("value");
@@ -74,8 +74,8 @@ public class Build {
 		}
 	}
 
-	public JenkinsJob getJenkinsJob() {
-		return jenkinsJob;
+	public Job getJob() {
+		return job;
 	}
 
 	public long getDuration() {
@@ -110,7 +110,7 @@ public class Build {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(jenkinsJob.getName());
+		sb.append(job.getName());
 		sb.append("/");
 		sb.append(number);
 		sb.append("[");

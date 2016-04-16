@@ -77,14 +77,14 @@ public class BuildsGetterTest {
 
 	@Test
 	public void testGetBuilds() throws Exception {
-		JenkinsJob jenkinsJob = new JenkinsJob(VALID_JOB_NAME, VALID_JOB_URL, validParameterDefinitions);
+		Job jenkinsJob = new Job(VALID_JOB_NAME, VALID_JOB_URL, validParameterDefinitions);
 
 		BuildsGetter.getBuilds(testJsonGetter, jenkinsJob);
 	}
 
 	@Test (expected=IOException.class)
-	public void testGetJenkinsJobsThrowsException() throws Exception {
-		JenkinsJob jenkinsJob = new JenkinsJob(VALID_JOB_NAME, INVALID_JOB_URL, validParameterDefinitions);
+	public void testGetJobsThrowsException() throws Exception {
+		Job jenkinsJob = new Job(VALID_JOB_NAME, INVALID_JOB_URL, validParameterDefinitions);
 
 		BuildsGetter.getBuilds(testJsonGetter, jenkinsJob);
 	}
@@ -93,9 +93,9 @@ public class BuildsGetterTest {
 	public void testGetBuildWithThreadsThrowsExecutionException() throws Exception {
 		ExecutorService executor = Executors.newFixedThreadPool(1);
 
-		Set<JenkinsJob> jenkinsJob = new HashSet<>();
+		Set<Job> jenkinsJob = new HashSet<>();
 
-		jenkinsJob.add(new JenkinsJob(VALID_JOB_NAME, INVALID_JOB_URL, validParameterDefinitions));
+		jenkinsJob.add(new Job(VALID_JOB_NAME, INVALID_JOB_URL, validParameterDefinitions));
 
 		BuildsGetter.getBuilds(testJsonGetter, executor, jenkinsJob);
 	}

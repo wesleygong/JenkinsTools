@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /**
  * @author Kevin Yen
  */
-public class JenkinsJob {
+public class Job {
 
 	public static final String QUERY_PARAMETER =
 		"tree=jobs[name,url,actions[parameterDefinitions[name,type]]]";
@@ -32,7 +32,7 @@ public class JenkinsJob {
 	private String url;
 	private Set<String> parameterDefinitions;
 
-	public JenkinsJob(
+	public Job(
 		String name, String url, Set<String> parameterDefinitions) {
 
 		this.name = name;
@@ -40,7 +40,7 @@ public class JenkinsJob {
 		this.parameterDefinitions = parameterDefinitions;
 	}
 
-	public JenkinsJob(JSONObject jobJson)
+	public Job(JSONObject jobJson)
 		throws Exception {
 
 		name = jobJson.getString("name");

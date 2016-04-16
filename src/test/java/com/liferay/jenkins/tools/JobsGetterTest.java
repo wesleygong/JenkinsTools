@@ -32,7 +32,7 @@ import org.json.JSONException;
 /**
  * @author Kevin Yen
  */
-public class JenkinsJobsGetterTest {
+public class JobsGetterTest {
 
 	private static final String VALID_JENKINS_URL = "https://test-1-1.liferay.com";
 	private static final String VALID_JOB_URL = "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)";
@@ -48,24 +48,24 @@ public class JenkinsJobsGetterTest {
 	}
 
 	@Test
-	public void testGetJenkinsJobs() throws Exception {
-		JenkinsJobsGetter.getJenkinsJobs(testJsonGetter, VALID_JENKINS_URL);
+	public void testGetJobs() throws Exception {
+		JobsGetter.getJobs(testJsonGetter, VALID_JENKINS_URL);
 	}
 
 	@Test (expected=ExecutionException.class)
-	public void testGetJenkinsJobsWithThreadsThrowsExecutionException() throws Exception {
+	public void testGetJobsWithThreadsThrowsExecutionException() throws Exception {
 		ExecutorService executor = Executors.newFixedThreadPool(1);
 
 		Set<String> jenkinsURLs = new HashSet<>();
 
 		jenkinsURLs.add(INVALID_JENKINS_URL);
 
-		JenkinsJobsGetter.getJenkinsJobs(testJsonGetter, executor, jenkinsURLs);
+		JobsGetter.getJobs(testJsonGetter, executor, jenkinsURLs);
 	}
 
 	@Test (expected=JSONException.class)
-	public void testGetJenkinsJobsThrowsJSONException() throws Exception {
-		JenkinsJobsGetter.getJenkinsJobs(testJsonGetter, VALID_JOB_URL);
+	public void testGetJobsThrowsJSONException() throws Exception {
+		JobsGetter.getJobs(testJsonGetter, VALID_JOB_URL);
 	}
 
 }

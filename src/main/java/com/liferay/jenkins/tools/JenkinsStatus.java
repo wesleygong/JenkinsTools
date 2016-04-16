@@ -262,30 +262,30 @@ public class JenkinsStatus {
 		Set<Build> matchingBuilds = new HashSet<>();
 
 		try {
-			Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(
+			Set<Job> jobs = JobsGetter.getJobs(
 				jsonGetter, executor, jenkinsURLs);
 
-			Set<JenkinsJob> matchingJenkinsJobs = new HashSet<>();
+			Set<Job> matchingJobs = new HashSet<>();
 
-			for (JenkinsJob jenkinsJob : jenkinsJobs) {
-				Matcher matcher = pattern.matcher(jenkinsJob.getName());
+			for (Job job : jobs) {
+				Matcher matcher = pattern.matcher(job.getName());
 
 				if (matcher.find()) {
-					matchingJenkinsJobs.add(jenkinsJob);
+					matchingJobs.add(job);
 
 					logger.debug(
 						"Found job {} matching regular expression",
-							jenkinsJob.getName());
+							job.getName());
 				}
 			}
 
 			logger.info(
 				"Found {} jobs matching regular expression '{}'",
-					matchingJenkinsJobs.size(), pattern);
+					matchingJobs.size(), pattern);
 
 			Set<Build> builds =
 				BuildsGetter.getBuilds(
-					jsonGetter, executor, matchingJenkinsJobs);
+					jsonGetter, executor, matchingJobs);
 
 			for (Build build : builds) {
 				boolean match = true;
@@ -326,7 +326,7 @@ public class JenkinsStatus {
 					System.out.print("\n");
 					System.out.println(build.getURL());
 
-					printMessage("Name", build.getJenkinsJob().getName(), 12);
+					printMessage("Name", build.getJob().getName(), 12);
 					printMessage("Number", number, 12);
 					printMessage("Time", date, 12);
 					printMessage("Building", building, 12);
