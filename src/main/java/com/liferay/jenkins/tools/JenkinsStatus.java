@@ -283,9 +283,8 @@ public class JenkinsStatus {
 				"Found {} jobs matching regular expression '{}'",
 					matchingJobs.size(), pattern);
 
-			Set<Build> builds =
-				BuildsGetter.getBuilds(
-					jsonGetter, executor, matchingJobs);
+			Set<Build> builds = BuildsGetter.getBuilds(
+				jsonGetter, executor, matchingJobs);
 
 			for (Build build : builds) {
 				boolean match = true;
@@ -307,8 +306,7 @@ public class JenkinsStatus {
 			throw e;
 		}
 		finally {
-			System.out.println(
-				"Found " + matchingBuilds.size() + " builds");
+			System.out.println("Found " + matchingBuilds.size() + " builds");
 
 			for (Build build : matchingBuilds){
 				if (showBuildInfo) {

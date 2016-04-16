@@ -32,9 +32,7 @@ public class Job {
 	private String url;
 	private Set<String> parameterDefinitions;
 
-	public Job(
-		String name, String url, Set<String> parameterDefinitions) {
-
+	public Job(String name, String url, Set<String> parameterDefinitions) {
 		this.name = name;
 		this.url = url;
 		this.parameterDefinitions = parameterDefinitions;

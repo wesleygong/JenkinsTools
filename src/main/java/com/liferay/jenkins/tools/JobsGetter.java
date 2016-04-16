@@ -73,8 +73,7 @@ public class JobsGetter implements Callable<Set<Job>> {
 			}
 
 			while (activeFutures.size() > 0) {
-				Future<Set<Job>> completedFuture =
-					completionService.take();
+				Future<Set<Job>> completedFuture = completionService.take();
 
 				activeFutures.remove(completedFuture);
 
@@ -97,8 +96,8 @@ public class JobsGetter implements Callable<Set<Job>> {
 		return jobs;
 	}
 
-	public static Set<Job> getJobs(
-		JsonGetter jsonGetter, String jenkinsURL) throws Exception {
+	public static Set<Job> getJobs(JsonGetter jsonGetter, String jenkinsURL)
+		throws Exception {
 
 		StringBuilder sb = new StringBuilder();
 
