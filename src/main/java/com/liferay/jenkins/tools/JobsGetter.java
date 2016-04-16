@@ -107,12 +107,6 @@ public class JobsGetter implements Callable<Set<Job>> {
 
 		JSONObject rootJson = jsonGetter.getJson(sb.toString());
 
-		return getJobs(rootJson);
-	}
-
-	public static Set<Job> getJobs(JSONObject rootJson)
-		throws Exception {
-
 		Set<Job> jobs = new HashSet<>();
 
 		for (JSONObject jobJson : getJobJsons(rootJson)) {
