@@ -39,7 +39,7 @@ public class ParametersMatcher implements BuildMatcher {
 		}
 	}
 
-	public boolean matches(JenkinsBuild jenkinsBuild) {
+	public boolean matches(Build jenkinsBuild) {
 		for (String name : parameters.keySet()) {
 			Map<String, String> buildParameters = jenkinsBuild.getParameters();
 

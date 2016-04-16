@@ -19,6 +19,6 @@ package com.liferay.jenkins.tools;
  */
 public interface BuildMatcher {
 
-	public boolean matches(JenkinsBuild jenkinsBuild);
+	public boolean matches(Build jenkinsBuild);
 
 }

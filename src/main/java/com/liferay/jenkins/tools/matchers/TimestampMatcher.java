@@ -134,7 +134,7 @@ public class TimestampMatcher implements BuildMatcher {
 		return timeCalendar.getTime();
 	}
 
-	public boolean matches(JenkinsBuild jenkinsBuild) {
+	public boolean matches(Build jenkinsBuild) {
 		Date date = new Date(jenkinsBuild.getTimestamp());
 
 		if (date.after(start) && date.before(end)) {

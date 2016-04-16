@@ -35,35 +35,35 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
+public class BuildsGetter implements Callable<Set<Build>> {
 
 	private static final Logger logger = LoggerFactory.getLogger(
-		JenkinsBuildsGetter.class);
+		BuildsGetter.class);
 
 	private JsonGetter jsonGetter;
 	private JenkinsJob jenkinsJob;
 
-	public JenkinsBuildsGetter(JsonGetter jsonGetter, JenkinsJob jenkinsJob) {
+	public BuildsGetter(JsonGetter jsonGetter, JenkinsJob jenkinsJob) {
 		this.jsonGetter = jsonGetter;
 		this.jenkinsJob = jenkinsJob;
 	}
 
 	@Override
-	public Set<JenkinsBuild> call() throws Exception {
-		return getJenkinsBuilds(jsonGetter, jenkinsJob);
+	public Set<Build> call() throws Exception {
+		return getBuilds(jsonGetter, jenkinsJob);
 	}
 
-	public static Set<JenkinsBuild> getJenkinsBuilds(
+	public static Set<Build> getBuilds(
 			JsonGetter jsonGetter, ExecutorService executor,
 			Set<JenkinsJob> jenkinsJobs)
 		throws Exception {
 
-		CompletionService<Set<JenkinsBuild>> completionService =
-			new ExecutorCompletionService<Set<JenkinsBuild>>(executor);
+		CompletionService<Set<Build>> completionService =
+			new ExecutorCompletionService<Set<Build>>(executor);
 
-		Set<Future<Set<JenkinsBuild>>> activeFutures = new HashSet<>();
+		Set<Future<Set<Build>>> activeFutures = new HashSet<>();
 
-		Set<JenkinsBuild> jenkinsBuilds = new HashSet<>();
+		Set<Build> builds = new HashSet<>();
 
 		try {
 			logger.info("Getting builds for {} jobs ...", jenkinsJobs.size());
@@ -71,16 +71,16 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 			for (JenkinsJob jenkinsJob : jenkinsJobs) {
 				activeFutures.add(
 					completionService.submit(
-						new JenkinsBuildsGetter(jsonGetter, jenkinsJob)));
+						new BuildsGetter(jsonGetter, jenkinsJob)));
 			}
 
 			while (activeFutures.size() > 0) {
-				Future<Set<JenkinsBuild>> completedFuture =
+				Future<Set<Build>> completedFuture =
 					completionService.take();
 
 				activeFutures.remove(completedFuture);
 
-				jenkinsBuilds.addAll(completedFuture.get());
+				builds.addAll(completedFuture.get());
 
 				logger.debug("{} threads still active.", activeFutures.size());
 			}
@@ -89,17 +89,17 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 			logger.error("Invoked thread threw an exception.");
 			logger.error("Cancelling remaining threads.");
 
-			for (Future<Set<JenkinsBuild>> future : activeFutures) {
+			for (Future<Set<Build>> future : activeFutures) {
 				future.cancel(true);
 			}
 
 			throw e;
 		}
 
-		return jenkinsBuilds;
+		return builds;
 	}
 
-	public static Set<JenkinsBuild> getJenkinsBuilds(
+	public static Set<Build> getBuilds(
 			JsonGetter jsonGetter, JenkinsJob jenkinsJob)
 		throws Exception {
 
@@ -107,17 +107,17 @@ public class JenkinsBuildsGetter implements Callable<Set<JenkinsBuild>> {
 
 		sb.append(jsonGetter.convertURL(jenkinsJob.getURL()));
 		sb.append("api/json?");
-		sb.append(JenkinsBuild.QUERY_PARAMETER);
+		sb.append(Build.QUERY_PARAMETER);
 
 		JSONObject jobJson = jsonGetter.getJson(sb.toString());
 
-		Set<JenkinsBuild> jenkinsBuilds = new HashSet<>();
+		Set<Build> builds = new HashSet<>();
 
 		for (JSONObject buildJson : getBuildJsons(jobJson)) {
-			jenkinsBuilds.add(new JenkinsBuild(buildJson, jenkinsJob));
+			builds.add(new Build(buildJson, jenkinsJob));
 		}
 
-		return jenkinsBuilds;
+		return builds;
 	}
 
 	public static Set<JSONObject> getBuildJsons(JSONObject jobJson)

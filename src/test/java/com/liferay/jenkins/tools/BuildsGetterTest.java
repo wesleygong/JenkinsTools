@@ -34,7 +34,7 @@ import org.json.JSONException;
 /**
  * @author Kevin Yen
  */
-public class JenkinsBuildsGetterTest {
+public class BuildsGetterTest {
 
 	private static final String VALID_JENKINS_URL = "https://test-1-1.liferay.com";
 	private static final String VALID_JOB_NAME = "test-portal-acceptance-pullrequest(master)";
@@ -76,28 +76,28 @@ public class JenkinsBuildsGetterTest {
 	}
 
 	@Test
-	public void testGetJenkinsBuilds() throws Exception {
+	public void testGetBuilds() throws Exception {
 		JenkinsJob jenkinsJob = new JenkinsJob(VALID_JOB_NAME, VALID_JOB_URL, validParameterDefinitions);
 
-		JenkinsBuildsGetter.getJenkinsBuilds(testJsonGetter, jenkinsJob);
+		BuildsGetter.getBuilds(testJsonGetter, jenkinsJob);
 	}
 
 	@Test (expected=IOException.class)
 	public void testGetJenkinsJobsThrowsException() throws Exception {
 		JenkinsJob jenkinsJob = new JenkinsJob(VALID_JOB_NAME, INVALID_JOB_URL, validParameterDefinitions);
 
-		JenkinsBuildsGetter.getJenkinsBuilds(testJsonGetter, jenkinsJob);
+		BuildsGetter.getBuilds(testJsonGetter, jenkinsJob);
 	}
 
 	@Test (expected=ExecutionException.class)
-	public void testGetJenkinsBuildWithThreadsThrowsExecutionException() throws Exception {
+	public void testGetBuildWithThreadsThrowsExecutionException() throws Exception {
 		ExecutorService executor = Executors.newFixedThreadPool(1);
 
 		Set<JenkinsJob> jenkinsJob = new HashSet<>();
 
 		jenkinsJob.add(new JenkinsJob(VALID_JOB_NAME, INVALID_JOB_URL, validParameterDefinitions));
 
-		JenkinsBuildsGetter.getJenkinsBuilds(testJsonGetter, executor, jenkinsJob);
+		BuildsGetter.getBuilds(testJsonGetter, executor, jenkinsJob);
 	}
 
 }

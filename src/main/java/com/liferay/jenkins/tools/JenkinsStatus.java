@@ -259,7 +259,7 @@ public class JenkinsStatus {
 		ExecutorService executor = Executors.newFixedThreadPool(
 			THREAD_POOL_SIZE);
 
-		Set<JenkinsBuild> matchingJenkinsBuilds = new HashSet<>();
+		Set<Build> matchingBuilds = new HashSet<>();
 
 		try {
 			Set<JenkinsJob> jenkinsJobs = JenkinsJobsGetter.getJenkinsJobs(
@@ -283,21 +283,21 @@ public class JenkinsStatus {
 				"Found {} jobs matching regular expression '{}'",
 					matchingJenkinsJobs.size(), pattern);
 
-			Set<JenkinsBuild> jenkinsBuilds =
-				JenkinsBuildsGetter.getJenkinsBuilds(
+			Set<Build> builds =
+				BuildsGetter.getBuilds(
 					jsonGetter, executor, matchingJenkinsJobs);
 
-			for (JenkinsBuild jenkinsBuild : jenkinsBuilds) {
+			for (Build build : builds) {
 				boolean match = true;
 
 				for (BuildMatcher buildMatcher : buildMatchers) {
-					if (!buildMatcher.matches(jenkinsBuild)) {
+					if (!buildMatcher.matches(build)) {
 						match = false;
 					}
 				}
 
 				if (match) {
-					matchingJenkinsBuilds.add(jenkinsBuild);
+					matchingBuilds.add(build);
 				}
 			}
 		}
@@ -308,9 +308,9 @@ public class JenkinsStatus {
 		}
 		finally {
 			System.out.println(
-				"Found " + matchingJenkinsBuilds.size() + " builds");
+				"Found " + matchingBuilds.size() + " builds");
 
-			for (JenkinsBuild build : matchingJenkinsBuilds){
+			for (Build build : matchingBuilds){
 				if (showBuildInfo) {
 					String date = new Date(build.getTimestamp()).toString();
 					String number = new Integer(build.getNumber()).toString();

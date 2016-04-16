@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /**
  * @author Kevin Yen
  */
-public class JenkinsBuild {
+public class Build {
 
 	public static final String QUERY_PARAMETER =
 		"tree=builds[building,duration,number,result,timestamp,url," +
@@ -38,7 +38,7 @@ public class JenkinsBuild {
 	private String result;
 	private String url;
 
-	public JenkinsBuild(JSONObject buildJson, JenkinsJob jenkinsJob) {
+	public Build(JSONObject buildJson, JenkinsJob jenkinsJob) {
 		this.jenkinsJob = jenkinsJob;
 
 		building = buildJson.getBoolean("building");
