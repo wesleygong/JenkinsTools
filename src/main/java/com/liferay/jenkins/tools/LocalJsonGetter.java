@@ -81,7 +81,7 @@ public class LocalJsonGetter implements JsonGetter {
 
 	@Override
 	public JSONObject getJson(String url) throws Exception {
-		logger.debug("Fetching JSON from {} ...", url);
+		logger.debug("Fetching JSON from {}", url);
 
 		RequestConfig requestConfig =
 			RequestConfig.custom().setConnectTimeout(timeout).build();
@@ -97,7 +97,7 @@ public class LocalJsonGetter implements JsonGetter {
 		String jsonString =
 			IOUtils.toString(httpResponse.getEntity().getContent());
 
-		logger.debug("Successfully fetched {}.", url);
+		logger.debug("Successfully fetched {}", url);
 
 		return new JSONObject(jsonString);
 	}

@@ -41,7 +41,7 @@ public class ResultMatcher implements BuildMatcher {
 
 		result = match.toUpperCase();
 
-		logger.debug("Matching builds with a result of {}.", result);
+		logger.debug("Matching builds with a result of {}", result);
 	}
 
 	public boolean matches(Build jenkinsBuild) {

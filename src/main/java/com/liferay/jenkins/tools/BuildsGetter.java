@@ -66,7 +66,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		Set<Build> builds = new HashSet<>();
 
 		try {
-			logger.info("Getting builds for {} jobs ...", jobs.size());
+			logger.info("Getting builds for {} jobs", jobs.size());
 
 			for (Job job : jobs) {
 				activeFutures.add(
@@ -81,12 +81,12 @@ public class BuildsGetter implements Callable<Set<Build>> {
 
 				builds.addAll(completedFuture.get());
 
-				logger.debug("{} threads still active.", activeFutures.size());
+				logger.debug("{} threads still active", activeFutures.size());
 			}
 		}
 		catch (ExecutionException e) {
-			logger.error("Invoked thread threw an exception.");
-			logger.error("Cancelling remaining threads.");
+			logger.error("Invoked thread threw an exception");
+			logger.error("Cancelling remaining threads");
 
 			for (Future<Set<Build>> future : activeFutures) {
 				future.cancel(true);

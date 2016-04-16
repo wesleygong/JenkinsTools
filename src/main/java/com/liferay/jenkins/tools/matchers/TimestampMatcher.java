@@ -48,12 +48,12 @@ public class TimestampMatcher implements BuildMatcher {
 		if (before) {
 			end = date;
 
-			logger.debug("Matching builds before {}.", end);
+			logger.debug("Matching builds before {}", end);
 		}
 		else {
 			start = date;
 
-			logger.debug("Matching builds after {}.", start);
+			logger.debug("Matching builds after {}", start);
 		}
 	}
 

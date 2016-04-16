@@ -130,12 +130,12 @@ public class JenkinsStatus {
 
 		Options options = new Options();
 
-		options.addOption("i", "info", false, "Set logging level to info.");
-		options.addOption("d", "debug", false, "Set logging level to debug.");
+		options.addOption("i", "info", false, "Set logging level to info");
+		options.addOption("d", "debug", false, "Set logging level to debug");
 		options.addOption(
-			"u", "user", true, "Specify the username used in authentication.");
+			"u", "user", true, "Specify the username used in authentication");
 		options.addOption(
-			"n", "name", true, "Set the regular expression to match job name.");
+			"n", "name", true, "Set the regular expression to match job name");
 		options.addOption(
 			"r", "result", true, "Specify the result of the matching build");
 		options.addOption(
@@ -203,7 +203,7 @@ public class JenkinsStatus {
 
 			if (console == null) {
 				throw new IllegalStateException(
-					"Unable to get Console instance.");
+					"Unable to get Console instance");
 			}
 
 			String username = line.getOptionValue("u");
@@ -252,7 +252,7 @@ public class JenkinsStatus {
 			jenkinsURLs.add(jenkinsURLString);
 
 			logger.debug(
-				"Adding {} to the list of servers to search.",
+				"Adding {} to the list of servers to search",
 					jenkinsURLString);
 		}
 

@@ -64,7 +64,7 @@ public class JobsGetter implements Callable<Set<Job>> {
 		Set<Job> jobs = new HashSet<>();
 
 		try {
-			logger.info("Getting jobs from {} servers ...", jenkinsURLs.size());
+			logger.info("Getting jobs from {} servers", jenkinsURLs.size());
 
 			for (String jenkinsURL : jenkinsURLs) {
 				activeFutures.add(
@@ -79,12 +79,12 @@ public class JobsGetter implements Callable<Set<Job>> {
 
 				jobs.addAll(completedFuture.get());
 
-				logger.debug("{} threads still active.", activeFutures.size());
+				logger.debug("{} threads still active", activeFutures.size());
 			}
 		}
 		catch (ExecutionException e) {
-			logger.error("Invoked thread threw an exception.");
-			logger.error("Cancelling remaining threads.");
+			logger.error("Invoked thread threw an exception");
+			logger.error("Cancelling remaining threads");
 
 			for (Future<Set<Job>> future : activeFutures) {
 				future.cancel(true);

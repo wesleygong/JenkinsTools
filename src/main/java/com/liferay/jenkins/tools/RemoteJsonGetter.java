@@ -91,7 +91,7 @@ public class RemoteJsonGetter implements JsonGetter {
 
 	@Override
 	public JSONObject getJson(String url) throws Exception {
-		logger.debug("Fetching JSON from {} ...", url);
+		logger.debug("Fetching JSON from {}", url);
 
 		CredentialsProvider provider = new BasicCredentialsProvider();
 
@@ -114,7 +114,7 @@ public class RemoteJsonGetter implements JsonGetter {
 		String jsonString =
 			IOUtils.toString(httpResponse.getEntity().getContent());
 
-		logger.debug("Successfully fetched {}.", url);
+		logger.debug("Successfully fetched {}", url);
 
 		return new JSONObject(jsonString);
 	}
