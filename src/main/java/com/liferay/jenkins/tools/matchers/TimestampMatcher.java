@@ -34,6 +34,21 @@ public class TimestampMatcher implements BuildMatcher {
 	Date end = new Date(Long.MAX_VALUE);
 	Date start = new Date(Long.MIN_VALUE);
 
+	public TimestampMatcher(String start, String end)
+		throws IllegalArgumentException {
+
+		this(parseTimestamp(start), parseTimestamp(end));
+	}
+
+	public TimestampMatcher(long start, long end) {
+		this(new Date(start), new Date(end));
+	}
+
+	public TimestampMatcher(Date start, Date end) {
+		this.start = start;
+		this.end = end;
+	}
+
 	public TimestampMatcher(boolean before, long time) {
 		this(before, new Date(time));
 	}
