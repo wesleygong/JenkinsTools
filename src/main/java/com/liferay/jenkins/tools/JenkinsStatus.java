@@ -311,14 +311,13 @@ public class JenkinsStatus {
 			for (Build build : matchingBuilds){
 				if (showBuildInfo) {
 					String date = new Date(build.getTimestamp()).toString();
-					String number = new Integer(build.getNumber()).toString();
-					String building = new Boolean(
-						build.isBuilding()).toString();
+					String number = Integer.toString(build.getNumber());
+					String building = Boolean.toString(build.isBuilding());
 
 					String duration = "";
 
 					if (build.getDuration() > 0) {
-						duration = new Long(build.getDuration()).toString();
+						duration = Long.toString(build.getDuration());
 					}
 
 					System.out.print("\n");
