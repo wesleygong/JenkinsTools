@@ -23,6 +23,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.TimeUnit;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -73,7 +75,12 @@ public class JobsGetter implements Callable<Set<Job>> {
 			}
 
 			while (activeFutures.size() > 0) {
-				Future<Set<Job>> completedFuture = completionService.take();
+				Future<Set<Job>> completedFuture = completionService.poll(
+					60, TimeUnit.SECONDS);
+
+				if (completedFuture == null) {
+					throw new TimeoutException("JobsGetter timed out");
+				}
 
 				activeFutures.remove(completedFuture);
 

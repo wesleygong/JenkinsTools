@@ -25,6 +25,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.TimeUnit;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -75,7 +77,12 @@ public class BuildsGetter implements Callable<Set<Build>> {
 			}
 
 			while (activeFutures.size() > 0) {
-				Future<Set<Build>> completedFuture = completionService.take();
+				Future<Set<Build>> completedFuture = completionService.poll(
+					60, TimeUnit.SECONDS);
+
+				if (completedFuture == null) {
+					throw new TimeoutException("BuildsGetter timed out");
+				}
 
 				activeFutures.remove(completedFuture);
 
