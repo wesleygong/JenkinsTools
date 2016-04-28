@@ -59,7 +59,9 @@ public class JenkinsStatus {
 
 	private static final int THREAD_POOL_SIZE = 120;
 
-	private static final int REQUEST_TIMEOUT = 30 * 1000;
+	private static final int REQUEST_TIMEOUT = 30 * 1000; // miliseconds
+
+	private static final int WAIT_TIMEOUT = 300; // seconds
 
 	private File serversListFile = new File("servers.list");
 
@@ -275,7 +277,7 @@ public class JenkinsStatus {
 
 		try {
 			Set<Job> jobs = JobsGetter.getJobs(
-				jsonGetter, executor, jenkinsURLs);
+				jsonGetter, executor, jenkinsURLs, WAIT_TIMEOUT);
 
 			Set<Job> matchingJobs = new HashSet<>();
 
@@ -296,7 +298,7 @@ public class JenkinsStatus {
 					matchingJobs.size(), pattern);
 
 			Set<Build> builds = BuildsGetter.getBuilds(
-				jsonGetter, executor, matchingJobs);
+				jsonGetter, executor, matchingJobs, WAIT_TIMEOUT);
 
 			for (Build build : builds) {
 				boolean match = true;
