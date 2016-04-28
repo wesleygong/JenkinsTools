@@ -60,6 +60,14 @@ public class BuildsGetter implements Callable<Set<Build>> {
 			Set<Job> jobs)
 		throws Exception {
 
+		return getBuilds(jsonGetter, executor, jobs, 60);
+	}
+
+	public static Set<Build> getBuilds(
+			JsonGetter jsonGetter, ExecutorService executor,
+			Set<Job> jobs, int timeout)
+		throws Exception {
+
 		CompletionService<Set<Build>> completionService =
 			new ExecutorCompletionService<Set<Build>>(executor);
 
@@ -78,7 +86,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 
 			while (activeFutures.size() > 0) {
 				Future<Set<Build>> completedFuture = completionService.poll(
-					60, TimeUnit.SECONDS);
+					timeout, TimeUnit.SECONDS);
 
 				if (completedFuture == null) {
 					throw new TimeoutException("BuildsGetter timed out");

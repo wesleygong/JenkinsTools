@@ -58,6 +58,14 @@ public class JobsGetter implements Callable<Set<Job>> {
 			Set<String> jenkinsURLs)
 		throws Exception {
 
+		return getJobs(jsonGetter, executor, jenkinsURLs, 60);
+	}
+
+	public static Set<Job> getJobs(
+			JsonGetter jsonGetter, ExecutorService executor,
+			Set<String> jenkinsURLs, int timeout)
+		throws Exception {
+
 		CompletionService<Set<Job>> completionService =
 			new ExecutorCompletionService<Set<Job>>(executor);
 
@@ -76,7 +84,7 @@ public class JobsGetter implements Callable<Set<Job>> {
 
 			while (activeFutures.size() > 0) {
 				Future<Set<Job>> completedFuture = completionService.poll(
-					60, TimeUnit.SECONDS);
+					timeout, TimeUnit.SECONDS);
 
 				if (completedFuture == null) {
 					throw new TimeoutException("JobsGetter timed out");
