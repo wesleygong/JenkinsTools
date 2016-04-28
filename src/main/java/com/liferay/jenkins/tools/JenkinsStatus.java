@@ -162,6 +162,12 @@ public class JenkinsStatus {
 			.hasArgs()
 			.desc("Match builds after specified time")
 			.build());
+		options.addOption(
+			Option.builder("v")
+			.longOpt("duration")
+			.hasArgs()
+			.desc("Match builds with specific duration")
+			.build());
 
 		CommandLine line = parser.parse(options, args);
 
@@ -237,6 +243,12 @@ public class JenkinsStatus {
 		if (line.hasOption("a")) {
 			buildMatchers.add(
 				new TimestampMatcher(false, line.getOptionValue("a")));
+		}
+
+		if (line.hasOption("v")) {
+			int duration = Integer.parseInt(line.getOptionValue("v"));
+
+			buildMatchers.add(new DurationMatcher(duration));
 		}
 	}
 
