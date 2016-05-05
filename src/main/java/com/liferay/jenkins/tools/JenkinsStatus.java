@@ -357,7 +357,30 @@ public class JenkinsStatus {
 					String duration = "";
 
 					if (build.getDuration() > 0) {
-						duration = Long.toString(build.getDuration());
+						StringBuilder sb = new StringBuilder();
+
+						long hours = build.getDuration() / 1000 / 60 / 60;
+
+						if (hours > 0) {
+							sb.append(hours);
+							sb.append(" Hours ");
+						}
+
+						long minutes = build.getDuration() / 1000 / 60 % 60;
+
+						if (minutes > 0) {
+							sb.append(minutes);
+							sb.append(" Minutes ");
+						}
+
+						long seconds = build.getDuration() / 1000 % 60;
+						
+						if (seconds > 0) { 
+							sb.append(seconds);
+							sb.append(" Seconds ");
+						}
+
+						duration = sb.toString();
 					}
 
 					System.out.print("\n");
