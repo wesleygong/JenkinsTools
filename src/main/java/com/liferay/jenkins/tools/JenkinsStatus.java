@@ -169,8 +169,8 @@ public class JenkinsStatus {
 			.desc("Match builds after specified time")
 			.build());
 		options.addOption(
-			Option.builder("v")
-			.longOpt("duration")
+			Option.builder("e")
+			.longOpt("equals")
 			.hasArgs()
 			.desc("Match builds with specific duration")
 			.build());
@@ -263,10 +263,20 @@ public class JenkinsStatus {
 				new TimestampMatcher(false, line.getOptionValue("a")));
 		}
 
-		if (line.hasOption("v")) {
-			int duration = Integer.parseInt(line.getOptionValue("v"));
+		if (line.hasOption("g")) {
+			int duration = Integer.parseInt(line.getOptionValue("g"));
 
-			buildMatchers.add(new DurationMatcher(duration));
+			buildMatchers.add(new DurationMatcher("GREATER", duration));
+		}
+		else if (line.hasOption("l")) {
+			int duration = Integer.parseInt(line.getOptionValue("l"));
+
+			buildMatchers.add(new DurationMatcher("LESS", duration));
+		} 
+		else if (line.hasOption("e")) {
+			int duration = Integer.parseInt(line.getOptionValue("e"));
+
+			buildMatchers.add(new DurationMatcher("EQUALS", duration));
 		}
 	}
 
