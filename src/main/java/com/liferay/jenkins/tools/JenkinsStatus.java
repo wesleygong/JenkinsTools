@@ -174,6 +174,18 @@ public class JenkinsStatus {
 			.hasArgs()
 			.desc("Match builds with specific duration")
 			.build());
+		options.addOption(
+			Option.builder("l")
+			.longOpt("less")
+			.hasArgs()
+			.desc("Match builds less than the duration")
+			.build());
+		options.addOption(
+			Option.builder("g")
+			.longOpt("greater")
+			.hasArgs()
+			.desc("Match builds greater than the duration")
+			.build());
 
 		CommandLine line = parser.parse(options, args);
 
