@@ -117,11 +117,15 @@ public class JenkinsStatus {
 		sb.append('\n');
 
 		for (String name : values.keySet()) {
-			sb.append("    ");
-			sb.append(name);
-			sb.append('=');
-			sb.append(values.get(name));
-			sb.append('\n');
+			String value = values.get(name);
+
+			if ((value != null) && !value.isEmpty()) {
+				sb.append("    ");
+				sb.append(name);
+				sb.append('=');
+				sb.append(value);
+				sb.append('\n');
+			}
 		}
 
 		System.out.println(sb.toString());
