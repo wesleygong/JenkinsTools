@@ -29,6 +29,10 @@ public class DurationMatcher implements BuildMatcher {
 		DurationMatcher.class);
 
 	private int duration;
+	private String condition;
+
+	private final List<String> validMatches = Arrays.asList(
+		"LESS", "GREATER", "EQUALS");
 
 	public DurationMatcher(int duration) {
 		this.duration = duration;
@@ -36,8 +40,42 @@ public class DurationMatcher implements BuildMatcher {
 		logger.debug("Matching builds with a duration of {}", duration);
 	}
 
+	public DurationMatcher(String condition, int duration) {
+		if (!validMatches.contains(condition.toUpperCase())) {
+			throw new IllegalArgumentException(
+				condition + " is not a valid condition");
+		}
+
+		this.duration = duration;
+		this.condition = condition;
+
+		logger.debug(
+			"Matching builds with a duration {} {}", condition.toLowerCase(),
+				duration);
+	}
+
 	public boolean matches(Build jenkinsBuild) {
-		if (jenkinsBuild.getDuration() == duration) {
+		if (condition.equals("LESS") &&
+			(jenkinsBuild.getDuration() < duration)) {
+
+			logger.debug(
+				"Build at {} matched duration {}", jenkinsBuild.getURL(),
+					duration);
+
+			return true;
+		}
+		if (condition.equals("GREATER") &&
+			(jenkinsBuild.getDuration() > duration)) {
+
+			logger.debug(
+				"Build at {} matched duration {}", jenkinsBuild.getURL(),
+					duration);
+
+			return true;
+		}
+		else if (condition.equals("EQUALS") &&
+			jenkinsBuild.getDuration() == duration) {
+
 			logger.debug(
 				"Build at {} matched duration {}", jenkinsBuild.getURL(),
 					duration);
