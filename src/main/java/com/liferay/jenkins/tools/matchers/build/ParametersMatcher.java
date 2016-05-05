@@ -25,6 +25,9 @@ import ch.qos.logback.classic.Logger;
  */
 public class ParametersMatcher implements BuildMatcher {
 
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(
+		ParametersMatcher.class);
+
 	private Map<String, String> parameters = new HashMap<>();
 
 	public ParametersMatcher(String[] matches) {
@@ -36,6 +39,10 @@ public class ParametersMatcher implements BuildMatcher {
 			}
 
 			parameters.put(parameterSet[0], parameterSet[1]);
+
+			logger.debug(
+				"Matching builds with parameter {}={}",
+					parameterSet[0], parameterSet[1]);
 		}
 	}
 
