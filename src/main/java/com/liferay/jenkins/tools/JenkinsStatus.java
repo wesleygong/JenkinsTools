@@ -45,6 +45,8 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.Option;
 
+import org.apache.commons.lang.StringUtils;
+
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
@@ -261,12 +263,14 @@ public class JenkinsStatus {
 
 		if (line.hasOption("before")) {
 			buildMatchers.add(
-				new BeforeTimestampMatcher(line.getOptionValue("b")));
+				new BeforeTimestampMatcher(StringUtils.join(
+					line.getOptionValues("b"), ' ')));
 		}
 
 		if (line.hasOption("after")) {
 			buildMatchers.add(
-				new AfterTimestampMatcher(line.getOptionValue("a")));
+				new AfterTimestampMatcher(StringUtils.join(
+					line.getOptionValues("a"), ' ')));
 		}
 
 		if (line.hasOption("between")) {

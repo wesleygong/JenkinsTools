@@ -7,6 +7,7 @@ dependencies {
 	compile group: 'commons-cli', name: 'commons-cli', version: '+'
 	compile group: 'commons-codec', name: 'commons-codec', version: '+'
 	compile group: 'commons-io', name: 'commons-io', version: '+'
+	compile group: 'commons-lang', name: 'commons-lang', version: '+'
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '+'
 	compile group: 'org.json', name: 'json', version: '+'
 	compile group: 'ch.qos.logback', name: 'logback-classic', version: '+'
