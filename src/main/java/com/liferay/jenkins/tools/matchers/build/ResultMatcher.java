@@ -44,6 +44,7 @@ public class ResultMatcher implements BuildMatcher {
 		logger.debug("Matching builds with a result of {}", result);
 	}
 
+	@Override
 	public boolean matches(Build jenkinsBuild) {
 		if (jenkinsBuild.getResult().equals(result)) {
 			logger.debug(

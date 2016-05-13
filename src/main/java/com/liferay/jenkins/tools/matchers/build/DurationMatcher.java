@@ -54,6 +54,7 @@ public class DurationMatcher implements BuildMatcher {
 				duration);
 	}
 
+	@Override
 	public boolean matches(Build jenkinsBuild) {
 		if (condition.equals("LESS") &&
 			(jenkinsBuild.getDuration() < duration)) {

@@ -44,6 +44,7 @@ public class BuildingMatcher implements BuildMatcher {
 		logger.debug("Matching builds with a building state of {}", building);
 	}
 
+	@Override
 	public boolean matches(Build jenkinsBuild) {
 		if (building.equals("ANY")) {
 			return true;
