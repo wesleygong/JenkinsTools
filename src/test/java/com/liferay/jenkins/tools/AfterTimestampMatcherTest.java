@@ -21,31 +21,31 @@ import org.junit.*;
 /**
  * @author Kevin Yen
  */
-public class TimestampMatcherTest {
+public class AfterTimestampMatcherTest {
 
 	@Test
 	public void ConstructorValidUUnixTimeArgument() {
-		new TimestampMatcher(true, "1460240504174");
+		new AfterTimestampMatcher("1460240504174");
 	}
 
 	@Test
 	public void ConstructorValidDateTimeArgument() {
-		new TimestampMatcher(true, "04/08/2016 10:31 AM");
+		new AfterTimestampMatcher("04/08/2016 10:31 AM");
 	}
 
 	@Test
 	public void ConstructorValidDateArgument() {
-		new TimestampMatcher(true, "12/09/2015");
+		new AfterTimestampMatcher("12/09/2015");
 	}
 
 	@Test
 	public void ConstructorValidTimeArgument() {
-		new TimestampMatcher(true, "12:54 PM");
+		new AfterTimestampMatcher("12:54 PM");
 	}
 
 	@Test (expected=IllegalArgumentException.class)
 	public void ConstructorThrowsIllegalArgumentException() {
-		new TimestampMatcher(true, "DOES_NOT_EXIST");
+		new AfterTimestampMatcher("DOES_NOT_EXIST");
 	}
 
 }

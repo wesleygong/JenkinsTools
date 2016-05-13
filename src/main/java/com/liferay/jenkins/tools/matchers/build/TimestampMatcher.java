@@ -26,51 +26,10 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Kevin Yen
  */
-public class TimestampMatcher implements BuildMatcher {
+public abstract class TimestampMatcher implements BuildMatcher {
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
 		TimestampMatcher.class);
-
-	Date end = new Date(Long.MAX_VALUE);
-	Date start = new Date(Long.MIN_VALUE);
-
-	public TimestampMatcher(String start, String end)
-		throws IllegalArgumentException {
-
-		this(parseTimestamp(start), parseTimestamp(end));
-	}
-
-	public TimestampMatcher(long start, long end) {
-		this(new Date(start), new Date(end));
-	}
-
-	public TimestampMatcher(Date start, Date end) {
-		this.start = start;
-		this.end = end;
-	}
-
-	public TimestampMatcher(boolean before, long time) {
-		this(before, new Date(time));
-	}
-
-	public TimestampMatcher(boolean before, String timestamp)
-		throws IllegalArgumentException {
-
-		this(before, parseTimestamp(timestamp));
-	}
-
-	public TimestampMatcher(boolean before, Date date) {
-		if (before) {
-			end = date;
-
-			logger.debug("Matching builds before {}", end);
-		}
-		else {
-			start = date;
-
-			logger.debug("Matching builds after {}", start);
-		}
-	}
 
 	protected static Date parseTimestamp(String timestamp)
 		throws IllegalArgumentException {
@@ -150,14 +109,6 @@ public class TimestampMatcher implements BuildMatcher {
 	}
 
 	@Override
-	public boolean matches(Build jenkinsBuild) {
-		Date date = new Date(jenkinsBuild.getTimestamp());
-
-		if (date.after(start) && date.before(end)) {
-			return true;
-		}
-
-		return false;
-	}
+	public abstract boolean matches(Build jenkinsBuild);
 
 }

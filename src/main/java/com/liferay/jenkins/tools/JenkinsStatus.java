@@ -261,18 +261,18 @@ public class JenkinsStatus {
 
 		if (line.hasOption("before")) {
 			buildMatchers.add(
-				new TimestampMatcher(true, line.getOptionValue("b")));
+				new BeforeTimestampMatcher(line.getOptionValue("b")));
 		}
 
 		if (line.hasOption("after")) {
 			buildMatchers.add(
-				new TimestampMatcher(false, line.getOptionValue("a")));
+				new AfterTimestampMatcher(line.getOptionValue("a")));
 		}
 
 		if (line.hasOption("between")) {
 			String[] optionValues = line.getOptionValues("s");
 
-			buildMatchers.add(new TimestampMatcher(
+			buildMatchers.add(new BetweenTimestampsMatcher(
 				optionValues[0], optionValues[1]));
 		}
 
