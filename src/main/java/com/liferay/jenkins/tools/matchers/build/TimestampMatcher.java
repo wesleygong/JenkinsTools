@@ -72,7 +72,7 @@ public class TimestampMatcher implements BuildMatcher {
 		}
 	}
 
-	private static Date parseTimestamp(String timestamp)
+	protected static Date parseTimestamp(String timestamp)
 		throws IllegalArgumentException {
 
 		try {
@@ -136,7 +136,7 @@ public class TimestampMatcher implements BuildMatcher {
 		throw new IllegalArgumentException("Unable to parse timestamp");
 	}
 
-	private static Date combineDateTime(Date date, Date time) {
+	protected static Date combineDateTime(Date date, Date time) {
 		Calendar dateCalendar = Calendar.getInstance();
 		Calendar timeCalendar = Calendar.getInstance();
 
