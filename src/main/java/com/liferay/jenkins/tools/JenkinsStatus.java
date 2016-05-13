@@ -195,7 +195,7 @@ public class JenkinsStatus {
 
 		CommandLine line = parser.parse(options, args);
 
-		if (line.hasOption("i")) {
+		if (line.hasOption("info")) {
 			Logger rootLogger = (Logger) LoggerFactory.getLogger(
 				Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.INFO);
@@ -203,7 +203,7 @@ public class JenkinsStatus {
 			showBuildInfo = true;
 		}
 
-		if (line.hasOption("d")) {
+		if (line.hasOption("debug")) {
 			Logger rootLogger = (Logger) LoggerFactory.getLogger(
 				Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.DEBUG);
@@ -214,13 +214,13 @@ public class JenkinsStatus {
 			showBuildInfo = true;
 		}
 
-		if (line.hasOption("f")) {
+		if (line.hasOption("file")) {
 			logger.debug("Loading file {}", line.getOptionValue("f"));
 
 			serversListFile = new File(line.getOptionValue("f"));
 		}
 
-		if (line.hasOption("n")) {
+		if (line.hasOption("name")) {
 			logger.debug(
 				"Using the regular expression pattern {} to match job name",
 					line.getOptionValue("n"));
@@ -228,7 +228,7 @@ public class JenkinsStatus {
 			pattern = Pattern.compile(line.getOptionValue("n"));
 		}
 
-		if (line.hasOption("u")) {
+		if (line.hasOption("user")) {
 			Console console = System.console();
 
 			if (console == null) {
@@ -244,49 +244,49 @@ public class JenkinsStatus {
 				username, password, REQUEST_TIMEOUT);
 		}
 
-		if (line.hasOption("c")) {
+		if (line.hasOption("building")) {
 			buildMatchers.add(new BuildingMatcher(line.getOptionValue("c")));
 		}
 		else {
 			buildMatchers.add(new BuildingMatcher("TRUE"));
 		}
 
-		if (line.hasOption("p")) {
+		if (line.hasOption("parameters")) {
 			buildMatchers.add(new ParametersMatcher(line.getOptionValues("p")));
 		}
 
-		if (line.hasOption("r")) {
+		if (line.hasOption("result")) {
 			buildMatchers.add(new ResultMatcher(line.getOptionValue("r")));
 		}
 
-		if (line.hasOption("b")) {
+		if (line.hasOption("before")) {
 			buildMatchers.add(
 				new TimestampMatcher(true, line.getOptionValue("b")));
 		}
 
-		if (line.hasOption("a")) {
+		if (line.hasOption("after")) {
 			buildMatchers.add(
 				new TimestampMatcher(false, line.getOptionValue("a")));
 		}
 
-		if (line.hasOption("s")) {
+		if (line.hasOption("between")) {
 			String[] optionValues = line.getOptionValues("s");
 
 			buildMatchers.add(new TimestampMatcher(
 				optionValues[0], optionValues[1]));
 		}
 
-		if (line.hasOption("g")) {
+		if (line.hasOption("greater")) {
 			int duration = Integer.parseInt(line.getOptionValue("g"));
 
 			buildMatchers.add(new DurationMatcher("GREATER", duration));
 		}
-		else if (line.hasOption("l")) {
+		else if (line.hasOption("less")) {
 			int duration = Integer.parseInt(line.getOptionValue("l"));
 
 			buildMatchers.add(new DurationMatcher("LESS", duration));
 		} 
-		else if (line.hasOption("e")) {
+		else if (line.hasOption("equals")) {
 			int duration = Integer.parseInt(line.getOptionValue("e"));
 
 			buildMatchers.add(new DurationMatcher("EQUALS", duration));
