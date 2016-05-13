@@ -169,6 +169,12 @@ public class JenkinsStatus {
 			.desc("Match builds after specified time")
 			.build());
 		options.addOption(
+			Option.builder("s")
+			.longOpt("between")
+			.hasArgs()
+			.desc("Match builds between two specified UNIX timestamps")
+			.build());
+		options.addOption(
 			Option.builder("e")
 			.longOpt("equals")
 			.hasArgs()
@@ -261,6 +267,13 @@ public class JenkinsStatus {
 		if (line.hasOption("a")) {
 			buildMatchers.add(
 				new TimestampMatcher(false, line.getOptionValue("a")));
+		}
+
+		if (line.hasOption("s")) {
+			String[] optionValues = line.getOptionValues("s");
+
+			buildMatchers.add(new TimestampMatcher(
+				optionValues[0], optionValues[1]));
 		}
 
 		if (line.hasOption("g")) {
