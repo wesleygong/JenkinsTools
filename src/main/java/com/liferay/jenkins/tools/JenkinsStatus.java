@@ -285,7 +285,7 @@ public class JenkinsStatus {
 			int duration = Integer.parseInt(line.getOptionValue("l"));
 
 			buildMatchers.add(new DurationMatcher("LESS", duration));
-		} 
+		}
 		else if (line.hasOption("equals")) {
 			int duration = Integer.parseInt(line.getOptionValue("e"));
 
@@ -387,8 +387,8 @@ public class JenkinsStatus {
 						}
 
 						long seconds = build.getDuration() / 1000 % 60;
-						
-						if (seconds > 0) { 
+
+						if (seconds > 0) {
 							sb.append(seconds);
 							sb.append(" Seconds ");
 						}
