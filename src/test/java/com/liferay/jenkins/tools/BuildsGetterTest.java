@@ -71,8 +71,8 @@ public class BuildsGetterTest {
 
 		emptyParameterDefinitions = new HashSet<>();
 
-		testJsonGetter.linkJsonFile("/json-samples/jenkinsJobsTestSample.json", VALID_JENKINS_URL);
-		testJsonGetter.linkJsonFile("/json-samples/jenkinsBuildsTestSample.json", VALID_JOB_URL);
+		testJsonGetter.linkJsonFile("/json-samples/jobs.json", VALID_JENKINS_URL);
+		testJsonGetter.linkJsonFile("/json-samples/builds.json", VALID_JOB_URL);
 	}
 
 	@Test
