@@ -18,10 +18,48 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+import org.json.JSONObject;
+
 /**
  * @author Kevin Yen
  */
 public class ResultMatcherTest {
+
+	JsonGetter resourceJsonGetter = new ResourceJsonGetter();
+
+	Build build;
+
+	@Before
+	public void setup() throws Exception {
+		JSONObject jobJson = resourceJsonGetter.getJson("/json-samples/job.json");
+		JSONObject buildJson = resourceJsonGetter.getJson("/json-samples/build.json");
+
+		buildJson.put("result", "FAIULRE");
+
+		Job job = new Job(jobJson);
+		build = new Build(buildJson, job);
+	}
+
+	@Test
+	public void testNotMatchesResultSuccess() {
+		BuildMatcher buildMatcher = new ResultMatcher("success");
+
+		assertFalse(buildMatcher.matches(build));	
+	}
+
+	@Test
+	public void testNotMatchesResultAborted() {
+		BuildMatcher buildMatcher = new ResultMatcher("aborted");
+
+		assertFalse(buildMatcher.matches(build));	
+	}
+
+	@Test
+	public void testMatchesResultFailure() {
+		BuildMatcher buildMatcher = new ResultMatcher("failure");
+
+		assertFalse(buildMatcher.matches(build));	
+	}
 
 	@Test
 	public void testConstructorSuccess() {
