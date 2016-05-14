@@ -119,8 +119,9 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jsonGetter.convertURL(job.getURL()));
-		sb.append("api/json?");
-		sb.append(Build.QUERY_PARAMETER);
+		sb.append("api/json?tree=builds[");
+		sb.append(Build.TREE_PARAMETER);
+		sb.append("]");
 
 		JSONObject jobJson = jsonGetter.getJson(sb.toString());
 

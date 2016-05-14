@@ -25,9 +25,9 @@ import org.json.JSONObject;
  */
 public class Build {
 
-	public static final String QUERY_PARAMETER =
-		"tree=builds[building,duration,number,result,timestamp,url," +
-			"actions[parameters[name,value]]]";
+	public static final String TREE_PARAMETER =
+		"building,duration,number,result,timestamp,url," +
+			"actions[parameters[name,value]]";
 
 	private boolean building;
 	private long duration;

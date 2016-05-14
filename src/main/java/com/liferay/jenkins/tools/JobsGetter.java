@@ -117,8 +117,9 @@ public class JobsGetter implements Callable<Set<Job>> {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(jenkinsURL);
-		sb.append("api/json?");
-		sb.append(Job.QUERY_PARAMETER);
+		sb.append("api/json?tree=jobs[");
+		sb.append(Job.TREE_PARAMETER);
+		sb.append("]");
 
 		JSONObject rootJson = jsonGetter.getJson(sb.toString());
 

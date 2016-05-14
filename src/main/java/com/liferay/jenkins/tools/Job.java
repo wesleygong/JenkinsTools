@@ -25,8 +25,8 @@ import org.json.JSONObject;
  */
 public class Job {
 
-	public static final String QUERY_PARAMETER =
-		"tree=jobs[name,url,actions[parameterDefinitions[name,type]]]";
+	public static final String TREE_PARAMETER =
+		"name,url,actions[parameterDefinitions[name,type]]]";
 
 	private String name;
 	private String url;
