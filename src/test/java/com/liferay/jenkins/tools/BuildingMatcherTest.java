@@ -24,8 +24,18 @@ import org.junit.*;
 public class BuildingMatcherTest {
 
 	@Test
-	public void ConstructorValidArgument() {
+	public void ConstructorValidArgumentAny() {
 		new BuildingMatcher("any");
+	}
+
+	@Test
+	public void ConstructorValidArgumentFalse() {
+		new BuildingMatcher("false");
+	}
+
+	@Test
+	public void ConstructorValidArgumentTrue() {
+		new BuildingMatcher("true");
 	}
 
 	@Test (expected=IllegalArgumentException.class)
