@@ -62,22 +62,22 @@ public class BuildingMatcherTest {
 	}
 
 	@Test
-	public void ConstructorValidArgumentAny() {
+	public void testConstructorValidArgumentAny() {
 		new BuildingMatcher("any");
 	}
 
 	@Test
-	public void ConstructorValidArgumentFalse() {
+	public void testConstructorValidArgumentFalse() {
 		new BuildingMatcher("false");
 	}
 
 	@Test
-	public void ConstructorValidArgumentTrue() {
+	public void testConstructorValidArgumentTrue() {
 		new BuildingMatcher("true");
 	}
 
 	@Test (expected=IllegalArgumentException.class)
-	public void ConstructorThrowsIllegalArgumentException() {
+	public void testConstructorThrowsIllegalArgumentException() {
 		new BuildingMatcher("DOES_NOT_EXIST");
 	}
 

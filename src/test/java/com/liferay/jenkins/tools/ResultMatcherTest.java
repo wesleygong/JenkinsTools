@@ -24,12 +24,12 @@ import org.junit.*;
 public class ResultMatcherTest {
 
 	@Test
-	public void ConstructorSuccess() {
+	public void testConstructorSuccess() {
 		new ResultMatcher("success");
 	}
 
 	@Test (expected=IllegalArgumentException.class)
-	public void ConstructorThrowsIllegalArgumentException() {
+	public void testConstructorThrowsIllegalArgumentException() {
 		new ResultMatcher("DOES_NOT_EXIST");
 	}
 
