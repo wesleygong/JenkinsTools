@@ -1,0 +1,18 @@
+{
+  "actions": [
+    {
+      "parameterDefinitions": [
+        {
+          "name": "hello",
+          "type": "StringParameterDefinition"
+        },
+        {
+          "name": "foo",
+          "type": "StringParameterDefinition"
+        }
+      ]
+    }
+  ],
+  "name": "test-jenkins-job",
+  "url": "http://localhost/job/test-jenkins-job/"
+}

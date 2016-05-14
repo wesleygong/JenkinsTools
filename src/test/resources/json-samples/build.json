@@ -1,0 +1,22 @@
+{
+  "actions": [
+    {
+      "parameters": [
+        {
+          "name": "hello",
+          "value": "world"
+        },
+        {
+          "name": "foo",
+          "value": "bar"
+        }
+      ]
+    }
+  ],
+  "building": false,
+  "duration": 1000000,
+  "number": 100,
+  "result": "SUCCESS",
+  "timestamp": 1400000000000,
+  "url": "http://localhost/job/test-jenkins-job/100/"
+}
