@@ -31,11 +31,11 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class TestJsonGetter implements JsonGetter {
+public class TestJsonGetter extends ResourceJsonGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(TestJsonGetter.class);
 
-	private Map<String, JSONObject> testJsons = new HashMap<>();
+	private Map<String, String> testJsons = new HashMap<>();
 
 	public void linkJsonFile(String file, String url) throws Exception {
 		URL fileURL = TestJsonGetter.class.getResource(file);
@@ -46,11 +46,9 @@ public class TestJsonGetter implements JsonGetter {
 
 		url = formatURL(url);
 
-		logger.info("Linking resource at {} with url key {}", fileURL, url);
+		logger.info("Linking key {} with resource at {}", url, file);
 
-		JSONObject jsonObject = new JSONObject(IOUtils.toString(fileURL.openStream()));
-
-		testJsons.put(url, jsonObject);
+		testJsons.put(url, file);
 	}
 
 	@Override
@@ -60,17 +58,15 @@ public class TestJsonGetter implements JsonGetter {
 
 	@Override
 	public JSONObject getJson(String url) throws Exception {
-		logger.info("Retrieving with url key {}", formatURL(url));
+		url = formatURL(url);
 
-		JSONObject json = testJsons.get(formatURL(url));
+		String file = testJsons.get(url);
 
-		if (json == null) {
-			logger.error("Resource with url key {} does not exist", formatURL(url));
-
-			throw new IOException("Resource with url key " + formatURL(url) + " does not exist");
+		if (file == null) {
+			throw new IOException("Key " + url + " is unlinked");
 		}
 
-		return testJsons.get(formatURL(url));
+		return super.getJson(file);
 	}
 
 	private String formatURL(String url) {
