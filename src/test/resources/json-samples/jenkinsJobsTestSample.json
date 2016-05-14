@@ -1,2407 +1,2407 @@
 {
-	"jobs": [
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "fix.pack.built.for",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "fix.pack.component",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "fix.pack.customer.ticket",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "fix.pack.fixed.issues",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "fix.pack.id",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "fix.pack.requirements",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "git.revision",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.baseCommittish",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.committish",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.fixId",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.fixIds",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.gitRemoteURL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.patcherFixId",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.repository",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.type",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.build.file.name",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.build.id",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.build.name",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.build.patcher.portal.version",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.build.request.key",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.build.smoke.test.only",
-							"type": "BooleanParameterDefinition"
-						},
-						{
-							"name": "patcher.portal.version.committish",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.portal.version.repository.name",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.user.id",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "run.agent",
-							"type": "BooleanParameterDefinition"
-						},
-						{
-							"name": "run.dist",
-							"type": "BooleanParameterDefinition"
-						},
-						{
-							"name": "run.tests",
-							"type": "BooleanParameterDefinition"
-						}
-					]
-				},
-				{},
-				{},
-				{}
-			],
-			"name": "fixpack-builder",
-			"url": "https://test-1-1.liferay.com/job/fixpack-builder/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "osb.patcher.baseCommittish",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.committish",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.fixId",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.fixIds",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.gitRemoteURL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.patcherFixId",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.repository",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "osb.patcher.type",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "patcher.user.id",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "fixpack-builder-agent",
-			"url": "https://test-1-1.liferay.com/job/fixpack-builder-agent/"
-		},
-		{
-			"actions": [],
-			"name": "fixpack-builder-dist",
-			"url": "https://test-1-1.liferay.com/job/fixpack-builder-dist/"
-		},
-		{
-			"actions": [
-				{}
-			],
-			"name": "fixpack-builder-test-backend",
-			"url": "https://test-1-1.liferay.com/job/fixpack-builder-test-backend/"
-		},
-		{
-			"actions": [],
-			"name": "fixpack-builder-test-frontend",
-			"url": "https://test-1-1.liferay.com/job/fixpack-builder-test-frontend/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "fix.pack.short.name",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "fixpack-promoter(production)",
-			"url": "https://test-1-1.liferay.com/job/fixpack-promoter(production)/"
-		},
-		{
-			"actions": [],
-			"name": "maintenance-daily",
-			"url": "https://test-1-1.liferay.com/job/maintenance-daily/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "NODE_NAME",
-							"type": "NodeParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "maintenance-tags",
-			"url": "https://test-1-1.liferay.com/job/maintenance-tags/"
-		},
-		{
-			"actions": [],
-			"name": "maintenance-weekly",
-			"url": "https://test-1-1.liferay.com/job/maintenance-weekly/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-jenkins-acceptance-pullrequest",
-			"url": "https://test-1-1.liferay.com/job/test-jenkins-acceptance-pullrequest/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-jenkins-acceptance-pullrequest-source",
-			"url": "https://test-1-1.liferay.com/job/test-jenkins-acceptance-pullrequest-source/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest(master)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-acceptance-pullrequest-batch(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-acceptance-pullrequest-batch(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-acceptance-pullrequest-batch(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-acceptance-pullrequest-batch(master)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest-source(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest-source(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest-source(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-acceptance-pullrequest-source(master)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_CALLBACK_URL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_COMMUNITY_APP_ZIP_URL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PORTAL_BUNDLE_VERSION",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-communityapp(ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-communityapp(ee-6.2.10)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-communityapp-batch(ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-communityapp-batch(ee-6.2.10)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "TEST_BUILD_BUNDLE_TOMCAT_ZIP_URL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_BUILD_EXTRAAPPS_ZIP_URL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_BUILD_EXTRAAPPS_COMPONENT_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_JAVASCRIPT_FAST_LOAD",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_LIFERAY_PORTAL_BUNDLE",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-extraapps(ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps(ee-6.2.10)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "TEST_BUILD_BUNDLE_TOMCAT_ZIP_URL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_BUILD_EXTRAAPPS_ZIP_URL",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_BUILD_EXTRAAPPS_COMPONENT_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_JAVASCRIPT_FAST_LOAD",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_LIFERAY_PORTAL_BUNDLE",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-extraapps(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps(ee-6.2.x)/"
-		},
-		{
-			"actions": [],
-			"name": "test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.10)/"
-		},
-		{
-			"actions": [],
-			"name": "test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.x)/"
-		},
-		{
-			"actions": [],
-			"name": "test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.10)/"
-		},
-		{
-			"actions": [],
-			"name": "test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{}
-			],
-			"name": "test-plugins-extraapps-frontend-tomcat-mysql[extra-apps](ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql%5Bextra-apps%5D(ee-6.2.10)/"
-		},
-		{
-			"actions": [
-				{}
-			],
-			"name": "test-plugins-extraapps-frontend-tomcat-mysql[extra-apps](ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql%5Bextra-apps%5D(ee-6.2.x)/"
-		},
-		{
-			"actions": [],
-			"name": "test-plugins-extraapps-source(ee-6.2.10)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-source(ee-6.2.10)/"
-		},
-		{
-			"actions": [],
-			"name": "test-plugins-extraapps-source(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-source(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PLUGIN_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PLUGINS_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PLUGINS_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PLUGINS_GIT_ID",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PORTAL_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PORTAL_BUNDLE_VERSION",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TEST_PLUGINS_RELEASE_TAG",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-release",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-release/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-plugins-release-batch",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-release-batch/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-plugins-release-source",
-			"url": "https://test-1-1.liferay.com/job/test-plugins-release-source/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_PULL_REQUEST_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_RECEIVER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_SENDER_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_UPSTREAM_BRANCH_SHA",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "GITHUB_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-batch(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-batch(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-batch(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-batch(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-dist(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-dist(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-dist(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-pullrequest-dist(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest-source(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest-source(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest-source(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-pullrequest-source(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "PORTAL_GIT_COMMIT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "RESULTS_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "PORTAL_GIT_COMMIT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "RESULTS_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "PORTAL_GIT_COMMIT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "RESULTS_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "PORTAL_GIT_COMMIT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "RESULTS_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-upstream-batch(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-upstream-batch(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-upstream-batch(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "AXIS_VARIABLES",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				},
-				{}
-			],
-			"name": "test-portal-acceptance-upstream-batch(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(master)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream-source(ee-6.1.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(ee-6.1.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream-source(ee-6.2.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(ee-6.2.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream-source(ee-7.0.x)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(ee-7.0.x)/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "JENKINS_GITHUB_BRANCH_NAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_BRANCH_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "JOB_VARIANT",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "test-portal-acceptance-upstream-source(master)",
-			"url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(master)/"
-		},
-		{
-			"actions": [],
-			"name": "verification",
-			"url": "https://test-1-1.liferay.com/job/verification/"
-		},
-		{
-			"actions": [
-				{
-					"parameterDefinitions": [
-						{
-							"name": "TOP_LEVEL_SHARED_DIR",
-							"type": "StringParameterDefinition"
-						},
-						{
-							"name": "NODE_NAME",
-							"type": "NodeParameterDefinition"
-						}
-					]
-				}
-			],
-			"name": "verification-node",
-			"url": "https://test-1-1.liferay.com/job/verification-node/"
-		}
-	]
+  "jobs": [
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "fix.pack.built.for",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "fix.pack.component",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "fix.pack.customer.ticket",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "fix.pack.fixed.issues",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "fix.pack.id",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "fix.pack.requirements",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "git.revision",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.baseCommittish",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.committish",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.fixId",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.fixIds",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.gitRemoteURL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.patcherFixId",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.repository",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.type",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.build.file.name",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.build.id",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.build.name",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.build.patcher.portal.version",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.build.request.key",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.build.smoke.test.only",
+              "type": "BooleanParameterDefinition"
+            },
+            {
+              "name": "patcher.portal.version.committish",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.portal.version.repository.name",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.user.id",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "run.agent",
+              "type": "BooleanParameterDefinition"
+            },
+            {
+              "name": "run.dist",
+              "type": "BooleanParameterDefinition"
+            },
+            {
+              "name": "run.tests",
+              "type": "BooleanParameterDefinition"
+            }
+          ]
+        },
+        {},
+        {},
+        {}
+      ],
+      "name": "fixpack-builder",
+      "url": "https://test-1-1.liferay.com/job/fixpack-builder/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "osb.patcher.baseCommittish",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.committish",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.fixId",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.fixIds",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.gitRemoteURL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.patcherFixId",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.repository",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "osb.patcher.type",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "patcher.user.id",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "fixpack-builder-agent",
+      "url": "https://test-1-1.liferay.com/job/fixpack-builder-agent/"
+    },
+    {
+      "actions": [],
+      "name": "fixpack-builder-dist",
+      "url": "https://test-1-1.liferay.com/job/fixpack-builder-dist/"
+    },
+    {
+      "actions": [
+        {}
+      ],
+      "name": "fixpack-builder-test-backend",
+      "url": "https://test-1-1.liferay.com/job/fixpack-builder-test-backend/"
+    },
+    {
+      "actions": [],
+      "name": "fixpack-builder-test-frontend",
+      "url": "https://test-1-1.liferay.com/job/fixpack-builder-test-frontend/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "fix.pack.short.name",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "fixpack-promoter(production)",
+      "url": "https://test-1-1.liferay.com/job/fixpack-promoter(production)/"
+    },
+    {
+      "actions": [],
+      "name": "maintenance-daily",
+      "url": "https://test-1-1.liferay.com/job/maintenance-daily/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "NODE_NAME",
+              "type": "NodeParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "maintenance-tags",
+      "url": "https://test-1-1.liferay.com/job/maintenance-tags/"
+    },
+    {
+      "actions": [],
+      "name": "maintenance-weekly",
+      "url": "https://test-1-1.liferay.com/job/maintenance-weekly/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-jenkins-acceptance-pullrequest",
+      "url": "https://test-1-1.liferay.com/job/test-jenkins-acceptance-pullrequest/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-jenkins-acceptance-pullrequest-source",
+      "url": "https://test-1-1.liferay.com/job/test-jenkins-acceptance-pullrequest-source/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest(master)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-acceptance-pullrequest-batch(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-acceptance-pullrequest-batch(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-acceptance-pullrequest-batch(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-acceptance-pullrequest-batch(master)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-batch(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest-source(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest-source(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest-source(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-acceptance-pullrequest-source(master)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-acceptance-pullrequest-source(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_CALLBACK_URL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_COMMUNITY_APP_ZIP_URL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PORTAL_BUNDLE_VERSION",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-communityapp(ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-communityapp(ee-6.2.10)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-communityapp-batch(ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-communityapp-batch(ee-6.2.10)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "TEST_BUILD_BUNDLE_TOMCAT_ZIP_URL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_BUILD_EXTRAAPPS_ZIP_URL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_BUILD_EXTRAAPPS_COMPONENT_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_JAVASCRIPT_FAST_LOAD",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_LIFERAY_PORTAL_BUNDLE",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-extraapps(ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps(ee-6.2.10)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "TEST_BUILD_BUNDLE_TOMCAT_ZIP_URL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_BUILD_EXTRAAPPS_ZIP_URL",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_BUILD_EXTRAAPPS_COMPONENT_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_JAVASCRIPT_FAST_LOAD",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_LIFERAY_PORTAL_BUNDLE",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-extraapps(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps(ee-6.2.x)/"
+    },
+    {
+      "actions": [],
+      "name": "test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.10)/"
+    },
+    {
+      "actions": [],
+      "name": "test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql(ee-6.2.x)/"
+    },
+    {
+      "actions": [],
+      "name": "test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.10)/"
+    },
+    {
+      "actions": [],
+      "name": "test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql-test-results(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {}
+      ],
+      "name": "test-plugins-extraapps-frontend-tomcat-mysql[extra-apps](ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql%5Bextra-apps%5D(ee-6.2.10)/"
+    },
+    {
+      "actions": [
+        {}
+      ],
+      "name": "test-plugins-extraapps-frontend-tomcat-mysql[extra-apps](ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-frontend-tomcat-mysql%5Bextra-apps%5D(ee-6.2.x)/"
+    },
+    {
+      "actions": [],
+      "name": "test-plugins-extraapps-source(ee-6.2.10)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-source(ee-6.2.10)/"
+    },
+    {
+      "actions": [],
+      "name": "test-plugins-extraapps-source(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-extraapps-source(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PLUGIN_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PLUGINS_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PLUGINS_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PLUGINS_GIT_ID",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PORTAL_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PORTAL_BUNDLE_VERSION",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TEST_PLUGINS_RELEASE_TAG",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-release",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-release/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-plugins-release-batch",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-release-batch/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-plugins-release-source",
+      "url": "https://test-1-1.liferay.com/job/test-plugins-release-source/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_PULL_REQUEST_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_RECEIVER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_SENDER_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_UPSTREAM_BRANCH_SHA",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "GITHUB_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-batch(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-batch(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-batch(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-batch(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-batch(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-dist(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-dist(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-dist(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-pullrequest-dist(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-dist(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest-source(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest-source(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest-source(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-pullrequest-source(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-pullrequest-source(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "PORTAL_GIT_COMMIT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "RESULTS_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "PORTAL_GIT_COMMIT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "RESULTS_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "PORTAL_GIT_COMMIT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "RESULTS_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "PORTAL_GIT_COMMIT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "RESULTS_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-upstream-batch(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-upstream-batch(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-upstream-batch(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "AXIS_VARIABLES",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        },
+        {}
+      ],
+      "name": "test-portal-acceptance-upstream-batch(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-batch(master)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream-source(ee-6.1.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(ee-6.1.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream-source(ee-6.2.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(ee-6.2.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream-source(ee-7.0.x)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(ee-7.0.x)/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "JENKINS_GITHUB_BRANCH_NAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_BRANCH_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_NUMBER",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JENKINS_GITHUB_PULL_REQUEST_USERNAME",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "JOB_VARIANT",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "test-portal-acceptance-upstream-source(master)",
+      "url": "https://test-1-1.liferay.com/job/test-portal-acceptance-upstream-source(master)/"
+    },
+    {
+      "actions": [],
+      "name": "verification",
+      "url": "https://test-1-1.liferay.com/job/verification/"
+    },
+    {
+      "actions": [
+        {
+          "parameterDefinitions": [
+            {
+              "name": "TOP_LEVEL_SHARED_DIR",
+              "type": "StringParameterDefinition"
+            },
+            {
+              "name": "NODE_NAME",
+              "type": "NodeParameterDefinition"
+            }
+          ]
+        }
+      ],
+      "name": "verification-node",
+      "url": "https://test-1-1.liferay.com/job/verification-node/"
+    }
+  ]
 }
