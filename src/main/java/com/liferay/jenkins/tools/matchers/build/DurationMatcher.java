@@ -28,7 +28,7 @@ public class DurationMatcher implements BuildMatcher {
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
 		DurationMatcher.class);
 
-	private int duration;
+	protected int duration;
 	private String condition;
 
 	private final List<String> validMatches = Arrays.asList(
@@ -36,8 +36,6 @@ public class DurationMatcher implements BuildMatcher {
 
 	public DurationMatcher(int duration) {
 		this.duration = duration;
-
-		logger.debug("Matching builds with a duration of {}", duration);
 	}
 
 	public DurationMatcher(String condition, int duration) {
