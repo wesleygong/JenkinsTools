@@ -44,21 +44,21 @@ public class ResultMatcherTest {
 	public void testNotMatchesResultSuccess() {
 		BuildMatcher buildMatcher = new ResultMatcher("success");
 
-		assertFalse(buildMatcher.matches(build));	
+		assertFalse(buildMatcher.matches(build));
 	}
 
 	@Test
 	public void testNotMatchesResultAborted() {
 		BuildMatcher buildMatcher = new ResultMatcher("aborted");
 
-		assertFalse(buildMatcher.matches(build));	
+		assertFalse(buildMatcher.matches(build));
 	}
 
 	@Test
 	public void testMatchesResultFailure() {
 		BuildMatcher buildMatcher = new ResultMatcher("failure");
 
-		assertFalse(buildMatcher.matches(build));	
+		assertFalse(buildMatcher.matches(build));
 	}
 
 	@Test
