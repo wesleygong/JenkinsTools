@@ -283,17 +283,12 @@ public class JenkinsStatus {
 		if (line.hasOption("greater")) {
 			int duration = Integer.parseInt(line.getOptionValue("g"));
 
-			buildMatchers.add(new DurationMatcher("GREATER", duration));
+			buildMatchers.add(new GreaterThanDurationMatcher(duration));
 		}
 		else if (line.hasOption("less")) {
 			int duration = Integer.parseInt(line.getOptionValue("l"));
 
-			buildMatchers.add(new DurationMatcher("LESS", duration));
-		}
-		else if (line.hasOption("equals")) {
-			int duration = Integer.parseInt(line.getOptionValue("e"));
-
-			buildMatchers.add(new DurationMatcher("EQUALS", duration));
+			buildMatchers.add(new LessThanDurationMatcher(duration));
 		}
 	}
 

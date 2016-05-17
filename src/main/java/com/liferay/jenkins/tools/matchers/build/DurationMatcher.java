@@ -23,70 +23,15 @@ import ch.qos.logback.classic.Logger;
 /**
  * @author Kevin Yen
  */
-public class DurationMatcher implements BuildMatcher {
-
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(
-		DurationMatcher.class);
+public abstract class DurationMatcher implements BuildMatcher {
 
 	protected int duration;
-	private String condition;
-
-	private final List<String> validMatches = Arrays.asList(
-		"LESS", "GREATER", "EQUALS");
 
 	public DurationMatcher(int duration) {
 		this.duration = duration;
 	}
 
-	public DurationMatcher(String condition, int duration) {
-		if (!validMatches.contains(condition.toUpperCase())) {
-			throw new IllegalArgumentException(
-				condition + " is not a valid condition");
-		}
-
-		this.duration = duration;
-		this.condition = condition;
-
-		logger.debug(
-			"Matching builds with a duration {} {}", condition.toLowerCase(),
-				duration);
-	}
-
 	@Override
-	public boolean matches(Build jenkinsBuild) {
-		if (condition.equals("LESS") &&
-			(jenkinsBuild.getDuration() < duration)) {
-
-			logger.debug(
-				"Build at {} matched duration {}", jenkinsBuild.getURL(),
-					duration);
-
-			return true;
-		}
-		if (condition.equals("GREATER") &&
-			(jenkinsBuild.getDuration() > duration)) {
-
-			logger.debug(
-				"Build at {} matched duration {}", jenkinsBuild.getURL(),
-					duration);
-
-			return true;
-		}
-		else if (condition.equals("EQUALS") &&
-			jenkinsBuild.getDuration() == duration) {
-
-			logger.debug(
-				"Build at {} matched duration {}", jenkinsBuild.getURL(),
-					duration);
-
-			return true;
-		}
-
-		logger.debug(
-			"Build at {} did not matched duration {}", jenkinsBuild.getURL(),
-				duration);
-
-		return false;
-	}
+	public abstract boolean matches(Build jenkinsBuild);
 
 }
