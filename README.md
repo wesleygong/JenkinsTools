@@ -1,6 +1,6 @@
 # Jenkins Tools
 
-List build information from Jenkins servers
+List build information from Jenkins servers. Here is the [todo list](TODO.md).
 
 ## Installing
 The easiest way to install is to clone the git repository
