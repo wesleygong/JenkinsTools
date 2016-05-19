@@ -20,6 +20,7 @@ import java.io.File;
 import java.net.URL;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -74,6 +75,10 @@ public class JenkinsStatus {
 	private List<BuildMatcher> buildMatchers = new ArrayList<>();
 
 	private Pattern pattern = Pattern.compile(".*");
+
+	private boolean isEven(int number) {
+		return (number % 2) == 0;
+	}
 
 	private void printMessage(String tag, String value, int maxTagLength) {
 		StringBuilder sb = new StringBuilder();
@@ -276,8 +281,21 @@ public class JenkinsStatus {
 		if (line.hasOption("between")) {
 			String[] optionValues = line.getOptionValues("s");
 
-			buildMatchers.add(new BetweenTimestampsMatcher(
-				optionValues[0], optionValues[1]));
+			int length = optionValues.length;
+
+			if (isEven(length)) {
+				String start = StringUtils.join(
+					Arrays.copyOfRange(optionValues, 0, length / 2), ' ');
+
+				String end = StringUtils.join(
+					Arrays.copyOfRange(optionValues, length / 2, length), ' ');
+
+				buildMatchers.add(new BetweenTimestampsMatcher(start, end));
+			}
+			else {
+				throw new IllegalArgumentException(
+					"between option require even number of parameters");
+			}
 		}
 
 		if (line.hasOption("greater")) {
