@@ -316,14 +316,11 @@ public class JenkinsStatus {
 		logger.debug("Loading Jenkins URLs from {}", serversListFile);
 
 		for (URL jenkinsURL : JenkinsURLs.getJenkinsURLs(serversListFile)) {
-			String jenkinsURLString = jsonGetter.convertURL(
-				jenkinsURL.toString());
-
-			jenkinsURLs.add(jenkinsURLString);
+			jenkinsURLs.add(jenkinsURL.toString());
 
 			logger.debug(
 				"Adding {} to the list of servers to search",
-					jenkinsURLString);
+					jenkinsURL.toString());
 		}
 
 		ExecutorService executor = Executors.newFixedThreadPool(

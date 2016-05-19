@@ -21,8 +21,6 @@ import org.json.JSONObject;
  */
 public interface JsonGetter {
 
-	public String convertURL(String url);
-
 	public JSONObject getJson(String url) throws Exception;
 
 }

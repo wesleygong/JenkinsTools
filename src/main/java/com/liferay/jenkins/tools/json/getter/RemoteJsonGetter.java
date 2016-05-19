@@ -61,35 +61,6 @@ public class RemoteJsonGetter implements JsonGetter {
 	}
 
 	@Override
-	public String convertURL(String url) {
-		Matcher matcher = localURLPattern1.matcher(url);
-
-		if (matcher.find()) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.append("https://test.liferay.com/");
-			sb.append(matcher.group(1));
-			sb.append("/");
-
-			return url.replaceAll(matcher.group(0), sb.toString());
-		}
-
-		matcher = localURLPattern2.matcher(url);
-
-		if (matcher.find()) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.append("https://");
-			sb.append(matcher.group(1));
-			sb.append(".liferay.com/");
-
-			return url.replaceAll(matcher.group(0), sb.toString());
-		}
-
-		return url;
-	}
-
-	@Override
 	public JSONObject getJson(String url) throws Exception {
 		logger.debug("Fetching JSON from {}", url);
 
@@ -118,10 +89,5 @@ public class RemoteJsonGetter implements JsonGetter {
 
 		return new JSONObject(jsonString);
 	}
-
-	private static final Pattern localURLPattern1 = Pattern.compile(
-		"http://test-[0-9]+/([0-9]+)/?");
-	private static final Pattern localURLPattern2 = Pattern.compile(
-		"http://(test-[0-9]+-[0-9]+)/?");
 
 }

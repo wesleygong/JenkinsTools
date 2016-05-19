@@ -35,11 +35,6 @@ public class ResourceJsonGetter implements JsonGetter {
 	private static final Logger logger = LoggerFactory.getLogger(ResourceJsonGetter.class);
 
 	@Override
-	public String convertURL(String url) {
-		return url;
-	}
-
-	@Override
 	public JSONObject getJson(String file) throws Exception {
 		URL fileURL = ResourceJsonGetter.class.getResource(file);
 

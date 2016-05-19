@@ -52,11 +52,6 @@ public class TestJsonGetter extends ResourceJsonGetter {
 	}
 
 	@Override
-	public String convertURL(String url) {
-		return url;
-	}
-
-	@Override
 	public JSONObject getJson(String url) throws Exception {
 		url = formatURL(url);
 
