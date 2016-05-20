@@ -78,10 +78,6 @@ public class JenkinsStatus {
 
 	private Pattern pattern = Pattern.compile(".*");
 
-	private boolean isEven(int number) {
-		return (number % 2) == 0;
-	}
-
 	private void printMessage(String tag, String value, int maxTagLength) {
 		StringBuilder sb = new StringBuilder();
 
@@ -321,6 +317,10 @@ public class JenkinsStatus {
 		}
 	}
 
+	private boolean isEven(int number) {
+		return (number % 2) == 0;
+	}
+
 	public void listBuilds() throws Exception {
 		Set<String> jenkinsURLs = new HashSet<>();
 
@@ -391,35 +391,8 @@ public class JenkinsStatus {
 					String date = new Date(build.getTimestamp()).toString();
 					String number = Integer.toString(build.getNumber());
 					String building = Boolean.toString(build.isBuilding());
-
-					String duration = "";
-
-					if (build.getDuration() > 0) {
-						StringBuilder sb = new StringBuilder();
-
-						long hours = build.getDuration() / 1000 / 60 / 60;
-
-						if (hours > 0) {
-							sb.append(hours);
-							sb.append(" Hours ");
-						}
-
-						long minutes = build.getDuration() / 1000 / 60 % 60;
-
-						if (minutes > 0) {
-							sb.append(minutes);
-							sb.append(" Minutes ");
-						}
-
-						long seconds = build.getDuration() / 1000 % 60;
-
-						if (seconds > 0) {
-							sb.append(seconds);
-							sb.append(" Seconds ");
-						}
-
-						duration = sb.toString();
-					}
+					String duration = convertDurationToString(
+						build.getDuration());
 
 					System.out.print("\n");
 					System.out.println(build.getURL());
@@ -439,6 +412,38 @@ public class JenkinsStatus {
 			}
 
 			executor.shutdown();
+		}
+	}
+
+	private String convertDurationToString(long duration) {
+		if (duration > 0) {
+			StringBuilder sb = new StringBuilder();
+
+			long hours = duration / 1000 / 60 / 60;
+
+			if (hours > 0) {
+				sb.append(hours);
+				sb.append(" Hours ");
+			}
+
+			long minutes = duration / 1000 / 60 % 60;
+
+			if (minutes > 0) {
+				sb.append(minutes);
+				sb.append(" Minutes ");
+			}
+
+			long seconds = duration / 1000 % 60;
+
+			if (seconds > 0) {
+				sb.append(seconds);
+				sb.append(" Seconds ");
+			}
+
+			return sb.toString();
+		}
+		else {
+			return "";
 		}
 	}
 
