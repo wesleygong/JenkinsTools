@@ -14,8 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
@@ -38,7 +39,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class RemoteJsonGetter implements JsonGetter {
+public class RemoteJsonGetter extends NetworkJsonGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(
 		RemoteJsonGetter.class);
@@ -46,22 +47,30 @@ public class RemoteJsonGetter implements JsonGetter {
 	private String username;
 	private String password;
 
-	private int timeout;
-
 	public RemoteJsonGetter(String username, String password) {
+		super(0, Collections.<String, String>emptyMap());
 		this.username = username;
 		this.password = password;
-		timeout = 0;
 	}
 
 	public RemoteJsonGetter(String username, String password, int timeout) {
+		super(timeout, Collections.<String, String>emptyMap());
 		this.username = username;
 		this.password = password;
-		this.timeout = timeout;
+	}
+
+	public RemoteJsonGetter(
+		String username, String password, int timeout, Map<String, String> aliases) {
+
+		super(timeout, aliases);
+		this.username = username;
+		this.password = password;
 	}
 
 	@Override
 	public JSONObject getJson(String url) throws Exception {
+		url = convertURL(url);
+
 		logger.debug("Fetching JSON from {}", url);
 
 		CredentialsProvider provider = new BasicCredentialsProvider();

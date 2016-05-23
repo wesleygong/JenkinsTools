@@ -14,8 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
@@ -33,23 +34,27 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class LocalJsonGetter implements JsonGetter {
+public class LocalJsonGetter extends NetworkJsonGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(
 		LocalJsonGetter.class);
 
-	private int timeout;
-
 	public LocalJsonGetter() {
-		timeout = 0;
+		super(0, Collections.<String, String>emptyMap());
 	}
 
 	public LocalJsonGetter(int timeout) {
-		this.timeout = timeout;
+		super(timeout, Collections.<String, String>emptyMap());
+	}
+
+	public LocalJsonGetter(int timeout, Map<String, String> aliases) {
+		super(timeout, aliases);
 	}
 
 	@Override
 	public JSONObject getJson(String url) throws Exception {
+		url = convertURL(url);
+
 		logger.debug("Fetching JSON from {}", url);
 
 		RequestConfig requestConfig =
