@@ -14,6 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.io.File;
+import java.io.IOException;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,16 +42,12 @@ public class LocalJsonGetter extends NetworkJsonGetter {
 	private static final Logger logger = LoggerFactory.getLogger(
 		LocalJsonGetter.class);
 
-	public LocalJsonGetter() {
-		super(0, Collections.<String, String>emptyMap());
-	}
-
 	public LocalJsonGetter(int timeout) {
-		super(timeout, Collections.<String, String>emptyMap());
+		super(timeout);
 	}
 
-	public LocalJsonGetter(int timeout, Map<String, String> aliases) {
-		super(timeout, aliases);
+	public LocalJsonGetter(int timeout, File aliasesFile) throws IOException {
+		super(timeout, aliasesFile);
 	}
 
 	@Override

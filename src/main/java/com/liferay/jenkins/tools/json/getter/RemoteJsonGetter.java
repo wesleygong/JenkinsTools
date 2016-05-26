@@ -14,6 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.io.File;
+import java.io.IOException;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,22 +50,22 @@ public class RemoteJsonGetter extends NetworkJsonGetter {
 	private String username;
 	private String password;
 
-	public RemoteJsonGetter(String username, String password) {
-		super(0, Collections.<String, String>emptyMap());
-		this.username = username;
-		this.password = password;
-	}
+	public RemoteJsonGetter(
+			String username, String password, int timeout)
+		throws IOException {
 
-	public RemoteJsonGetter(String username, String password, int timeout) {
-		super(timeout, Collections.<String, String>emptyMap());
+		super(timeout);
+
 		this.username = username;
 		this.password = password;
 	}
 
 	public RemoteJsonGetter(
-		String username, String password, int timeout, Map<String, String> aliases) {
+			String username, String password, int timeout, File aliasesFile)
+		throws IOException {
 
-		super(timeout, aliases);
+		super(timeout, aliasesFile);
+
 		this.username = username;
 		this.password = password;
 	}
