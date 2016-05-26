@@ -50,7 +50,7 @@ public class JenkinsURLs {
 
 			logger.debug("{}", line);
 
-			if (line.charAt(0) != '#') {
+			if (!line.isEmpty() && (line.charAt(0) != '#')) {
 				try {
 					jenkinsURLs.add(new URL(line));
 				}

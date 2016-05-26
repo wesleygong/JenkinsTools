@@ -71,7 +71,7 @@ public abstract class NetworkJsonGetter implements JsonGetter {
 		while (line != null) {
 			line = line.trim();
 
-			if (line.charAt(0) != '#') {
+			if (!line.isEmpty() && (line.charAt(0) != '#')) {
 				Scanner scanner = new Scanner(line);
 
 				scanner.useDelimiter(whiteSpacePattern);
