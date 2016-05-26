@@ -197,6 +197,9 @@ public class JenkinsStatus {
 			.hasArgs()
 			.desc("Match builds greater than the duration")
 			.build());
+		options.addOption(
+			"h", "aliases", true,
+				"File containing aliases for jenkins server URLs");
 
 		CommandLine line = parser.parse(options, args);
 
@@ -247,6 +250,12 @@ public class JenkinsStatus {
 
 			jsonGetter = new RemoteJsonGetter(
 				username, password, REQUEST_TIMEOUT);
+		}
+
+		if (line.hasOption("aliases")) {
+			logger.debug("Loading file {}", line.getOptionValue("h"));
+
+			aliasesFile = new File(line.getOptionValue("h"));
 		}
 
 		if (aliasesFile.isFile()) {
