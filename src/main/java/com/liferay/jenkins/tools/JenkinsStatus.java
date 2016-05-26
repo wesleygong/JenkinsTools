@@ -66,6 +66,8 @@ public class JenkinsStatus {
 
 	private static final int WAIT_TIMEOUT = 300; // seconds
 
+	private File aliasesFile = new File("servers.aliases");
+
 	private File serversListFile = new File("servers.list");
 
 	private JsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
@@ -247,8 +249,17 @@ public class JenkinsStatus {
 			String password = new String(
 				console.readPassword("Enter password for " + username + " :"));
 
-			jsonGetter = new RemoteJsonGetter(
-				username, password, REQUEST_TIMEOUT);
+			if (aliasesFile.isFile()) {
+				jsonGetter = new RemoteJsonGetter(
+					username, password, REQUEST_TIMEOUT, aliasesFile);
+			}
+			else {
+				jsonGetter = new RemoteJsonGetter(
+					username, password, REQUEST_TIMEOUT);
+			}
+		}
+		else if (aliasesFile.isFile()) {
+			jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT, aliasesFile);
 		}
 
 		if (line.hasOption("building")) {
