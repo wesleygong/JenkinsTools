@@ -54,6 +54,10 @@ public abstract class NetworkJsonGetter implements JsonGetter {
 		this.aliases = getAliases(aliasesFile);
 	}
 
+	public void loadAliases(File aliasFile) throws IOException {
+		this.aliases = getAliases(aliasFile);
+	}
+
 	protected Map<String, String> getAliases(File aliasFile)
 		throws IOException {
 

@@ -70,7 +70,7 @@ public class JenkinsStatus {
 
 	private File serversListFile = new File("servers.list");
 
-	private JsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
+	private NetworkJsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
 
 	private boolean showBuildInfo = false;
 
@@ -245,17 +245,12 @@ public class JenkinsStatus {
 			String password = new String(
 				console.readPassword("Enter password for " + username + " :"));
 
-			if (aliasesFile.isFile()) {
-				jsonGetter = new RemoteJsonGetter(
-					username, password, REQUEST_TIMEOUT, aliasesFile);
-			}
-			else {
-				jsonGetter = new RemoteJsonGetter(
-					username, password, REQUEST_TIMEOUT);
-			}
+			jsonGetter = new RemoteJsonGetter(
+				username, password, REQUEST_TIMEOUT);
 		}
-		else if (aliasesFile.isFile()) {
-			jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT, aliasesFile);
+
+		if (aliasesFile.isFile()) {
+			jsonGetter.loadAliases(aliasesFile);
 		}
 
 		if (line.hasOption("building")) {
