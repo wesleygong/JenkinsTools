@@ -14,8 +14,17 @@
 
 package com.liferay.jenkins.tools;
 
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import org.json.JSONObject;
 
@@ -27,12 +36,63 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class NetworkJsonGetter implements JsonGetter {
 
+	private static final Logger logger = LoggerFactory.getLogger(
+		NetworkJsonGetter.class);
+
 	protected Map<String, String> aliases;
 	protected int timeout;
 
-	public NetworkJsonGetter(int timeout, Map<String, String> aliases) {
+	protected Pattern whiteSpacePattern = Pattern.compile("\\s+");
+
+	public NetworkJsonGetter(int timeout) {
 		this.timeout = timeout;
-		this.aliases = aliases;
+		this.aliases = Collections.emptyMap();
+	}
+
+	public NetworkJsonGetter(int timeout, File aliasesFile) throws IOException {
+		this.timeout = timeout;
+		this.aliases = getAliases(aliasesFile);
+	}
+
+	protected Map<String, String> getAliases(File aliasFile)
+		throws IOException {
+
+		BufferedReader bufferedReader = new BufferedReader(
+			new FileReader(aliasFile));
+
+		Map<String, String> aliases = new HashMap<>();
+
+		String line = bufferedReader.readLine();
+
+		while (line != null) {
+			line = line.trim();
+
+			if (line.charAt(0) != '#') {
+				Scanner scanner = new Scanner(line);
+
+				scanner.useDelimiter(whiteSpacePattern);
+
+				try {
+					String dest = scanner.next();
+					String src = scanner.next();
+
+					aliases.put(src, dest);
+
+					logger.debug("Found alias " + src + " > " + dest);
+				}
+				catch (NoSuchElementException e) {
+					logger.warn(
+						"Encountered invalid line while reading " + aliasFile);
+				}
+				finally {
+					scanner.close();
+				}
+			}
+
+			line = bufferedReader.readLine();
+		}
+
+		return aliases;
 	}
 
 	protected String convertURL(String url) {
