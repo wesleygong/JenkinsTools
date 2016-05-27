@@ -113,7 +113,7 @@ public class JenkinsStatus {
 		System.out.println(sb.toString());
 	}
 
-	private void printMessage(String tag, Map<String, String> values) {
+	private void printMessage(String tag, Map<String, Object> values) {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("  ");
@@ -122,7 +122,9 @@ public class JenkinsStatus {
 		sb.append('\n');
 
 		for (String name : values.keySet()) {
-			String value = values.get(name);
+			Object valueObject = values.get(name);
+
+			String value = valueObject.toString();
 
 			if ((value != null) && !value.isEmpty()) {
 				sb.append("    ");

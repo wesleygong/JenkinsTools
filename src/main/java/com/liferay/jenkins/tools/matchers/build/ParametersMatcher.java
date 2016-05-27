@@ -16,6 +16,7 @@ package com.liferay.jenkins.tools;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
@@ -49,15 +50,22 @@ public class ParametersMatcher implements BuildMatcher {
 	@Override
 	public boolean matches(Build jenkinsBuild) {
 		for (String name : parameters.keySet()) {
-			Map<String, String> buildParameters = jenkinsBuild.getParameters();
+			Map<String, Object> buildParameters = jenkinsBuild.getParameters();
 
-			if (!buildParameters.keySet().contains(name)) {
+			Set<String> buildParameterNames = buildParameters.keySet();
+
+			if (!buildParameterNames.contains(name)) {
 				return false;
 			}
 			else {
 				String value = parameters.get(name);
 
-				if (!buildParameters.get(name).equals(value)) {
+				Object buildParameterValueObject = buildParameters.get(name);
+
+				String buildParameterValue =
+					buildParameterValueObject.toString();
+
+				if (!buildParameterValue.equals(value)) {
 					return false;
 				}
 			}

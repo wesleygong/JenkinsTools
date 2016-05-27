@@ -34,7 +34,7 @@ public class Build {
 	private int number;
 	private Job job;
 	private long timestamp;
-	private Map<String, String> parameters;
+	private Map<String, Object> parameters;
 	private String result;
 	private String url;
 
@@ -62,14 +62,9 @@ public class Build {
 				JSONObject parameterJson = parametersJson.getJSONObject(i);
 
 				String parameterName = parameterJson.getString("name");
+				Object parameterValue = parameterJson.get("value");
 
-				if (job.getParameterDefinitions().contains(
-					parameterName)) {
-
-					String parameterValue = parameterJson.getString("value");
-
-					parameters.put(parameterName, parameterValue);
-				}
+				parameters.put(parameterName, parameterValue);
 			}
 		}
 	}
@@ -102,7 +97,7 @@ public class Build {
 		return url;
 	}
 
-	public Map<String, String> getParameters() {
+	public Map<String, Object> getParameters() {
 		return parameters;
 	}
 
