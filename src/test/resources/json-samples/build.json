@@ -24,7 +24,7 @@
   "building": false,
   "duration": 1000000,
   "number": 100,
-  "result": "SUCCESS",
+  "result": "FAILURE",
   "timestamp": 1400000000000,
   "url": "http://localhost/job/test-jenkins-job/100/"
 }
