@@ -14,29 +14,26 @@
 
 package com.liferay.jenkins.tools;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import org.junit.Before;
 
 import org.json.JSONObject;
 
 /**
  * @author Kevin Yen
  */
-public class LessThanDurationMatcherTest extends BuildMatcherTest {
+public abstract class BuildMatcherTest {
 
-	@Test
-	public void testMatchesLessThan() throws Exception {
-		BuildMatcher buildMatcher = new LessThanDurationMatcher(500000);
+	private JsonGetter resourceJsonGetter = new ResourceJsonGetter();
 
-		assertFalse(buildMatcher.matches(build));
-	}
+	protected Build build;
 
-	@Test
-	public void testNotMatchesGreaterThan() throws Exception {
-		BuildMatcher buildMatcher = new LessThanDurationMatcher(1500000);
+	@Before
+	public void setup() throws Exception {
+		JSONObject jobJson = resourceJsonGetter.getJson("/json-samples/job.json");
+		JSONObject buildJson = resourceJsonGetter.getJson("/json-samples/build.json");
 
-		assertTrue(buildMatcher.matches(build));
+		Job job = new Job(jobJson);
+		build = new Build(buildJson, job);
 	}
 
 }

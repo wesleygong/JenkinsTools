@@ -16,27 +16,14 @@ package com.liferay.jenkins.tools;
 
 import static org.junit.Assert.*;
 
-import org.junit.*;
+import org.junit.Test;
 
 import org.json.JSONObject;
 
 /**
  * @author Kevin Yen
  */
-public class ParametersMatcherTest {
-
-	JsonGetter resourceJsonGetter = new ResourceJsonGetter();
-
-	Build build;
-
-	@Before
-	public void setup() throws Exception {
-		JSONObject jobJson = resourceJsonGetter.getJson("/json-samples/job.json");
-		JSONObject buildJson = resourceJsonGetter.getJson("/json-samples/build.json");
-
-		Job job = new Job(jobJson);
-		build = new Build(buildJson, job);
-	}
+public class ParametersMatcherTest extends BuildMatcherTest {
 
 	@Test
 	public void testMatchesParametersStrings() {

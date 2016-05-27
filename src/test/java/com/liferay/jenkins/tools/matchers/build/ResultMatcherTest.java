@@ -16,29 +16,14 @@ package com.liferay.jenkins.tools;
 
 import static org.junit.Assert.*;
 
-import org.junit.*;
+import org.junit.Test;
 
 import org.json.JSONObject;
 
 /**
  * @author Kevin Yen
  */
-public class ResultMatcherTest {
-
-	JsonGetter resourceJsonGetter = new ResourceJsonGetter();
-
-	Build build;
-
-	@Before
-	public void setup() throws Exception {
-		JSONObject jobJson = resourceJsonGetter.getJson("/json-samples/job.json");
-		JSONObject buildJson = resourceJsonGetter.getJson("/json-samples/build.json");
-
-		buildJson.put("result", "FAIULRE");
-
-		Job job = new Job(jobJson);
-		build = new Build(buildJson, job);
-	}
+public class ResultMatcherTest extends BuildMatcherTest {
 
 	@Test
 	public void testNotMatchesResultSuccess() {
@@ -58,7 +43,7 @@ public class ResultMatcherTest {
 	public void testMatchesResultFailure() {
 		BuildMatcher buildMatcher = new ResultMatcher("failure");
 
-		assertFalse(buildMatcher.matches(build));
+		assertTrue(buildMatcher.matches(build));
 	}
 
 	@Test

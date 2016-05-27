@@ -16,29 +16,14 @@ package com.liferay.jenkins.tools;
 
 import static org.junit.Assert.*;
 
-import org.junit.*;
+import org.junit.Test;
 
 import org.json.JSONObject;
 
 /**
  * @author Kevin Yen
  */
-public class GreaterThanDurationMatcherTest {
-
-	JsonGetter resourceJsonGetter = new ResourceJsonGetter();
-
-	Build build;
-
-	@Before
-	public void setup() throws Exception {
-		JSONObject jobJson = resourceJsonGetter.getJson("/json-samples/job.json");
-		JSONObject buildJson = resourceJsonGetter.getJson("/json-samples/build.json");
-
-		buildJson.put("duration", 1000000);
-
-		Job job = new Job(jobJson);
-		build = new Build(buildJson, job);
-	}
+public class GreaterThanDurationMatcherTest extends BuildMatcherTest {
 
 	@Test
 	public void testNotMatchesLessThan() throws Exception {

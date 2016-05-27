@@ -16,7 +16,7 @@ package com.liferay.jenkins.tools;
 
 import static org.junit.Assert.*;
 
-import org.junit.*;
+import org.junit.Test;
 
 /**
  * @author Kevin Yen
