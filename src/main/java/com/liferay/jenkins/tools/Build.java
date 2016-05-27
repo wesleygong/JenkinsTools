@@ -62,9 +62,12 @@ public class Build {
 				JSONObject parameterJson = parametersJson.getJSONObject(i);
 
 				String parameterName = parameterJson.getString("name");
-				Object parameterValue = parameterJson.get("value");
 
-				parameters.put(parameterName, parameterValue);
+				if (parameterJson.has("value")) {
+					Object parameterValue = parameterJson.get("value");
+
+					parameters.put(parameterName, parameterValue);
+				}
 			}
 		}
 	}
