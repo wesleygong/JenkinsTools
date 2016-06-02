@@ -267,9 +267,6 @@ public class JenkinsStatus {
 		if (line.hasOption("building")) {
 			buildMatchers.add(new BuildingMatcher(line.getOptionValue("c")));
 		}
-		else {
-			buildMatchers.add(new BuildingMatcher("TRUE"));
-		}
 
 		if (line.hasOption("parameters")) {
 			buildMatchers.add(new ParametersMatcher(line.getOptionValues("p")));
