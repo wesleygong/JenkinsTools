@@ -37,6 +37,10 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 	Date end = new Date(Long.MAX_VALUE);
 	Date start = new Date(Long.MIN_VALUE);
 
+	private boolean isEven(int number) {
+		return (number % 2) == 0;
+	}
+
 	private void setTimestamps(Date timestamp1, Date timestamp2) {
 		if (timestamp1.before(timestamp2)) {
 			this.start = timestamp1;
@@ -50,10 +54,25 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 		logger.debug("Matching builds between {} and {}", start, end);
 	}
 
-	public BetweenTimestampsMatcher(String timestamp1, String timestamp2)
-		throws IllegalArgumentException {
+	public BetweenTimestampsMatcher(String[] optionValues) {
+		int length = optionValues.length;
 
-		setTimestamps(parseTimestamp(timestamp1), parseTimestamp(timestamp2));
+		if (isEven(length)) {
+			String start = StringUtils.join(
+				Arrays.copyOfRange(optionValues, 0, length / 2), ' ');
+
+			String end = StringUtils.join(
+				Arrays.copyOfRange(optionValues, length / 2, length), ' ');
+
+			String[] args = new String[2];
+
+			setTimestamps(parseTimestamp(start), parseTimestamp(end));
+		}
+		else {
+			throw new IllegalArgumentException(
+				"between option require even number of parameters");
+		}
+		
 	}
 
 	@Override

@@ -277,35 +277,18 @@ public class JenkinsStatus {
 		}
 
 		if (line.hasOption("before")) {
-			buildMatchers.add(
-				new BeforeTimestampMatcher(StringUtils.join(
-					line.getOptionValues("b"), ' ')));
+			buildMatchers.add(new BeforeTimestampMatcher(line.getOptionValues(
+				"b")));
 		}
 
 		if (line.hasOption("after")) {
-			buildMatchers.add(
-				new AfterTimestampMatcher(StringUtils.join(
-					line.getOptionValues("a"), ' ')));
+			buildMatchers.add(new AfterTimestampMatcher(line.getOptionValues(
+				"a")));
 		}
 
 		if (line.hasOption("between")) {
-			String[] optionValues = line.getOptionValues("s");
-
-			int length = optionValues.length;
-
-			if (isEven(length)) {
-				String start = StringUtils.join(
-					Arrays.copyOfRange(optionValues, 0, length / 2), ' ');
-
-				String end = StringUtils.join(
-					Arrays.copyOfRange(optionValues, length / 2, length), ' ');
-
-				buildMatchers.add(new BetweenTimestampsMatcher(start, end));
-			}
-			else {
-				throw new IllegalArgumentException(
-					"between option require even number of parameters");
-			}
+			buildMatchers.add(new BetweenTimestampsMatcher(line.getOptionValues(
+				"s")));
 		}
 
 		if (line.hasOption("greater")) {
@@ -317,10 +300,6 @@ public class JenkinsStatus {
 			buildMatchers.add(new LessThanDurationMatcher(
 				line.getOptionValue("l")));
 		}
-	}
-
-	private boolean isEven(int number) {
-		return (number % 2) == 0;
 	}
 
 	public void listBuilds() throws Exception {

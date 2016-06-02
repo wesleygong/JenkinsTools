@@ -20,6 +20,8 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.commons.lang.StringUtils;
+
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 
@@ -37,6 +39,12 @@ public class BeforeTimestampMatcher extends TimestampMatcher {
 		end = date;
 
 		logger.debug("Matching builds before {}", end);
+	}
+
+	public BeforeTimestampMatcher(String[] optionValues)
+		throws IllegalArgumentException {
+	
+		this(StringUtils.join(optionValues, ' '));
 	}
 
 	public BeforeTimestampMatcher(String timestamp)

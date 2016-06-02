@@ -25,28 +25,37 @@ public class BetweenTimestampsMatcherTest {
 
 	@Test
 	public void ConstructorValidUUnixTimeArgument() {
-		new BetweenTimestampsMatcher("1460240504174", "1460260504174");
+		String[] timestamps = {"1460240504174", "1460260504174"};
+
+		new BetweenTimestampsMatcher(timestamps);
 	}
 
 	@Test
 	public void ConstructorValidDateTimeArgument() {
-		new BetweenTimestampsMatcher(
-			"04/08/2016 10:31 AM", "06/07/2018 9:10 PM");
+		String[] timestamps = {"04/08/2016 10:31 AM", "06/07/2018 9:10 PM"};
+
+		new BetweenTimestampsMatcher(timestamps);
 	}
 
 	@Test
 	public void ConstructorValidDateArgument() {
-		new BetweenTimestampsMatcher("12/09/2015", "05/14/2016");
+		String[] timestamps = {"12/09/2015", "05/14/2016"};
+
+		new BetweenTimestampsMatcher(timestamps);
 	}
 
 	@Test
 	public void ConstructorValidTimeArgument() {
-		new BetweenTimestampsMatcher("12:54 PM", "2:34 PM");
+		String[] timestamps = {"12:54 PM", "2:34 PM"};
+
+		new BetweenTimestampsMatcher(timestamps);
 	}
 
 	@Test (expected=IllegalArgumentException.class)
 	public void ConstructorThrowsIllegalArgumentException() {
-		new BetweenTimestampsMatcher("DOES_NOT_EXIST", "NEITHER_DO_THIS");
+		String[] timestamps = {"DOES_NOT_EXIST", "NEITHER_DO_THIS"};
+
+		new BetweenTimestampsMatcher(timestamps);
 	}
 
 }
