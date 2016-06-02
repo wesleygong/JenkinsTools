@@ -14,6 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.time.Duration;
+import java.time.format.DateTimeParseException;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,6 +28,9 @@ import ch.qos.logback.classic.Logger;
  */
 public abstract class DurationMatcher implements BuildMatcher {
 
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(
+		DurationMatcher.class);
+
 	protected int duration;
 
 	public DurationMatcher(int duration) {
@@ -33,5 +39,25 @@ public abstract class DurationMatcher implements BuildMatcher {
 
 	@Override
 	public abstract boolean matches(Build jenkinsBuild);
+
+	protected int parseDuration(String duration) throws IllegalArgumentException {
+		try {
+			return Integer.parseInt(duration);
+		}
+		catch (NumberFormatException e) {
+			logger.debug("{} is not a numeric duration string");
+		}
+
+		try {
+			Duration durationObject = Duration.parse(duration);
+
+			return (int) durationObject.toMillis();
+		}
+		catch (DateTimeParseException e) {
+			logger.debug("{} is not a text duration string");
+		}
+
+		throw new IllegalArgumentException("Unable to parse duration");
+	}
 
 }
