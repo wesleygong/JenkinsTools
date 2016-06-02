@@ -26,15 +26,29 @@ import org.json.JSONObject;
 public class LessThanDurationMatcherTest extends BuildMatcherTest {
 
 	@Test
-	public void testMatchesLessThan() throws Exception {
-		BuildMatcher buildMatcher = new LessThanDurationMatcher(500000);
+	public void testMatchesLessThanNumericString() throws Exception {
+		BuildMatcher buildMatcher = new LessThanDurationMatcher("500000");
 
 		assertFalse(buildMatcher.matches(build));
 	}
 
 	@Test
-	public void testNotMatchesGreaterThan() throws Exception {
-		BuildMatcher buildMatcher = new LessThanDurationMatcher(1500000);
+	public void testMatchesLessThanTextString() throws Exception {
+		BuildMatcher buildMatcher = new LessThanDurationMatcher("PT5M");
+
+		assertFalse(buildMatcher.matches(build));
+	}
+
+	@Test
+	public void testNotMatchesGreaterThanNumericString() throws Exception {
+		BuildMatcher buildMatcher = new LessThanDurationMatcher("1500000");
+
+		assertTrue(buildMatcher.matches(build));
+	}
+
+	@Test
+	public void testNotMatchesGreaterThanTextString() throws Exception {
+		BuildMatcher buildMatcher = new LessThanDurationMatcher("PT20M");
 
 		assertTrue(buildMatcher.matches(build));
 	}

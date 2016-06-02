@@ -25,7 +25,7 @@ public class LessThanDurationMatcher extends DurationMatcher {
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
 		LessThanDurationMatcher.class);
 
-	public LessThanDurationMatcher(int duration) {
+	public LessThanDurationMatcher(String duration) {
 		super(duration);
 
 		logger.debug("Matching builds with duration less than {}", duration);

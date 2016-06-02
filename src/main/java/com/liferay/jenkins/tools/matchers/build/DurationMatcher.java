@@ -33,8 +33,8 @@ public abstract class DurationMatcher implements BuildMatcher {
 
 	protected int duration;
 
-	public DurationMatcher(int duration) {
-		this.duration = duration;
+	public DurationMatcher(String duration) {
+		this.duration = parseDuration(duration);
 	}
 
 	@Override

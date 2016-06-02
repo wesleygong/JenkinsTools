@@ -309,14 +309,13 @@ public class JenkinsStatus {
 		}
 
 		if (line.hasOption("greater")) {
-			int duration = Integer.parseInt(line.getOptionValue("g"));
-
-			buildMatchers.add(new GreaterThanDurationMatcher(duration));
+			buildMatchers.add(new GreaterThanDurationMatcher(
+				line.getOptionValue("g")));
 		}
-		else if (line.hasOption("less")) {
-			int duration = Integer.parseInt(line.getOptionValue("l"));
 
-			buildMatchers.add(new LessThanDurationMatcher(duration));
+		else if (line.hasOption("less")) {
+			buildMatchers.add(new LessThanDurationMatcher(
+				line.getOptionValue("l")));
 		}
 	}
 
