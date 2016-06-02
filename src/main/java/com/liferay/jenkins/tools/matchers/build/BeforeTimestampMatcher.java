@@ -33,20 +33,16 @@ public class BeforeTimestampMatcher extends TimestampMatcher {
 
 	Date end = new Date(Long.MAX_VALUE);
 
-	public BeforeTimestampMatcher(long time) {
-		this(new Date(time));
+	private void setTimestamp(Date date) {
+		end = date;
+
+		logger.debug("Matching builds before {}", end);
 	}
 
 	public BeforeTimestampMatcher(String timestamp)
 		throws IllegalArgumentException {
 
-		this(parseTimestamp(timestamp));
-	}
-
-	public BeforeTimestampMatcher(Date date) {
-		end = date;
-
-		logger.debug("Matching builds before {}", end);
+		setTimestamp(parseTimestamp(timestamp));
 	}
 
 	@Override

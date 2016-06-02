@@ -17,8 +17,11 @@ package com.liferay.jenkins.tools;
 import java.text.DateFormat;
 import java.text.ParseException;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+
+import org.apache.commons.lang.StringUtils;
 
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
@@ -34,17 +37,7 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 	Date end = new Date(Long.MAX_VALUE);
 	Date start = new Date(Long.MIN_VALUE);
 
-	public BetweenTimestampsMatcher(String timestamp1, String timestamp2)
-		throws IllegalArgumentException {
-
-		this(parseTimestamp(timestamp1), parseTimestamp(timestamp2));
-	}
-
-	public BetweenTimestampsMatcher(long timestamp1, long timestamp2) {
-		this(new Date(timestamp1), new Date(timestamp2));
-	}
-
-	public BetweenTimestampsMatcher(Date timestamp1, Date timestamp2) {
+	private void setTimestamps(Date timestamp1, Date timestamp2) {
 		if (timestamp1.before(timestamp2)) {
 			this.start = timestamp1;
 			this.end = timestamp2;
@@ -55,6 +48,12 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 		}
 
 		logger.debug("Matching builds between {} and {}", start, end);
+	}
+
+	public BetweenTimestampsMatcher(String timestamp1, String timestamp2)
+		throws IllegalArgumentException {
+
+		setTimestamps(parseTimestamp(timestamp1), parseTimestamp(timestamp2));
 	}
 
 	@Override

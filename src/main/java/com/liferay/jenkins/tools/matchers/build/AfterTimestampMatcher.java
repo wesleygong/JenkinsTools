@@ -33,20 +33,16 @@ public class AfterTimestampMatcher extends TimestampMatcher {
 
 	Date start = new Date(Long.MAX_VALUE);
 
-	public AfterTimestampMatcher(long time) {
-		this(new Date(time));
+	private void setTimestamp(Date date) {
+		start = date;
+
+		logger.debug("Matching builds after {}", start);
 	}
 
 	public AfterTimestampMatcher(String timestamp)
 		throws IllegalArgumentException {
 
-		this(parseTimestamp(timestamp));
-	}
-
-	public AfterTimestampMatcher(Date date) {
-		start = date;
-
-		logger.debug("Matching builds after {}", start);
+		setTimestamp(parseTimestamp(timestamp));
 	}
 
 	@Override
