@@ -55,22 +55,25 @@ public abstract class DurationMatcher implements BuildMatcher {
 	public abstract boolean matches(Build jenkinsBuild);
 
 	protected int parseDuration(String[] optionValues) throws IllegalArgumentException {
+		String joinedString = StringUtils.join(optionValues, "");
+		String spacedString = StringUtils.join(optionValues, " ");
+
 		try {
-			return Integer.parseInt(StringUtils.join(optionValues, ""));
+			return Integer.parseInt(joinedString);
 		}
 		catch (NumberFormatException e) {
-			logger.debug("{} is not a numeric duration string");
+			logger.debug(
+				"{} is not a numeric duration string", spacedString);
 		}
 
 		try {
-			String joinedString = StringUtils.join(optionValues, "");
-
 			Duration durationObject = Duration.parse(joinedString);
 
 			return (int) durationObject.toMillis();
 		}
 		catch (DateTimeParseException e) {
-			logger.debug("{} is not an ISO-8601 formated duration string");
+			logger.debug(
+				"{} is not an ISO-8601 formated duration string", spacedString);
 		}
 
 		try {
@@ -81,12 +84,12 @@ public abstract class DurationMatcher implements BuildMatcher {
 			return (int) durationObject.toMillis();
 		}
 		catch (DateTimeParseException e) {
-			logger.debug("{} is not a text duration string");
+			logger.debug(
+				"{} is not a text duration string", spacedString);
 		}
 
 		throw new IllegalArgumentException(
-			"Unable to parse duration string " +
-				StringUtils.join(optionValues, " "));
+			"Unable to parse duration string " + spacedString);
 	}
 
 	protected String parseTextDuration(String[] optionValues) {
