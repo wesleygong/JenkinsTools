@@ -63,7 +63,7 @@ public abstract class DurationMatcher implements BuildMatcher {
 		}
 		catch (NumberFormatException e) {
 			logger.debug(
-				"{} is not a numeric duration string", spacedString);
+				"'{}' is not a numeric duration string", spacedString);
 		}
 
 		try {
@@ -73,7 +73,7 @@ public abstract class DurationMatcher implements BuildMatcher {
 		}
 		catch (DateTimeParseException e) {
 			logger.debug(
-				"{} is not an ISO-8601 formated duration string", spacedString);
+				"'{}' is not an ISO-8601 duration string", spacedString);
 		}
 
 		try {
@@ -85,11 +85,11 @@ public abstract class DurationMatcher implements BuildMatcher {
 		}
 		catch (DateTimeParseException e) {
 			logger.debug(
-				"{} is not a text duration string", spacedString);
+				"'{}' is not a text duration string", spacedString);
 		}
 
 		throw new IllegalArgumentException(
-			"Unable to parse duration string " + spacedString);
+			"Unable to parse duration string '" + spacedString + "'");
 	}
 
 	protected String parseTextDuration(String[] optionValues) {

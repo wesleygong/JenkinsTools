@@ -58,7 +58,7 @@ public abstract class TimestampMatcher implements BuildMatcher {
 				}
 				catch (ParseException e) {
 					logger.debug(
-						"{} does not match format {}, {}", timestamp,
+						"'{}' does not match format {}, {}", timestamp,
 							dateStyle, timeStyle);
 				}
 			}
@@ -74,7 +74,7 @@ public abstract class TimestampMatcher implements BuildMatcher {
 			}
 			catch (ParseException e) {
 				logger.debug(
-					"{} does not match date format {}", timestamp, dateStyle);
+					"'{}' does not match date format {}", timestamp, dateStyle);
 			}
 		}
 
@@ -88,11 +88,12 @@ public abstract class TimestampMatcher implements BuildMatcher {
 			}
 			catch (ParseException e) {
 				logger.debug(
-					"{} does not match time format {}", timestamp, timeStyle);
+					"'{}' does not match time format {}", timestamp, timeStyle);
 			}
 		}
 
-		throw new IllegalArgumentException("Unable to parse timestamp");
+		throw new IllegalArgumentException(
+			"Unable to parse timestamp '" + timestamp + "'");
 	}
 
 	protected static Date combineDateTime(Date date, Date time) {
