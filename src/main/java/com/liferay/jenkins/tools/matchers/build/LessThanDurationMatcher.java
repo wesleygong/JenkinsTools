@@ -30,7 +30,7 @@ public class LessThanDurationMatcher extends DurationMatcher {
 
 		super(optionValues);
 
-		logger.debug("Matching builds with duration greater than {}", duration);
+		logger.debug("Matching builds with duration greater than {} ms", duration);
 	}
 
 	@Override
@@ -38,14 +38,14 @@ public class LessThanDurationMatcher extends DurationMatcher {
 		if (jenkinsBuild.getDuration() < duration) {
 
 			logger.debug(
-				"Build at {} matched duration less than {}",
+				"Build at {} matched duration less than {} ms",
 					jenkinsBuild.getURL(), duration);
 
 			return true;
 		}
 
 		logger.debug(
-			"Build at {} did not matched duration less than {}",
+			"Build at {} did not matched duration less than {} ms",
 				jenkinsBuild.getURL(),duration);
 
 		return false;
