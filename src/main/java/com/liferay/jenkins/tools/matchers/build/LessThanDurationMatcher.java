@@ -30,7 +30,7 @@ public class LessThanDurationMatcher extends DurationMatcher {
 
 		super(optionValues);
 
-		logger.debug("Matching builds with duration greater than {} ms", duration);
+		logger.debug("Matching builds with duration less than {} ms", duration);
 	}
 
 	@Override
