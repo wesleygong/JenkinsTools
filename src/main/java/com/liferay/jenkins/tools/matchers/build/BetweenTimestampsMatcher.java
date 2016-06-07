@@ -72,7 +72,7 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 			throw new IllegalArgumentException(
 				"between option require even number of parameters");
 		}
-		
+
 	}
 
 	@Override

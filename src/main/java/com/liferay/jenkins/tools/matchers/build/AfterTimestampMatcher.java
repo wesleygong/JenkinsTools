@@ -43,7 +43,7 @@ public class AfterTimestampMatcher extends TimestampMatcher {
 
 	public AfterTimestampMatcher(String[] optionValues)
 		throws IllegalArgumentException {
-	
+
 		this(StringUtils.join(optionValues, ' '));
 	}
 
