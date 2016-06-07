@@ -25,8 +25,10 @@ public class GreaterThanDurationMatcher extends DurationMatcher {
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
 		GreaterThanDurationMatcher.class);
 
-	public GreaterThanDurationMatcher(String duration) {
-		super(duration);
+	public GreaterThanDurationMatcher(String[] optionValues)
+		throws IllegalArgumentException {
+
+		super(optionValues);
 
 		logger.debug("Matching builds with duration greater than {}", duration);
 	}

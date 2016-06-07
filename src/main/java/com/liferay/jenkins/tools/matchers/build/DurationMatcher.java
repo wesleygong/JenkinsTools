@@ -14,11 +14,13 @@
 
 package com.liferay.jenkins.tools;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
+
 import java.time.Duration;
 import java.time.format.DateTimeParseException;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
@@ -33,23 +35,48 @@ public abstract class DurationMatcher implements BuildMatcher {
 
 	protected int duration;
 
-	public DurationMatcher(String duration) {
+	private List<String> secondsLabels = Arrays.asList(
+		"S", "SEC", "SECOND", "SECONDS");
+	private List<String> minutesLabels = Arrays.asList(
+		"M", "MIN", "MINUTE", "MINUTES");
+	private List<String> hoursLabels = Arrays.asList(
+		"H", "HR", "HOUR", "HOURS");
+	private List<String> daysLabels = Arrays.asList(
+		"D", "DAY", "DAYS");
+
+	private List<String> possibleSections = Arrays.asList("D", "H", "M", "S");
+	private List<String> timeSections = Arrays.asList("H", "M", "S");
+
+	public DurationMatcher(String[] duration) {
 		this.duration = parseDuration(duration);
 	}
 
 	@Override
 	public abstract boolean matches(Build jenkinsBuild);
 
-	protected int parseDuration(String duration) throws IllegalArgumentException {
+	protected int parseDuration(String[] optionValues) throws IllegalArgumentException {
 		try {
-			return Integer.parseInt(duration);
+			return Integer.parseInt(StringUtils.join(optionValues, ""));
 		}
 		catch (NumberFormatException e) {
 			logger.debug("{} is not a numeric duration string");
 		}
 
 		try {
-			Duration durationObject = Duration.parse(duration);
+			String joinedString = StringUtils.join(optionValues, "");
+
+			Duration durationObject = Duration.parse(joinedString);
+
+			return (int) durationObject.toMillis();
+		}
+		catch (DateTimeParseException e) {
+			logger.debug("{} is not an ISO-8601 formated duration string");
+		}
+
+		try {
+			String textDurationString = parseTextDuration(optionValues);
+
+			Duration durationObject = Duration.parse(textDurationString);
 
 			return (int) durationObject.toMillis();
 		}
@@ -57,7 +84,56 @@ public abstract class DurationMatcher implements BuildMatcher {
 			logger.debug("{} is not a text duration string");
 		}
 
-		throw new IllegalArgumentException("Unable to parse duration");
+		throw new IllegalArgumentException(
+			"Unable to parse duration string " +
+				StringUtils.join(optionValues, " "));
+	}
+
+	protected String parseTextDuration(String[] optionValues) {
+		List<String> parsedStrings = new ArrayList<>();
+
+		for (String optionValue : optionValues) {
+			optionValue = optionValue.toUpperCase();
+
+			if (NumberUtils.isDigits(optionValue)) {
+				parsedStrings.add(optionValue);
+			}
+			else if (secondsLabels.contains(optionValue)) {
+				parsedStrings.add("S");
+			}
+			else if (minutesLabels.contains(optionValue)) {
+				parsedStrings.add("M");
+			}
+			else if (hoursLabels.contains(optionValue)) {
+				parsedStrings.add("H");
+			}
+			else if (daysLabels.contains(optionValue)) {
+				parsedStrings.add("D");
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("P");
+
+		boolean timeSectionSet = false;
+
+		for (String section : possibleSections) {
+			if (parsedStrings.contains(section)) {
+				if (!timeSectionSet) {
+					sb.append("T");
+
+					timeSectionSet = true;
+				}
+
+				int index = parsedStrings.indexOf(section);
+
+				sb.append(parsedStrings.get(index - 1));
+				sb.append(parsedStrings.get(index));
+			}
+		}
+
+		return sb.toString();
 	}
 
 }

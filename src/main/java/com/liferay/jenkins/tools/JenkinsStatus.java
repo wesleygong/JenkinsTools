@@ -293,12 +293,12 @@ public class JenkinsStatus {
 
 		if (line.hasOption("greater")) {
 			buildMatchers.add(new GreaterThanDurationMatcher(
-				line.getOptionValue("g")));
+				line.getOptionValues("g")));
 		}
 
 		else if (line.hasOption("less")) {
 			buildMatchers.add(new LessThanDurationMatcher(
-				line.getOptionValue("l")));
+				line.getOptionValues("l")));
 		}
 	}
 

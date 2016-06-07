@@ -25,10 +25,12 @@ public class LessThanDurationMatcher extends DurationMatcher {
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(
 		LessThanDurationMatcher.class);
 
-	public LessThanDurationMatcher(String duration) {
-		super(duration);
+	public LessThanDurationMatcher(String[] optionValues)
+		throws IllegalArgumentException {
 
-		logger.debug("Matching builds with duration less than {}", duration);
+		super(optionValues);
+
+		logger.debug("Matching builds with duration greater than {}", duration);
 	}
 
 	@Override

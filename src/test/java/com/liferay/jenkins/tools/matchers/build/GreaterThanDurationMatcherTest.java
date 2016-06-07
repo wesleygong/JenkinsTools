@@ -27,28 +27,54 @@ public class GreaterThanDurationMatcherTest extends BuildMatcherTest {
 
 	@Test
 	public void testNotMatchesLessThanNumericString() throws Exception {
-		BuildMatcher buildMatcher = new GreaterThanDurationMatcher("1500000");
+		String[] duration = {"1500000"};
+
+		BuildMatcher buildMatcher = new GreaterThanDurationMatcher(duration);
+
+		assertFalse(buildMatcher.matches(build));
+	}
+
+	@Test
+	public void testNotMatchesLessThanISO8601String() throws Exception {
+		String[] duration = {"PT20M"};
+
+		BuildMatcher buildMatcher = new GreaterThanDurationMatcher(duration);
 
 		assertFalse(buildMatcher.matches(build));
 	}
 
 	@Test
 	public void testNotMatchesLessThanTextString() throws Exception {
-		BuildMatcher buildMatcher = new GreaterThanDurationMatcher("PT20M");
+		String[] duration = {"25", "Minutes", "and", "53", "Seconds"};
+
+		BuildMatcher buildMatcher = new GreaterThanDurationMatcher(duration);
 
 		assertFalse(buildMatcher.matches(build));
 	}
 
 	@Test
 	public void testMatchesGreaterThanNumericString() throws Exception {
-		BuildMatcher buildMatcher = new GreaterThanDurationMatcher("500000");
+		String[] duration = {"500000"};
+
+		BuildMatcher buildMatcher = new GreaterThanDurationMatcher(duration);
+
+		assertTrue(buildMatcher.matches(build));
+	}
+
+	@Test
+	public void testMatchesGreaterThanISO8601String() throws Exception {
+		String[] duration = {"PT5M"};
+
+		BuildMatcher buildMatcher = new GreaterThanDurationMatcher(duration);
 
 		assertTrue(buildMatcher.matches(build));
 	}
 
 	@Test
 	public void testMatchesGreaterThanTextString() throws Exception {
-		BuildMatcher buildMatcher = new GreaterThanDurationMatcher("PT5M");
+		String[] duration = {"3", "Minutes", "and", "13", "Seconds"};
+
+		BuildMatcher buildMatcher = new GreaterThanDurationMatcher(duration);
 
 		assertTrue(buildMatcher.matches(build));
 	}
