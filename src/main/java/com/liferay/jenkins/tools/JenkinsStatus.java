@@ -78,8 +78,6 @@ public class JenkinsStatus {
 
 	private List<JobMatcher> jobMatchers = new ArrayList<>();
 
-	private Pattern pattern = Pattern.compile(".*");
-
 	private void printMessage(String tag, String value, int maxTagLength) {
 		StringBuilder sb = new StringBuilder();
 
@@ -237,14 +235,6 @@ public class JenkinsStatus {
 			serversListFile = new File(line.getOptionValue("f"));
 		}
 
-		if (line.hasOption("name")) {
-			logger.debug(
-				"Using the regular expression pattern {} to match job name",
-					line.getOptionValue("n"));
-
-			pattern = Pattern.compile(line.getOptionValue("n"));
-		}
-
 		if (line.hasOption("user")) {
 			Console console = System.console();
 
@@ -280,7 +270,7 @@ public class JenkinsStatus {
 		}
 
 		if (line.hasOption("name-regex")) {
-			jobMatchers.add(new NameRegexMatcher(line.getOptionValue("name-equals")));
+			jobMatchers.add(new NameRegexMatcher(line.getOptionValue("name-regex")));
 		}
 
 		if (line.hasOption("building")) {
@@ -338,28 +328,25 @@ public class JenkinsStatus {
 			THREAD_POOL_SIZE);
 
 		Set<Build> matchingBuilds = new HashSet<>();
+		Set<Job> matchingJobs = new HashSet<>();
 
 		try {
 			Set<Job> jobs = JobsGetter.getJobs(
 				jsonGetter, executor, jenkinsURLs, WAIT_TIMEOUT);
 
-			Set<Job> matchingJobs = new HashSet<>();
-
 			for (Job job : jobs) {
-				Matcher matcher = pattern.matcher(job.getName());
+				boolean match = true;
 
-				if (matcher.find()) {
+				for (JobMatcher jobMatcher : jobMatchers) {
+					if (!jobMatcher.matches(job)) {
+						match = false;
+					}
+				}
+
+				if (match) {
 					matchingJobs.add(job);
-
-					logger.debug(
-						"Found job {} matching regular expression",
-							job.getName());
 				}
 			}
-
-			logger.info(
-				"Found {} jobs matching regular expression '{}'",
-					matchingJobs.size(), pattern);
 
 			Set<Build> builds = BuildsGetter.getBuilds(
 				jsonGetter, executor, matchingJobs, WAIT_TIMEOUT);
@@ -384,6 +371,12 @@ public class JenkinsStatus {
 			throw e;
 		}
 		finally {
+			System.out.println("Found " + matchingJobs.size() + " jobs");
+
+			for (Job job : matchingJobs) {
+				System.out.println(job.getURL());
+			}
+
 			System.out.println("Found " + matchingBuilds.size() + " builds");
 
 			for (Build build : matchingBuilds){
