@@ -14,6 +14,7 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -37,7 +38,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class BuildsGetter implements Callable<Set<Build>> {
+public class BuildsGetter implements Callable<Collection<Build>> {
 
 	private static final Logger logger = LoggerFactory.getLogger(
 		BuildsGetter.class);
@@ -51,29 +52,29 @@ public class BuildsGetter implements Callable<Set<Build>> {
 	}
 
 	@Override
-	public Set<Build> call() throws Exception {
+	public Collection<Build> call() throws Exception {
 		return getBuilds(jsonGetter, job);
 	}
 
-	public static Set<Build> getBuilds(
+	public static Collection<Build> getBuilds(
 			JsonGetter jsonGetter, ExecutorService executor,
-			Set<Job> jobs)
+			Collection<Job> jobs)
 		throws Exception {
 
 		return getBuilds(jsonGetter, executor, jobs, 60);
 	}
 
-	public static Set<Build> getBuilds(
+	public static Collection<Build> getBuilds(
 			JsonGetter jsonGetter, ExecutorService executor,
-			Set<Job> jobs, int timeout)
+			Collection<Job> jobs, int timeout)
 		throws Exception {
 
-		CompletionService<Set<Build>> completionService =
-			new ExecutorCompletionService<Set<Build>>(executor);
+		CompletionService<Collection<Build>> completionService =
+			new ExecutorCompletionService<Collection<Build>>(executor);
 
-		Set<Future<Set<Build>>> activeFutures = new HashSet<>();
+		Set<Future<Collection<Build>>> activeFutures = new HashSet<>();
 
-		Set<Build> builds = new HashSet<>();
+		Collection<Build> builds = new HashSet<>();
 
 		try {
 			logger.info("Getting builds for {} jobs", jobs.size());
@@ -85,7 +86,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 			}
 
 			while (activeFutures.size() > 0) {
-				Future<Set<Build>> completedFuture = completionService.poll(
+				Future<Collection<Build>> completedFuture = completionService.poll(
 					timeout, TimeUnit.SECONDS);
 
 				if (completedFuture == null) {
@@ -103,7 +104,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 			logger.error("Invoked thread threw an exception");
 			logger.error("Cancelling remaining threads");
 
-			for (Future<Set<Build>> future : activeFutures) {
+			for (Future<Collection<Build>> future : activeFutures) {
 				future.cancel(true);
 			}
 
@@ -113,7 +114,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		return builds;
 	}
 
-	public static Set<Build> getBuilds(JsonGetter jsonGetter, Job job)
+	public static Collection<Build> getBuilds(JsonGetter jsonGetter, Job job)
 		throws Exception {
 
 		StringBuilder sb = new StringBuilder();
@@ -125,7 +126,7 @@ public class BuildsGetter implements Callable<Set<Build>> {
 
 		JSONObject jobJson = jsonGetter.getJson(sb.toString());
 
-		Set<Build> builds = new HashSet<>();
+		Collection<Build> builds = new HashSet<>();
 
 		for (JSONObject buildJson : getBuildJsons(jobJson)) {
 			builds.add(new Build(buildJson, job));
@@ -134,10 +135,10 @@ public class BuildsGetter implements Callable<Set<Build>> {
 		return builds;
 	}
 
-	public static Set<JSONObject> getBuildJsons(JSONObject jobJson)
+	public static Collection<JSONObject> getBuildJsons(JSONObject jobJson)
 		throws Exception {
 
-		Set<JSONObject> buildJsons = new HashSet<>();
+		Collection<JSONObject> buildJsons = new HashSet<>();
 
 		JSONArray buildsJson = jobJson.getJSONArray("builds");
 

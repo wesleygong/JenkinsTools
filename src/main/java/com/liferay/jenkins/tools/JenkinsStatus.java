@@ -21,6 +21,7 @@ import java.net.URL;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -311,13 +312,13 @@ public class JenkinsStatus {
 		}
 	}
 
-	protected Set<Job> getMatchingJobs(
-			Set<String> jenkinsURLs, ExecutorService executor)
+	protected Collection<Job> getMatchingJobs(
+			Collection<String> jenkinsURLs, ExecutorService executor)
 		throws Exception {
 
-		Set<Job> matchingJobs = new HashSet<>();
+		Collection<Job> matchingJobs = new HashSet<>();
 
-		Set<Job> jobs = JobsGetter.getJobs(
+		Collection<Job> jobs = JobsGetter.getJobs(
 			jsonGetter, executor, jenkinsURLs, WAIT_TIMEOUT);
 
 		for (Job job : jobs) {
@@ -337,13 +338,13 @@ public class JenkinsStatus {
 		return matchingJobs;
 	}
 
-	protected Set<Build> getMatchingBuilds(
-			Set<Job> matchingJobs, ExecutorService executor)
+	protected Collection<Build> getMatchingBuilds(
+			Collection<Job> matchingJobs, ExecutorService executor)
 		throws Exception {
 
-		Set<Build> matchingBuilds = new HashSet<>();
+		Collection<Build> matchingBuilds = new HashSet<>();
 
-		Set<Build> builds = BuildsGetter.getBuilds(
+		Collection<Build> builds = BuildsGetter.getBuilds(
 			jsonGetter, executor, matchingJobs, WAIT_TIMEOUT);
 
 		for (Build build : builds) {
@@ -364,7 +365,7 @@ public class JenkinsStatus {
 	}
 
 	public void listBuilds() throws Exception {
-		Set<String> jenkinsURLs = new HashSet<>();
+		Collection<String> jenkinsURLs = new HashSet<>();
 
 		logger.debug("Loading Jenkins URLs from {}", serversListFile);
 
@@ -379,8 +380,8 @@ public class JenkinsStatus {
 		ExecutorService executor = Executors.newFixedThreadPool(
 			THREAD_POOL_SIZE);
 
-		Set<Build> matchingBuilds = new HashSet<>();
-		Set<Job> matchingJobs = new HashSet<>();
+		Collection<Build> matchingBuilds = new HashSet<>();
+		Collection<Job> matchingJobs = new HashSet<>();
 
 		try {
 			matchingJobs = getMatchingJobs(jenkinsURLs, executor);
