@@ -311,6 +311,58 @@ public class JenkinsStatus {
 		}
 	}
 
+	protected Set<Job> getMatchingJobs(
+			Set<String> jenkinsURLs, ExecutorService executor)
+		throws Exception {
+
+		Set<Job> matchingJobs = new HashSet<>();
+
+		Set<Job> jobs = JobsGetter.getJobs(
+			jsonGetter, executor, jenkinsURLs, WAIT_TIMEOUT);
+
+		for (Job job : jobs) {
+			boolean match = true;
+
+			for (JobMatcher jobMatcher : jobMatchers) {
+				if (!jobMatcher.matches(job)) {
+					match = false;
+				}
+			}
+
+			if (match) {
+				matchingJobs.add(job);
+			}
+		}
+
+		return matchingJobs;
+	}
+
+	protected Set<Build> getMatchingBuilds(
+			Set<Job> matchingJobs, ExecutorService executor)
+		throws Exception {
+
+		Set<Build> matchingBuilds = new HashSet<>();
+
+		Set<Build> builds = BuildsGetter.getBuilds(
+			jsonGetter, executor, matchingJobs, WAIT_TIMEOUT);
+
+		for (Build build : builds) {
+			boolean match = true;
+
+			for (BuildMatcher buildMatcher : buildMatchers) {
+				if (!buildMatcher.matches(build)) {
+					match = false;
+				}
+			}
+
+			if (match) {
+				matchingBuilds.add(build);
+			}
+		}
+
+		return matchingBuilds;
+	}
+
 	public void listBuilds() throws Exception {
 		Set<String> jenkinsURLs = new HashSet<>();
 
@@ -331,39 +383,8 @@ public class JenkinsStatus {
 		Set<Job> matchingJobs = new HashSet<>();
 
 		try {
-			Set<Job> jobs = JobsGetter.getJobs(
-				jsonGetter, executor, jenkinsURLs, WAIT_TIMEOUT);
-
-			for (Job job : jobs) {
-				boolean match = true;
-
-				for (JobMatcher jobMatcher : jobMatchers) {
-					if (!jobMatcher.matches(job)) {
-						match = false;
-					}
-				}
-
-				if (match) {
-					matchingJobs.add(job);
-				}
-			}
-
-			Set<Build> builds = BuildsGetter.getBuilds(
-				jsonGetter, executor, matchingJobs, WAIT_TIMEOUT);
-
-			for (Build build : builds) {
-				boolean match = true;
-
-				for (BuildMatcher buildMatcher : buildMatchers) {
-					if (!buildMatcher.matches(build)) {
-						match = false;
-					}
-				}
-
-				if (match) {
-					matchingBuilds.add(build);
-				}
-			}
+			matchingJobs = getMatchingJobs(jenkinsURLs, executor);
+			matchingBuilds = getMatchingBuilds(matchingJobs, executor);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
