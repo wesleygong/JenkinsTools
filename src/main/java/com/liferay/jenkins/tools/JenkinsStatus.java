@@ -76,6 +76,8 @@ public class JenkinsStatus {
 
 	private List<BuildMatcher> buildMatchers = new ArrayList<>();
 
+	private List<JobMatcher> jobMatchers = new ArrayList<>();
+
 	private Pattern pattern = Pattern.compile(".*");
 
 	private void printMessage(String tag, String value, int maxTagLength) {
@@ -267,6 +269,18 @@ public class JenkinsStatus {
 
 		if (aliasesFile.isFile()) {
 			jsonGetter.loadAliases(aliasesFile);
+		}
+
+		if (line.hasOption("name")) {
+			jobMatchers.add(new NameEqualsMatcher(line.getOptionValue("name")));
+		}
+
+		if (line.hasOption("name-contains")) {
+			jobMatchers.add(new NameContainsMatcher(line.getOptionValue("name-contains")));
+		}
+
+		if (line.hasOption("name-regex")) {
+			jobMatchers.add(new NameRegexMatcher(line.getOptionValue("name-equals")));
 		}
 
 		if (line.hasOption("building")) {
