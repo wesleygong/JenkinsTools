@@ -143,65 +143,58 @@ public class JenkinsStatus {
 
 		Options options = new Options();
 
-		options.addOption("i", "info", false, "Set logging level to info");
+		options.addOption("c", "building", true, "Filter build by build state");
 		options.addOption("d", "debug", false, "Set logging level to debug");
-		options.addOption(
-			"u", "user", true, "Specify the username used in authentication");
-		options.addOption(
-			"n", "name", true, "Set the regular expression to match job name");
-		options.addOption(
-			"r", "result", true, "Specify the result of the matching build");
-		options.addOption(
-			"c", "building", true,
-				"Whether the build is building: true, false, any");
-		options.addOption(
-			"f", "file", true, "File containing jenkins servers list");
+		options.addOption("f", "file", true, "Path to Jenkins servers list");
+		options.addOption("h", "aliases", true, "Path to aliases file");
+		options.addOption("i", "info", false, "Set logging level to info");
+		options.addOption("n", "name", true, "Filter job by exact name");
+		options.addOption("r", "result", true, "Filter build by result");
+		options.addOption("u", "user", true, "Username used in authentication");
+
 		options.addOption(
 			Option.builder("p")
 			.longOpt("parameters")
 			.hasArgs()
-			.desc("Specify the parameter of the build to match")
+			.desc("Filter build by parameters")
 			.valueSeparator(',')
 			.build());
 		options.addOption(
 			Option.builder("b")
 			.longOpt("before")
 			.hasArgs()
-			.desc("Match builds before specified time")
+			.desc("Filter build before specified time")
 			.build());
 		options.addOption(
 			Option.builder("a")
 			.longOpt("after")
 			.hasArgs()
-			.desc("Match builds after specified time")
+			.desc("Filter builds after specified time")
 			.build());
 		options.addOption(
 			Option.builder("s")
 			.longOpt("between")
 			.hasArgs()
-			.desc("Match builds between two specified UNIX timestamps")
+			.desc("Filter builds between two specified UNIX timestamps")
 			.build());
 		options.addOption(
 			Option.builder("e")
 			.longOpt("equals")
 			.hasArgs()
-			.desc("Match builds with specific duration")
+			.desc("Filter builds with specific duration")
 			.build());
 		options.addOption(
 			Option.builder("l")
 			.longOpt("less")
 			.hasArgs()
-			.desc("Match builds less than the duration")
+			.desc("Filter builds less than the duration")
 			.build());
 		options.addOption(
 			Option.builder("g")
 			.longOpt("greater")
 			.hasArgs()
-			.desc("Match builds greater than the duration")
+			.desc("Filter builds greater than the duration")
 			.build());
-		options.addOption(
-			"h", "aliases", true,
-				"File containing aliases for jenkins server URLs");
 
 		CommandLine line = parser.parse(options, args);
 
