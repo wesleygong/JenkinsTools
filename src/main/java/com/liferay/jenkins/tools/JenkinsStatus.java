@@ -153,6 +153,18 @@ public class JenkinsStatus {
 		options.addOption("u", "user", true, "Username used in authentication");
 
 		options.addOption(
+			Option.builder()
+			.longOpt("name-contains")
+			.hasArg()
+			.desc("Filter job by name containing specified string")
+			.build());
+		options.addOption(
+			Option.builder()
+			.longOpt("name-regex")
+			.hasArg()
+			.desc("Filter job by name matching specified regular expression")
+			.build());
+		options.addOption(
 			Option.builder("p")
 			.longOpt("parameters")
 			.hasArgs()
