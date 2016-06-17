@@ -8,7 +8,6 @@
 * Track queue
 
 ## Minor Features
-* Have matchers/filters for jobs
 * Have a subclass for regular-expression matchers
 * Ability to display summary instead of individual builds
 
