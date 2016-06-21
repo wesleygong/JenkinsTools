@@ -10,6 +10,7 @@
 ## Minor Features
 * Have a subclass for regular-expression matchers
 * Ability to display summary instead of individual builds
+* Include 'builtOn' field to builds
 
 ## Changes
 * Rename matchers to filters
