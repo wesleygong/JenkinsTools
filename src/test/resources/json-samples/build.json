@@ -26,5 +26,6 @@
   "number": 100,
   "result": "FAILURE",
   "timestamp": 1400000000000,
-  "url": "http://localhost/job/test-jenkins-job/100/"
+  "url": "http://localhost/job/test-jenkins-job/100/",
+  "builtOn": "localhost"
 }
