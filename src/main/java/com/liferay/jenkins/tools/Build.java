@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class Build {
 
 	public static final String TREE_PARAMETER =
-		"building,duration,number,result,timestamp,url," +
+		"building,builtOn,duration,number,result,timestamp,url," +
 			"actions[parameters[name,value]]";
 
 	private boolean building;
@@ -37,6 +37,7 @@ public class Build {
 	private Map<String, Object> parameters;
 	private String result;
 	private String url;
+	private String node;
 
 	public Build(JSONObject buildJson, Job job) {
 		this.job = job;
@@ -44,6 +45,7 @@ public class Build {
 		building = buildJson.getBoolean("building");
 		duration = buildJson.optLong("duration");
 		number = buildJson.getInt("number");
+		node = buildJson.getString("builtOn");
 		result = buildJson.optString("result");
 		timestamp = buildJson.getLong("timestamp");
 		url = buildJson.getString("url");
@@ -78,6 +80,10 @@ public class Build {
 
 	public long getDuration() {
 		return duration;
+	}
+
+	public String getNode() {
+		return node;
 	}
 
 	public int getNumber() {
