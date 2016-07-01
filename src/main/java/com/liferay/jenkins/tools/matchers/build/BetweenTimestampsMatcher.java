@@ -77,7 +77,7 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 
 	@Override
 	public boolean matches(Build jenkinsBuild) {
-		Date date = new Date(jenkinsBuild.getTimestamp());
+		Date date = jenkinsBuild.getTimestamp();
 
 		if (date.after(start) && date.before(end)) {
 			return true;

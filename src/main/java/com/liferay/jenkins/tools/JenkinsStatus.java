@@ -445,7 +445,9 @@ public class JenkinsStatus {
 
 			for (Build build : matchingBuilds){
 				if (showBuildInfo) {
-					String date = new Date(build.getTimestamp()).toString();
+					Date timestamp = build.getTimestamp();
+
+					String date = timestamp.toString();
 					String number = Integer.toString(build.getNumber());
 					String building = Boolean.toString(build.isBuilding());
 					String duration = convertDurationToString(
