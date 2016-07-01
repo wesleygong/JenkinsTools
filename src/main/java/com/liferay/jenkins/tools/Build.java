@@ -14,6 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.net.URL;
+import java.net.MalformedURLException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,9 +39,9 @@ public class Build {
 	private long timestamp;
 	private Map<String, Object> parameters;
 	private String result;
-	private String url;
+	private URL url;
 
-	public Build(JSONObject buildJson, Job job) {
+	public Build(JSONObject buildJson, Job job) throws MalformedURLException {
 		this.job = job;
 
 		building = buildJson.getBoolean("building");
@@ -46,7 +49,7 @@ public class Build {
 		number = buildJson.getInt("number");
 		result = buildJson.optString("result");
 		timestamp = buildJson.getLong("timestamp");
-		url = buildJson.getString("url");
+		url = new URL(buildJson.getString("url"));
 
 		parameters = new HashMap<>();
 
@@ -96,7 +99,7 @@ public class Build {
 		return building;
 	}
 
-	public String getURL() {
+	public URL getURL() {
 		return url;
 	}
 

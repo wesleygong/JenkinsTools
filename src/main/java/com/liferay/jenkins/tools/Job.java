@@ -14,6 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.net.URL;
+import java.net.MalformedURLException;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,12 +32,14 @@ public class Job {
 		"name,url,actions[parameterDefinitions[name,type]]";
 
 	private String name;
-	private String url;
+	private URL url;
 	private Set<String> parameterDefinitions;
 
-	public Job(String name, String url, Set<String> parameterDefinitions) {
+	public Job(String name, String url, Set<String> parameterDefinitions)
+		throws MalformedURLException {
+
 		this.name = name;
-		this.url = url;
+		this.url = new URL(url);
 		this.parameterDefinitions = parameterDefinitions;
 	}
 
@@ -42,7 +47,7 @@ public class Job {
 		throws Exception {
 
 		name = jobJson.getString("name");
-		url = jobJson.getString("url");
+		url = new URL(jobJson.getString("url"));
 
 		parameterDefinitions = new HashSet<>();
 
@@ -74,7 +79,7 @@ public class Job {
 		return name;
 	}
 
-	public String getURL() {
+	public URL getURL() {
 		return url;
 	}
 
