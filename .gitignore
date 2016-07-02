@@ -1,5 +1,6 @@
 *.aliases
 .gradle
+.idea
 /build/
 *.list
 
