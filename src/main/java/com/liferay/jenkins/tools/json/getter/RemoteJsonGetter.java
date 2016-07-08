@@ -17,6 +17,7 @@ package com.liferay.jenkins.tools;
 import java.io.File;
 import java.io.IOException;
 
+import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -95,7 +96,7 @@ public class RemoteJsonGetter extends NetworkJsonGetter {
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 
 		String jsonString =
-			IOUtils.toString(httpResponse.getEntity().getContent());
+			IOUtils.toString(httpResponse.getEntity().getContent(), Charset.defaultCharset());
 
 		logger.debug("Successfully fetched {}", url);
 
