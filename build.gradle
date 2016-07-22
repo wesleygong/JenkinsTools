@@ -1,6 +1,16 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'org.akhikhl.gretty:gretty:+'
+	}
+}
+
 apply plugin: 'application'
 apply plugin: 'distribution'
 apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
 
 version = '1.4'
 
@@ -16,6 +26,12 @@ dependencies {
 
 dependencies {
 	testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+gretty {
+	port = 8080
+	contextPath = '/jenkins-status'
+	servletContainer = 'tomcat8'
 }
 
 repositories {
