@@ -75,6 +75,8 @@ public class JenkinsStatus {
 
 	private boolean showBuildInfo = false;
 
+	private boolean listJobs = false;
+
 	private List<BuildMatcher> buildMatchers = new ArrayList<>();
 
 	private List<JobMatcher> jobMatchers = new ArrayList<>();
@@ -155,6 +157,11 @@ public class JenkinsStatus {
 
 		options.addOption(
 			Option.builder()
+			.longOpt("list-jobs")
+			.desc("List matching jobs")
+			.build());
+		options.addOption(
+			Option.builder()
 			.longOpt("name-contains")
 			.hasArg()
 			.desc("Filter job by name containing specified string")
@@ -210,6 +217,10 @@ public class JenkinsStatus {
 			.build());
 
 		CommandLine line = parser.parse(options, args);
+
+		if (line.hasOption("list-jobs")) {
+			listJobs = true;
+		}
 
 		if (line.hasOption("info")) {
 			Logger rootLogger = (Logger) LoggerFactory.getLogger(
@@ -393,10 +404,12 @@ public class JenkinsStatus {
 			throw e;
 		}
 		finally {
-			System.out.println("Found " + matchingJobs.size() + " jobs");
+			if (listJobs) {
+				System.out.println("Found " + matchingJobs.size() + " jobs");
 
-			for (Job job : matchingJobs) {
-				System.out.println(job.getURL());
+				for (Job job : matchingJobs) {
+					System.out.println(job.getURL());
+				}
 			}
 
 			System.out.println("Found " + matchingBuilds.size() + " builds");
