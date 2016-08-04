@@ -141,7 +141,7 @@ public class JenkinsStatus {
 		System.out.println(sb.toString());
 	}
 
-	private void processArgs(String[] args) throws Exception {
+	public void processArgs(String[] args) throws Exception {
 		CommandLineParser parser = new DefaultParser();
 
 		Options options = new Options();
@@ -380,7 +380,7 @@ public class JenkinsStatus {
 		return matchingBuilds;
 	}
 
-	public void listBuilds() throws Exception {
+	public Collection<Build> listBuilds() throws Exception {
 		Collection<String> jenkinsURLs = new HashSet<>();
 
 		logger.debug("Loading Jenkins URLs from {}", serversListFile);
@@ -446,6 +446,8 @@ public class JenkinsStatus {
 
 			executor.shutdown();
 		}
+
+		return matchingBuilds;
 	}
 
 	private String convertDurationToString(long duration) {

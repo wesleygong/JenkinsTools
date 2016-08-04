@@ -38,6 +38,26 @@ public class JenkinsToolsServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException {
 
+		JenkinsStatus jenkinsStatus = new JenkinsStatus();
+
+		String[] args = {
+			"--name-regex",
+			"test-\\w+-acceptance-pullrequest\\(.*\\)",
+			"--building",
+			"true"
+		};
+
+		Collection<Build> builds = new ArrayList<Build>();
+
+		try {
+			jenkinsStatus.processArgs(args);
+
+			builds = jenkinsStatus.listBuilds();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		response.setContentType("text/html;charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
@@ -45,8 +65,55 @@ public class JenkinsToolsServlet extends HttpServlet {
 		try {
 			out.println("<!DOCTYPE html>");
 			out.println("<html><head>");
-			out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");			
+			out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
+			out.println("<script src=\"http://www.kryogenix.org/code/browser/sorttable/sorttable.js\"></script>");	
 			out.println("<title>Hello World</title></head>");
+			out.println("<body>");
+			out.println("<p>Found ");
+			out.println(builds.size());
+			out.println(" active pull requests</p>");
+			out.println("<table border=\"1\" class=\"sorttable\">");
+
+			out.println("<tr>");
+			out.println("<th>Name</th>");
+			out.println("<th>Build Number</th>");
+			out.println("<th>Timestamp</th>");
+			out.println("<th>Pull Request Receiver</th>");
+			out.println("<th>Pull Request Sender</th>");
+			out.println("<th>Pull Request Number</th>");
+			out.println("</tr>");
+
+			for (Build build : builds) {
+				out.println("<tr>");
+
+				out.println("<td>");
+				out.println(build.getJob().getName());
+				out.println("</td>");
+
+				out.println("<td>");
+				out.println(build.getNumber());
+				out.println("</td>");
+
+				out.println("<td>");
+				out.println(build.getTimestamp());
+				out.println("</td>");
+
+				out.println("<td>");
+				out.println(build.getParameters().get("GITHUB_RECEIVER_USERNAME"));
+				out.println("</td>");
+
+				out.println("<td>");
+				out.println(build.getParameters().get("GITHUB_SENDER_USERNAME"));
+				out.println("</td>");
+
+				out.println("<td>");
+				out.println(build.getParameters().get("GITHUB_PULL_REQUEST_NUMBER"));
+				out.println("</td>");
+
+				out.println("</tr>");
+			}
+
+			out.println("</table>");
 			out.println("</body></html>");
 		}
 		finally {
