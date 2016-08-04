@@ -29,11 +29,11 @@ public class Build {
 		"building,duration,number,result,timestamp,url," +
 			"actions[parameters[name,value]]";
 
-	private boolean building;
-	private long duration;
-	private int number;
+	private Boolean building;
+	private Long duration;
+	private Integer number;
 	private Job job;
-	private long timestamp;
+	private Long timestamp;
 	private Map<String, Object> parameters;
 	private String result;
 	private String url;
