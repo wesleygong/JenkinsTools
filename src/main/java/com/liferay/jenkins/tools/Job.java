@@ -14,7 +14,9 @@
 
 package com.liferay.jenkins.tools;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.json.JSONArray;
@@ -32,10 +34,17 @@ public class Job {
 	private String url;
 	private Set<String> parameterDefinitions;
 
+	private Map<String, String> attributes;
+
 	public Job(String name, String url, Set<String> parameterDefinitions) {
 		this.name = name;
 		this.url = url;
 		this.parameterDefinitions = parameterDefinitions;
+
+		attributes = new HashMap<String, String>();
+
+		attributes.put("Name", name);
+		attributes.put("URL", url);
 	}
 
 	public Job(JSONObject jobJson)
@@ -68,6 +77,10 @@ public class Job {
 				}
 			}
 		}
+	}
+
+	public Map<String, String> getAttributes() {
+		return attributes;
 	}
 
 	public String getName() {

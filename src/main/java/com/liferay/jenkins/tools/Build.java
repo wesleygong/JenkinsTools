@@ -29,6 +29,8 @@ public class Build {
 		"building,duration,number,result,timestamp,url," +
 			"actions[parameters[name,value]]";
 
+	private Map<String, String> attributes;
+
 	private Boolean building;
 	private Long duration;
 	private Integer number;
@@ -41,12 +43,25 @@ public class Build {
 	public Build(JSONObject buildJson, Job job) {
 		this.job = job;
 
+		attributes = new HashMap<String, String>();
+
 		building = buildJson.getBoolean("building");
+		attributes.put("Building", building.toString());
+
 		duration = buildJson.optLong("duration");
+		attributes.put("Duration", duration.toString());
+
 		number = buildJson.getInt("number");
+		attributes.put("Number", number.toString());
+
 		result = buildJson.optString("result");
+		attributes.put("Result", result);
+
 		timestamp = buildJson.getLong("timestamp");
+		attributes.put("Timestamp", timestamp.toString());
+
 		url = buildJson.getString("url");
+		attributes.put("URL", url);
 
 		parameters = new HashMap<>();
 
@@ -70,6 +85,10 @@ public class Build {
 				}
 			}
 		}
+	}
+
+	public Map<String, String> getAttributes() {
+		return attributes;
 	}
 
 	public Job getJob() {
