@@ -35,15 +35,23 @@ public class ParametersMatcher implements BuildMatcher {
 		for (String match : matches) {
 			String[] parameterSet = match.split("\\s*=\\s*");
 
-			if (parameterSet.length != 2) {
+			if (parameterSet.length == 1) {
+				parameters.put(parameterSet[0], "");
+
+				logger.debug(
+					"Matching builds with parameter {}={}",
+						parameterSet[0], "");
+			}
+			else if (parameterSet.length == 2) {
+				parameters.put(parameterSet[0], parameterSet[1]);
+
+				logger.debug(
+					"Matching builds with parameter {}={}",
+						parameterSet[0], parameterSet[1]);
+			}
+			else {
 				throw new IllegalArgumentException("Invalid parameter format");
 			}
-
-			parameters.put(parameterSet[0], parameterSet[1]);
-
-			logger.debug(
-				"Matching builds with parameter {}={}",
-					parameterSet[0], parameterSet[1]);
 		}
 	}
 
