@@ -50,7 +50,9 @@ public class ParametersMatcher implements BuildMatcher {
 						parameterSet[0], parameterSet[1]);
 			}
 			else {
-				throw new IllegalArgumentException("Invalid parameter format");
+				throw new IllegalArgumentException("Invalid parameter format\n" +
+					"Required format: [key]=[value](,[key2]=[value2])\n" +
+						"[value] can be blank");
 			}
 		}
 	}
