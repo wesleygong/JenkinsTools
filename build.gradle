@@ -1,3 +1,5 @@
+import java.util.regex.Matcher
+
 apply plugin: 'application'
 apply plugin: 'distribution'
 
@@ -36,5 +38,53 @@ test {
 		exceptionFormat 'full'
 
 		showStandardStreams = true
+	}
+}
+
+task formatSource {
+	for (File sourceFile : sourceSets.main.allSource) {
+		boolean fileChanged = false
+
+		List<String> lines = sourceFile.readLines()
+
+		for (int i = 0; i < lines.size(); i++) {
+			String line = lines.get(i)
+
+			Matcher blankLineMatcher = line =~ /\s+$/
+
+			if (blankLineMatcher.find()) {
+				lines.set(i, blankLineMatcher.replaceFirst(""))
+
+				fileChanged = true
+			}
+		}
+
+		String lastLine = lines.get(lines.size()-1)
+		String secondLastLine = lines.get(lines.size()-2)
+
+		while (lastLine.isEmpty() && secondLastLine.isEmpty()) {
+			lines.remove(lines.size()-1)
+
+			lastLine = lines.get(lines.size()-1)
+			secondLastLine = lines.get(lines.size()-2)
+
+			fileChanged = true
+		}
+
+		if (!lastLine.isEmpty()) {
+			lines.add("")
+
+			fileChanged = true
+		}
+
+		if (fileChanged) {
+			sourceFile.delete()
+
+			for (String line : lines) {
+				sourceFile << "${line}\n"
+			}
+
+			println "${sourceFile}"
+		}
 	}
 }
