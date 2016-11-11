@@ -113,3 +113,4 @@ public abstract class TimestampMatcher implements BuildMatcher {
 	public abstract boolean matches(Build jenkinsBuild);
 
 }
+

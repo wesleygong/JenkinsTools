@@ -50,3 +50,4 @@ public class NameRegexMatcher implements JobMatcher {
 	}
 
 }
+

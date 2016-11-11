@@ -77,3 +77,4 @@ public class LocalJsonGetter extends NetworkGetter implements JsonGetter {
 	}
 
 }
+

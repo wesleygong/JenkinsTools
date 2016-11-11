@@ -24,3 +24,4 @@ public interface JsonGetter {
 	public JSONObject getJson(String url) throws Exception;
 
 }
+

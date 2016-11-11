@@ -45,3 +45,4 @@ public class NameContainsMatcher implements JobMatcher {
 	}
 
 }
+

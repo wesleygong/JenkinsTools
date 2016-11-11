@@ -60,3 +60,4 @@ public class BuildingMatcher implements BuildMatcher {
 	}
 
 }
+
