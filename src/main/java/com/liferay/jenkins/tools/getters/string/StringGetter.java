@@ -14,33 +14,11 @@
 
 package com.liferay.jenkins.tools;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.json.JSONObject;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * @author Kevin Yen
  */
-public class LocalJsonGetter extends LocalStringGetter implements JsonGetter {
+public interface StringGetter {
 
-	private static final Logger logger = LoggerFactory.getLogger(
-		LocalJsonGetter.class);
-
-	public LocalJsonGetter(int timeout) {
-		super(timeout);
-	}
-
-	public LocalJsonGetter(int timeout, File aliasesFile) throws IOException {
-		super(timeout, aliasesFile);
-	}
-
-	@Override
-	public JSONObject getJson(String url) throws Exception {
-		return new JSONObject(getString(url));
-	}
+	public String getString(String url) throws Exception;
 
 }
