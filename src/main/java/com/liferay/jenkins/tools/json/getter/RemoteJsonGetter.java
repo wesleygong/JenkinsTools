@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class RemoteJsonGetter extends NetworkJsonGetter {
+public class RemoteJsonGetter extends NetworkGetter implements JsonGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(
 		RemoteJsonGetter.class);

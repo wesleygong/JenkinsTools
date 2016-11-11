@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public class LocalJsonGetter extends NetworkJsonGetter {
+public class LocalJsonGetter extends NetworkGetter implements JsonGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(
 		LocalJsonGetter.class);

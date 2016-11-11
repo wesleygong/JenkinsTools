@@ -34,22 +34,22 @@ import org.slf4j.LoggerFactory;
 /**
  * @author Kevin Yen
  */
-public abstract class NetworkJsonGetter implements JsonGetter {
+public abstract class NetworkGetter {
 
 	private static final Logger logger = LoggerFactory.getLogger(
-		NetworkJsonGetter.class);
+		NetworkGetter.class);
 
 	protected Map<String, String> aliases;
 	protected int timeout;
 
 	protected Pattern whiteSpacePattern = Pattern.compile("\\s+");
 
-	public NetworkJsonGetter(int timeout) {
+	public NetworkGetter(int timeout) {
 		this.timeout = timeout;
 		this.aliases = Collections.emptyMap();
 	}
 
-	public NetworkJsonGetter(int timeout, File aliasesFile) throws IOException {
+	public NetworkGetter(int timeout, File aliasesFile) throws IOException {
 		this.timeout = timeout;
 		this.aliases = getAliases(aliasesFile);
 	}
@@ -108,7 +108,5 @@ public abstract class NetworkJsonGetter implements JsonGetter {
 
 		return url;
 	}
-
-	public abstract JSONObject getJson(String url) throws Exception;
 
 }
