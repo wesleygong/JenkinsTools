@@ -56,25 +56,21 @@ task formatSource {
 				lines.set(i, blankLineMatcher.replaceFirst(""))
 
 				fileChanged = true
+
+				println "${sourceFile}(${i})"
 			}
 		}
 
 		String lastLine = lines.get(lines.size()-1)
-		String secondLastLine = lines.get(lines.size()-2)
 
-		while (lastLine.isEmpty() && secondLastLine.isEmpty()) {
+		while (lastLine.isEmpty()) {
 			lines.remove(lines.size()-1)
 
 			lastLine = lines.get(lines.size()-1)
-			secondLastLine = lines.get(lines.size()-2)
 
 			fileChanged = true
-		}
 
-		if (!lastLine.isEmpty()) {
-			lines.add("")
-
-			fileChanged = true
+			println "Line ending ${sourceFile}"
 		}
 
 		if (fileChanged) {
@@ -83,8 +79,6 @@ task formatSource {
 			for (String line : lines) {
 				sourceFile << "${line}\n"
 			}
-
-			println "${sourceFile}"
 		}
 	}
 }
