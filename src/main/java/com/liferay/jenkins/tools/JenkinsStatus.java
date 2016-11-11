@@ -71,7 +71,7 @@ public class JenkinsStatus {
 
 	private File serversListFile = new File("servers.list");
 
-	private NetworkJsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
+	private JsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
 
 	private boolean showBuildInfo = false;
 
@@ -247,6 +247,12 @@ public class JenkinsStatus {
 			serversListFile = new File(line.getOptionValue("f"));
 		}
 
+		if (line.hasOption("aliases")) {
+			logger.debug("Loading file {}", line.getOptionValue("h"));
+
+			aliasesFile = new File(line.getOptionValue("h"));
+		}
+
 		if (line.hasOption("user")) {
 			Console console = System.console();
 
@@ -259,18 +265,17 @@ public class JenkinsStatus {
 			String password = new String(
 				console.readPassword("Enter password for " + username + " :"));
 
-			jsonGetter = new RemoteJsonGetter(
-				username, password, REQUEST_TIMEOUT);
+			if (aliasesFile.isFile()) {
+				jsonGetter = new RemoteJsonGetter(
+					username, password, REQUEST_TIMEOUT, aliasesFile);
+			}
+			else {
+				jsonGetter = new RemoteJsonGetter(
+					username, password, REQUEST_TIMEOUT);
+			}
 		}
-
-		if (line.hasOption("aliases")) {
-			logger.debug("Loading file {}", line.getOptionValue("h"));
-
-			aliasesFile = new File(line.getOptionValue("h"));
-		}
-
-		if (aliasesFile.isFile()) {
-			jsonGetter.loadAliases(aliasesFile);
+		else if (aliasesFile.isFile()) {
+				jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT, aliasesFile);
 		}
 
 		if (line.hasOption("name")) {
