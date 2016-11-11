@@ -22,4 +22,3 @@ public interface JobMatcher {
 	public boolean matches(Job jenkinsJob);
 
 }
-

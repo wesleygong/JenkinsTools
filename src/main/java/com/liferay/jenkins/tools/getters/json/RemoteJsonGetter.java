@@ -104,4 +104,3 @@ public class RemoteJsonGetter extends NetworkGetter implements JsonGetter {
 	}
 
 }
-

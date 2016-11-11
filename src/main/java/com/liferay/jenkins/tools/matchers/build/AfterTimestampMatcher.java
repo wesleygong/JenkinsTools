@@ -65,4 +65,3 @@ public class AfterTimestampMatcher extends TimestampMatcher {
 	}
 
 }
-

@@ -61,4 +61,3 @@ public class ResultMatcher implements BuildMatcher {
 	}
 
 }
-

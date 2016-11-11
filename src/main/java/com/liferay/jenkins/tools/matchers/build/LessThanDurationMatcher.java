@@ -52,4 +52,3 @@ public class LessThanDurationMatcher extends DurationMatcher {
 	}
 
 }
-

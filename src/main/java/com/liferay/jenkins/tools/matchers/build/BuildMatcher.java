@@ -22,4 +22,3 @@ public interface BuildMatcher {
 	public boolean matches(Build jenkinsBuild);
 
 }
-

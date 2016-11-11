@@ -87,4 +87,3 @@ public class BetweenTimestampsMatcher extends TimestampMatcher {
 	}
 
 }
-

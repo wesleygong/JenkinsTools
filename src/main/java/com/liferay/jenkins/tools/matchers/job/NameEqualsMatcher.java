@@ -43,4 +43,3 @@ public class NameEqualsMatcher implements JobMatcher {
 	}
 
 }
-

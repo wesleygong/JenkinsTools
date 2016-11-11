@@ -148,4 +148,3 @@ public class JobsGetter implements Callable<Collection<Job>> {
 	}
 
 }
-
