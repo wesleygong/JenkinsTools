@@ -358,10 +358,17 @@ public class JenkinsStatus {
 			Collection<Job> matchingJobs, ExecutorService executor)
 		throws Exception {
 
-		Collection<Build> matchingBuilds = new HashSet<>();
-
 		Collection<Build> builds = BuildsGetter.getBuilds(
 			jsonGetter, executor, matchingJobs, WAIT_TIMEOUT);
+
+		return getMatchingBuilds(builds, buildMatchers);
+	}
+
+	protected Collection<Build> getMatchingBuilds(
+			Collection<Build> builds, Collection<BuildMatcher> buildMatchers)
+		throws Exception {
+
+		Collection<Build> matchingBuilds = new HashSet<>();
 
 		for (Build build : builds) {
 			boolean match = true;
@@ -441,7 +448,6 @@ public class JenkinsStatus {
 				else {
 					System.out.println(build.getURL());
 				}
-
 			}
 
 			executor.shutdown();
