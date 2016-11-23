@@ -17,6 +17,8 @@ package com.liferay.jenkins.tools;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 
@@ -30,6 +32,10 @@ public class ConsoleContainsMatcher implements BuildMatcher {
 
 	private StringGetter stringGetter;
 	private String match;
+
+	public ConsoleContainsMatcher(StringGetter stringGetter, String[] match) {
+		this(stringGetter, StringUtils.join(match, ' '));
+	}
 
 	public ConsoleContainsMatcher(StringGetter stringGetter, String match) {
 		this.stringGetter = stringGetter;

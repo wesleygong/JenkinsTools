@@ -218,7 +218,7 @@ public class JenkinsStatus {
 		options.addOption(
 			Option.builder()
 			.longOpt("console-contains")
-			.hasArg()
+			.hasArgs()
 			.desc("Filter build by matching console text")
 			.build());
 
@@ -332,7 +332,7 @@ public class JenkinsStatus {
 
 		if (line.hasOption("console-contains")) {
 			buildMatchers.add(new ConsoleContainsMatcher(
-				jsonGetter, line.getOptionValue("console-contains")));
+				jsonGetter, line.getOptionValues("console-contains")));
 		}
 	}
 
