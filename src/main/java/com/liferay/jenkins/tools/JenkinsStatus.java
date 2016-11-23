@@ -235,9 +235,6 @@ public class JenkinsStatus {
 				Logger.ROOT_LOGGER_NAME);
 			rootLogger.setLevel(Level.DEBUG);
 
-			logger.debug(
-				"Checking for the following options: {}", options);
-
 			showBuildInfo = true;
 		}
 
