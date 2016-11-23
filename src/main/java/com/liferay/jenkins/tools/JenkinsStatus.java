@@ -73,6 +73,8 @@ public class JenkinsStatus {
 
 	private JsonGetter jsonGetter = new LocalJsonGetter(REQUEST_TIMEOUT);
 
+	private boolean dryRun = false;
+
 	private boolean showBuildInfo = false;
 
 	private boolean listJobs = false;
@@ -146,6 +148,7 @@ public class JenkinsStatus {
 
 		Options options = new Options();
 
+		options.addOption("m", "dry-run", false, "Does not fetch remote resources");
 		options.addOption("c", "building", true, "Filter build by build state");
 		options.addOption("d", "debug", false, "Set logging level to debug");
 		options.addOption("f", "file", true, "Path to Jenkins servers list");
@@ -223,6 +226,10 @@ public class JenkinsStatus {
 			.build());
 
 		CommandLine line = parser.parse(options, args);
+
+		if (line.hasOption("dry-run")) {
+			dryRun = true;
+		}
 
 		if (line.hasOption("list-jobs")) {
 			listJobs = true;
@@ -493,12 +500,18 @@ public class JenkinsStatus {
 		}
 	}
 
+	public boolean isDryRun() {
+		return dryRun;
+	}
+
 	public static void main(String [] args) throws Exception {
 		JenkinsStatus jenkinsStatus = new JenkinsStatus();
 
 		jenkinsStatus.processArgs(args);
 
-		jenkinsStatus.listBuilds();
+		if (!jenkinsStatus.isDryRun()) {
+			jenkinsStatus.listBuilds();
+		}
 	}
 
 }
