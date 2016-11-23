@@ -32,19 +32,25 @@ import org.slf4j.LoggerFactory;
  */
 public class ResourceJsonGetter implements JsonGetter {
 
-	private static final Logger logger = LoggerFactory.getLogger(ResourceJsonGetter.class);
+	private static final Logger logger = LoggerFactory.getLogger(
+		ResourceJsonGetter.class);
 
 	@Override
 	public JSONObject getJson(String file) throws Exception {
+		return new JSONObject(getString(file));
+	}
+
+	@Override
+	public String getString(String file) throws Exception {
 		URL fileURL = ResourceJsonGetter.class.getResource(file);
 
 		if (fileURL == null) {
 			throw new IOException(file + " not found");
 		}
 
-		logger.debug("Retrieving json resource from {}", file);
+		logger.debug("Retrieving resource from {}", file);
 
-		return new JSONObject(IOUtils.toString(fileURL.openStream(), Charset.defaultCharset()));
+		return IOUtils.toString(fileURL.openStream(), Charset.defaultCharset());
 	}
 
 }

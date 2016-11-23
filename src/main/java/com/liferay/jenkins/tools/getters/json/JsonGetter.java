@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /**
  * @author Kevin Yen
  */
-public interface JsonGetter {
+public interface JsonGetter extends StringGetter {
 
 	public JSONObject getJson(String url) throws Exception;
 
