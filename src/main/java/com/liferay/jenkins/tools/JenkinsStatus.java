@@ -215,6 +215,12 @@ public class JenkinsStatus {
 			.hasArgs()
 			.desc("Filter builds greater than the duration")
 			.build());
+		options.addOption(
+			Option.builder()
+			.longOpt("console-contains")
+			.hasArg()
+			.desc("Filter build by matching console text")
+			.build());
 
 		CommandLine line = parser.parse(options, args);
 
@@ -322,6 +328,11 @@ public class JenkinsStatus {
 		else if (line.hasOption("less")) {
 			buildMatchers.add(new LessThanDurationMatcher(
 				line.getOptionValues("l")));
+		}
+
+		if (line.hasOption("console-contains")) {
+			buildMatchers.add(new ConsoleContainsMatcher(
+				jsonGetter, line.getOptionValue("console-contains")));
 		}
 	}
 
