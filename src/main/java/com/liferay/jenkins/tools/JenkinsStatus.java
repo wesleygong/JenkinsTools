@@ -383,7 +383,7 @@ public class JenkinsStatus {
 			Collection<Build> builds, Collection<BuildMatcher> buildMatchers)
 		throws Exception {
 
-		Collection<Build> startingBuilds = builds;
+		Collection<Build> startingBuilds = new HashSet<>(builds);
 		Set<Build> matchingBuilds = new HashSet<>();
 
 		for (BuildMatcher buildMatcher : buildMatchers) {
@@ -395,7 +395,10 @@ public class JenkinsStatus {
 				}
 			}
 
-			startingBuilds = matchingBuilds;
+			startingBuilds = new HashSet<>(matchingBuilds);
+
+			logger.debug("{} builds matches {}", matchingBuilds.size(),
+				buildMatcher.getClass().getName());
 		}
 
 		return matchingBuilds;
