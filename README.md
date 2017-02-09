@@ -1,5 +1,7 @@
 # Jenkins Tools
 
+[![Build Status](https://travis-ci.org/kevin-yen/JenkinsTools.svg?branch=master)](https://travis-ci.org/kevin-yen/JenkinsTools)
+
 List build information from Jenkins servers. Here is the [todo list](TODO.md).
 
 ## Installing
