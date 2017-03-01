@@ -53,7 +53,7 @@ public class LocalStringGetter extends NetworkGetter implements StringGetter {
 	public String getString(String url) throws Exception {
 		url = convertURL(url);
 
-		logger.debug("Fetching JSON from {}", url);
+		logger.debug("Fetching string from {}", url);
 
 		RequestConfig requestConfig =
 			RequestConfig.custom().setConnectTimeout(timeout).build();

@@ -73,7 +73,7 @@ public class RemoteStringGetter extends NetworkGetter implements StringGetter {
 	public String getString(String url) throws Exception {
 		url = convertURL(url);
 
-		logger.debug("Fetching JSON from {}", url);
+		logger.debug("Fetching string from {}", url);
 
 		CredentialsProvider provider = new BasicCredentialsProvider();
 
