@@ -1,0 +1,40 @@
+# Controller Servers
+#https://test-1-0.liferay.com/
+
+# Main Jenkins Test Servers
+https://test-1-1.liferay.com/
+https://test-1-2.liferay.com/
+https://test-1-3.liferay.com/
+https://test-1-4.liferay.com/
+https://test-1-5.liferay.com/
+https://test-1-6.liferay.com/
+https://test-1-7.liferay.com/
+https://test-1-8.liferay.com/
+https://test-1-9.liferay.com/
+https://test-1-10.liferay.com/
+https://test-1-11.liferay.com/
+https://test-1-12.liferay.com/
+https://test-1-13.liferay.com/
+https://test-1-14.liferay.com/
+https://test-1-15.liferay.com/
+https://test-1-16.liferay.com/
+https://test-1-17.liferay.com/
+https://test-1-18.liferay.com/
+https://test-1-19.liferay.com/
+https://test-1-20.liferay.com/
+https://test-1-21.liferay.com/
+
+# Environment Test Servers
+#https://test-2-1.liferay.com/
+
+# Jenkins Test Servers
+#https://test-4-1.liferay.com/
+
+# Fix Pack Fallback Servers / Staging Test Servers
+#https://test-5-1.liferay.com/
+#https://test-5-2.liferay.com/
+
+# Fix Pack Test Servers
+#https://test.liferay.com/9/
+#https://test.liferay.com/10/
+#https://test.liferay.com/12/

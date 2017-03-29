@@ -1,8 +1,10 @@
 *.aliases
+!servers.aliases
 .gradle
 .idea
 /build/
 *.list
+!servers.list
 
 # Ignore Gradle GUI config
 gradle-app.setting
